@@ -6,11 +6,11 @@ public class IndividuoAvanzado extends Individuo{
         super(identificador, generacion, turnosVida, reproducion, clonacion, muerte, tipo);
     }
 
-    @Override
+
     public void mover() {
 
     }
-    @Override
+
     public Individuo cambiarTipo(int x) {
         return this;
     }

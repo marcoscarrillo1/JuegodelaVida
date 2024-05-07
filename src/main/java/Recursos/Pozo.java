@@ -1,12 +1,14 @@
 package Recursos;
 
+import Individuo.Individuo;
+
 public class Pozo extends Recursos{
     int probabilidadpozo;
-    public Pozo(int x, int y, String tipos, int t, int p) {
-        super(x, y, tipos, t, p);
+    public Pozo(int x, int y, int t, int p) {
+        super(x, y, t, p);
     }
-    public void propiedadpozo(){
-        individuo.setvida(-1);
+    public void propiedadpozo(Individuo individuo){
+        individuo.setTurnosVida(-1);
     }
 
     public int getProbabilidadpozo() {
