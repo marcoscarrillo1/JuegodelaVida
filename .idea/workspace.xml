@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/Iniciadorjuego.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoAvanzado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoBasico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoNormal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tablero/Celdas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Tablero/Tablero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bucle/Bucle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bucle/Bucle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/Individuo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/Individuo1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/Individuo2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/Individuo3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Agua.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Agua.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Biblioteca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Recursos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Recursos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/Iniciadorjuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/Iniciadorjuego.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +116,9 @@
       <workItem from="1714562126857" duration="74000" />
       <workItem from="1714562232861" duration="1050000" />
       <workItem from="1715010022334" duration="415000" />
+      <workItem from="1715066211963" duration="421000" />
+      <workItem from="1715066645987" duration="11000" />
+      <workItem from="1715066674479" duration="3723000" />
     </task>
     <task id="LOCAL-00001" summary="KLK">
       <option name="closed" value="true" />

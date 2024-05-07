@@ -2,17 +2,15 @@ package Recursos;
 
 import Individuo.Individuo;
 
-public  abstract class  Recursos {
-     public int cordenadax;
-    public int cordenaday;
-    public int Tiempo;
-    public int Probabilidad;
-    public Individuo individuo;
-    public String tipo;
-    public Recursos(int x, int y,String tipos, int t,int p){
+public  class  Recursos {
+    protected int cordenadax;
+    protected int cordenaday;
+    protected int Tiempo;
+    protected int Probabilidad;
+
+    public Recursos(int x, int y, int t,int p){
         x=cordenadax;
         y=cordenaday;
-        tipos=tipo;
         t=Tiempo;
         p=Probabilidad;
 
@@ -26,9 +24,7 @@ public  abstract class  Recursos {
         return cordenaday;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
+
 
     public void setCordenadax(int cordenadax) {
         this.cordenadax = cordenadax;
@@ -38,9 +34,6 @@ public  abstract class  Recursos {
         this.cordenaday = cordenaday;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public int getTiempo() {
         return Tiempo;

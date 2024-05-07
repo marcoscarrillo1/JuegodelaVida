@@ -1,11 +1,13 @@
 package Recursos;
 
+import Individuo.Individuo;
+
 public class Agua extends Recursos {
 
-    public  int probabilidadagua;
+    protected   int probabilidadagua;
 
-    public Agua(int x, int y, String tipos,int t,int p, int Pagua) {
-        super(x, y, tipos,t,p);
+    public Agua(int x, int y, int t,int p, int Pagua) {
+        super(x, y,t,p);
         this.probabilidadagua=Pagua;
 
     }
@@ -17,7 +19,7 @@ public class Agua extends Recursos {
     public void setProbabilidadagua(int probabilidadagua) {
         this.probabilidadagua = probabilidadagua;
     }
-    public void Propiedadagua(){
-        this.individuo.setVida(individuo.getVida()+2);
+    public void Propiedadagua(Individuo individuo){
+        individuo.setTurnosVida(individuo.getTurnosVida()+2);
     }
 }

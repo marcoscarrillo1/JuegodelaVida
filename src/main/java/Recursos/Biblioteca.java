@@ -1,9 +1,12 @@
 package Recursos;
+import Individuo.Individuo;
+
 import java.util.Random;
 public class Biblioteca extends Recursos{
-    public int probabilidadbiblio;
-    public Biblioteca(int x, int y, String tipos, int t, int p) {
-        super(x, y, tipos, t, p);
+    protected int probabilidadbiblio;
+    public Biblioteca(int x, int y, int t, int p,int pB) {
+        super(x, y, t, p);
+        probabilidadbiblio = pB;
     }
 
     public int getProbabilidadbiblio() {
@@ -14,16 +17,11 @@ public class Biblioteca extends Recursos{
         this.probabilidadbiblio = probabilidadbiblio;
     }
 
-    public void propiedadbiblioteca(){
+    public void propiedadbiblioteca(Individuo individuo){
          Random random=new Random();
          int x= random.nextInt(101);
-        individuo.setporcentajeclonacion(individuo.getporcentajeclonacion*(1+x/100));
-        individuo.setTipo(individuo.getTipo()+1);
-        if(individuo.getTipo()>3){
-            individuo.setTipo(3);
-        }
-
-
+        individuo.setClonacion(individuo.getClonacion()*(1+x/100));
+        individuo.cambiarTipo(individuo.getTipo()+1);
 
     }
 }
