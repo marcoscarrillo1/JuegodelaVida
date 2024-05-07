@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bucle/Bucle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bucle/Bucle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/Individuo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoAvanzado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoAvanzado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoBasico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoBasico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoNormal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Biblioteca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Comida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Comida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Montaña.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Montaña.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Pozo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Pozo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Tesoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Tesoro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Bucle/JuegoVida.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
