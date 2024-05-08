@@ -17,14 +17,11 @@ public class Biblioteca extends Recursos{
         this.probabilidadbiblio = probabilidadbiblio;
     }
 
-    public void propiedadbiblioteca(Individuo individuo) {
-        Random random = new Random();
-        int x = random.nextInt(101);
-        individuo.setClonacion(individuo.getClonacion() * (1 + x / 100));
-        individuo.setTipo(individuo.getTipo() + 1);
-        if (individuo.getTipo() > 3) {
-            individuo.setTipo(3);
-        }
+    public Individuo propiedadbiblioteca(Individuo individuo){
+        Random random=new Random();
+        int x= random.nextInt(101);
+        individuo.setClonacion(individuo.getClonacion()*(1+x/100));
+        return individuo.cambiarTipo(individuo.getTipo()+1);
 
     }
 }

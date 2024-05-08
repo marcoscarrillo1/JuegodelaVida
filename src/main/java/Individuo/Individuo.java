@@ -2,7 +2,7 @@ package Individuo;
 
 import java.util.Random;
 
-public class Individuo  {
+public abstract class Individuo  {
     protected int identificador;
     protected int generacion;
     protected int turnosVida;
@@ -80,8 +80,8 @@ public class Individuo  {
     public void reproducirse(Individuo x){
 
     }
-    public void mover() {
-    }
+    public abstract void mover() ;
+    public abstract Individuo cambiarTipo(int x);
     public void mutar(){
     }
 }
@@ -126,6 +126,10 @@ public class Individuo  {
             return false;
         }
     }*/
+
+
+
+
 
 
 
