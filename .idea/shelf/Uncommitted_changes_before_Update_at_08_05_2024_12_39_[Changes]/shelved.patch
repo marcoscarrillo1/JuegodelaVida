@@ -1,0 +1,144 @@
+Index: src/main/resources/org/example/trabajo/hello-view.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.geometry.Insets?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.layout.VBox?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<VBox alignment=\"CENTER\" spacing=\"20.0\" xmlns:fx=\"http://javafx.com/fxml\"\r\n      fx:controller=\"org.example.trabajo.HelloController\">\r\n    <padding>\r\n        <Insets bottom=\"20.0\" left=\"20.0\" right=\"20.0\" top=\"20.0\"/>\r\n    </padding>\r\n\r\n    <Label fx:id=\"welcomeText\"/>\r\n    <Button text=\"Hello!\" onAction=\"#onHelloButtonClick\"/>\r\n</VBox>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/org/example/trabajo/hello-view.fxml b/src/main/resources/org/example/trabajo/hello-view.fxml
+--- a/src/main/resources/org/example/trabajo/hello-view.fxml	(revision d27bb781a11bf74d2289e98cadaf52f16473a2b3)
++++ b/src/main/resources/org/example/trabajo/hello-view.fxml	(date 1715164397076)
+@@ -1,16 +1,51 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+ <?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Button?>
+ <?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ToolBar?>
++<?import javafx.scene.layout.ColumnConstraints?>
++<?import javafx.scene.layout.GridPane?>
++<?import javafx.scene.layout.RowConstraints?>
+ <?import javafx.scene.layout.VBox?>
+ 
+-<?import javafx.scene.control.Button?>
+-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+-      fx:controller="org.example.trabajo.HelloController">
++<VBox alignment="CENTER" prefHeight="488.0" prefWidth="467.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.trabajo.HelloController">
+     <padding>
+-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
++        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+     </padding>
++   <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="10.0" VBox.vgrow="ALWAYS">
++     <columnConstraints>
++       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="20.0" prefWidth="20.0" />
++     </columnConstraints>
++     <rowConstraints>
++       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++     </rowConstraints>
++      <VBox.margin>
++         <Insets />
++      </VBox.margin>
++   </GridPane>
+ 
+-    <Label fx:id="welcomeText"/>
+-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
++    <Label fx:id="welcomeText" />
++    <Button onAction="#onHelloButtonClick" text="Hello!" />
++   <GridPane>
++     <columnConstraints>
++       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
++     </columnConstraints>
++     <rowConstraints>
++       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
++     </rowConstraints>
++      <children>
++         <ToolBar prefHeight="35.0" prefWidth="218.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
++           <items>
++             <Button mnemonicParsing="false" text="Button" />
++           </items>
++         </ToolBar>
++      </children>
++   </GridPane>
+ </VBox>
+Index: src/main/java/org/example/trabajo/HelloApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.trabajo;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.stage.Stage;\r\n\r\nimport java.io.IOException;\r\n\r\npublic class HelloApplication extends Application {\r\n    private static final System.Logger log= LogManager.getlogger(HelloApplication.class);\r\n    @Override\r\n    public void start(Stage stage) throws IOException {\r\n        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(\"hello-view.fxml\"));\r\n        Scene scene = new Scene(fxmlLoader.load(), 320, 240);\r\n        stage.setTitle(\"Hello!\");\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/trabajo/HelloApplication.java b/src/main/java/org/example/trabajo/HelloApplication.java
+--- a/src/main/java/org/example/trabajo/HelloApplication.java	(revision d27bb781a11bf74d2289e98cadaf52f16473a2b3)
++++ b/src/main/java/org/example/trabajo/HelloApplication.java	(date 1715163749881)
+@@ -12,7 +12,7 @@
+     @Override
+     public void start(Stage stage) throws IOException {
+         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
++        Scene scene = new Scene(fxmlLoader.load(), 920, 840);
+         stage.setTitle("Hello!");
+         stage.setScene(scene);
+         stage.show();
+Index: src/main/java/Bucle/JuegoVida.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Bucle;\r\n\r\nimport Individuo.Individuo;\r\nimport Recursos.Recursos;\r\nimport Tablero.Tablero;\r\nimport javafx.scene.layout.GridPane;\r\n\r\nimport java.util.Random;\r\n\r\npublic class JuegoVida {\r\n    public static Tablero tablero;\r\n    private boolean juego;\r\n\r\n    public JuegoVida(GridPane tablero) {\r\n        this.tablero = new Tablero(tablero);\r\n        this.juego = true;\r\n\r\n    }\r\n\r\n    private void addInidividuo(Celdas celdas) {\r\n        Random random = new Random();\r\n        int tipo = random.nextInt(2);\r\n        Individuo individuonuevo = new Individuo(tipo, new Arbol<>(null));\r\n        addTipo(celdas, 1);\r\n        celdas.getIndividuos().add(individuonuevo);\r\n        System.out.println(\"Se ha añadido un nuevo individuo\");\r\n    }\r\n    private void addRecursos(Celdas celdas,int tipo){\r\n        Recursos recursonuevo=new Recursos(tipo);\r\n        addTipo(celdas,tipo);\r\n        celdas.getRecursos().add(recursonuevo);\r\n        System.out.println(\"Se ha añadido un nuevo recurso\");\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Bucle/JuegoVida.java b/src/main/java/Bucle/JuegoVida.java
+--- a/src/main/java/Bucle/JuegoVida.java	(revision d27bb781a11bf74d2289e98cadaf52f16473a2b3)
++++ b/src/main/java/Bucle/JuegoVida.java	(date 1715164736705)
+@@ -31,5 +31,6 @@
+         celdas.getRecursos().add(recursonuevo);
+         System.out.println("Se ha añadido un nuevo recurso");
+     }
++    private void addTipo()
+ 
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"87637fac-bb40-4acf-b6d5-b4c05413311f\" name=\"Changes\" comment=\"KLK\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fdOm0yepnKMVwVPN3DZNHuOz1T\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"HelloApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.example.trabajo.HelloApplication\" />\r\n      <module name=\"TRABAJO\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"org.example.trabajo.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.HelloApplication\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"87637fac-bb40-4acf-b6d5-b4c05413311f\" name=\"Changes\" comment=\"\" />\r\n      <created>1714127661658</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1714127661658</updated>\r\n      <workItem from=\"1714127662753\" duration=\"308000\" />\r\n      <workItem from=\"1714128008790\" duration=\"317000\" />\r\n      <workItem from=\"1714128361070\" duration=\"66000\" />\r\n      <workItem from=\"1714128563950\" duration=\"18000\" />\r\n      <workItem from=\"1714128883175\" duration=\"182000\" />\r\n      <workItem from=\"1714554923911\" duration=\"5039000\" />\r\n      <workItem from=\"1714561924476\" duration=\"11000\" />\r\n      <workItem from=\"1714561947524\" duration=\"32000\" />\r\n      <workItem from=\"1714561996144\" duration=\"26000\" />\r\n      <workItem from=\"1714562037201\" duration=\"36000\" />\r\n      <workItem from=\"1714562089026\" duration=\"21000\" />\r\n      <workItem from=\"1714562126857\" duration=\"74000\" />\r\n      <workItem from=\"1714562232861\" duration=\"1050000\" />\r\n      <workItem from=\"1715010022334\" duration=\"415000\" />\r\n      <workItem from=\"1715066211963\" duration=\"421000\" />\r\n      <workItem from=\"1715066645987\" duration=\"11000\" />\r\n      <workItem from=\"1715066674479\" duration=\"6262000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"KLK\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714128077428</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714128077428</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"KLK\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1714563162932</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1714563162932</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"KLK\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715075444302</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715075444302</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"KLK\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1715083487861</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1715083487861</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"KLK\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"KLK\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d27bb781a11bf74d2289e98cadaf52f16473a2b3)
++++ b/.idea/workspace.xml	(date 1715163750155)
+@@ -4,7 +4,11 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK" />
++    <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/HelloApplication.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/hello-view.fxml" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -136,7 +140,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1715083487861</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="KLK">
++      <option name="closed" value="true" />
++      <created>1715084326211</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1715084326211</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
