@@ -31,5 +31,6 @@ public class JuegoVida {
         celdas.getRecursos().add(recursonuevo);
         System.out.println("Se ha añadido un nuevo recurso");
     }
+    private void addTipo()
 
 }
