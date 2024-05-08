@@ -80,6 +80,8 @@ public class Individuo  {
     public void reproducirse(Individuo x){
 
     }
+    public void mover() {
+    }
     public void mutar(){
     }
 }
