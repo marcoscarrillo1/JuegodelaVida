@@ -7,7 +7,8 @@ public class Comida extends Recursos{
     public Comida(int x, int y, int t, int p) {
         super(x, y, t, p);
     }
-    public void Propiedadcomida(Individuo individuo){
+    @Override
+    public void Propiedad(Individuo individuo){
         individuo.setTurnosVida(individuo.getTurnosVida()+10);
     }
 

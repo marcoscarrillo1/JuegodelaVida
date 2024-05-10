@@ -19,7 +19,7 @@ public class Agua extends Recursos {
     public void setProbabilidadagua(int probabilidadagua) {
         this.probabilidadagua = probabilidadagua;
     }
-    public void Propiedadagua(Individuo individuo){
+    public void Propiedad(Individuo individuo){
         individuo.setTurnosVida(individuo.getTurnosVida()+2);
     }
 }

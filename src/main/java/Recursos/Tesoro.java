@@ -8,7 +8,8 @@ public class Tesoro extends Recursos{
     public Tesoro(int x, int y,  int t, int p) {
         super(x, y, t, p);
     }
-    public void propiedadTesoro(Individuo individuo){
+    @Override
+    public void Propiedad(Individuo individuo){
         Random random= new Random();
         int x= random.nextInt(101);
         individuo.setReproducion(individuo.getReproducion()*(1+x/100));

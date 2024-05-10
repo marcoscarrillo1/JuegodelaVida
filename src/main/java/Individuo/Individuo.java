@@ -1,5 +1,7 @@
 package Individuo;
 
+import Bucle.ListaEnlazed;
+
 import java.util.Random;
 
 public abstract class Individuo  {
@@ -83,6 +85,9 @@ public abstract class Individuo  {
     public abstract void mover() ;
     public abstract Individuo cambiarTipo(int x);
     public void mutar(){
+    }
+    public  Recorrido(){
+
     }
 }
 

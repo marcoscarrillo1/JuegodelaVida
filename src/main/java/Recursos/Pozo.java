@@ -7,7 +7,8 @@ public class Pozo extends Recursos{
     public Pozo(int x, int y, int t, int p) {
         super(x, y, t, p);
     }
-    public void propiedadpozo(Individuo individuo){
+    @Override
+    public void Propiedad(Individuo individuo){
         individuo.setTurnosVida(-1);
     }
 

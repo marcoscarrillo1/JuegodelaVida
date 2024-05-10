@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK" />
+    <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bucle/Bucle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bucle/Bucle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/Individuo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Agua.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Agua.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Biblioteca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Comida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Comida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Montaña.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Montaña.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Pozo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Pozo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Recursos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Recursos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Recursos/Tesoro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Recursos/Tesoro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tablero/Celdas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tablero/Celdas.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,6 +115,11 @@
       <workItem from="1715066211963" duration="421000" />
       <workItem from="1715066645987" duration="11000" />
       <workItem from="1715066674479" duration="6262000" />
+      <workItem from="1715335099356" duration="4424000" />
+      <workItem from="1715339590244" duration="39000" />
+      <workItem from="1715339645402" duration="29000" />
+      <workItem from="1715339707918" duration="99000" />
+      <workItem from="1715339904252" duration="416000" />
     </task>
     <task id="LOCAL-00001" summary="KLK">
       <option name="closed" value="true" />
@@ -152,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715164779628</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="KLK">
+      <option name="closed" value="true" />
+      <created>1715166137905</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715166137905</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

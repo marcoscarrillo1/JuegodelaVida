@@ -16,12 +16,11 @@ public class Biblioteca extends Recursos{
     public void setProbabilidadbiblio(int probabilidadbiblio) {
         this.probabilidadbiblio = probabilidadbiblio;
     }
-
-    public Individuo propiedadbiblioteca(Individuo individuo){
+@Override
+    public void  Propiedad(Individuo individuo){
         Random random=new Random();
         int x= random.nextInt(101);
         individuo.setClonacion(individuo.getClonacion()*(1+x/100));
-        return individuo.cambiarTipo(individuo.getTipo()+1);
-
     }
+
 }

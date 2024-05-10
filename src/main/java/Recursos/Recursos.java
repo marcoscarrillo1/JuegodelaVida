@@ -2,7 +2,7 @@ package Recursos;
 
 import Individuo.Individuo;
 
-public class  Recursos {
+public  abstract class  Recursos {
     protected int cordenadax;
     protected int cordenaday;
     protected int Tiempo;
@@ -50,5 +50,8 @@ public class  Recursos {
     public void setProbabilidad(int probabilidad) {
         Probabilidad = probabilidad;
     }
+    public abstract void Propiedad(Individuo x);
+
+
 
 }

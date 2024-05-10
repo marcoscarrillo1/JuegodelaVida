@@ -4,8 +4,9 @@ import Bucle.ElementoLe;
 import Bucle.ListaEnlazed;
 import Individuo.Individuo;
 import Recursos.Recursos;
+import javafx.scene.layout.StackPane;
 
-public class Celdas {
+public class Celdas extends StackPane {
     private ListaEnlazed<Recursos> recursosListaEnlazed = new ListaEnlazed<Recursos>();
     private ListaEnlazed<Individuo> individuoListaEnlazed = new ListaEnlazed<Individuo>();
 
