@@ -10,6 +10,44 @@ public class Celdas extends StackPane {
     private ListaEnlazed<Recursos> recursosListaEnlazed = new ListaEnlazed<Recursos>();
     private ListaEnlazed<Individuo> individuoListaEnlazed = new ListaEnlazed<Individuo>();
 
+    public ListaEnlazed<Recursos> getRecursosListaEnlazed() {
+        return recursosListaEnlazed;
+    }
+
+    public ListaEnlazed<Individuo> getIndividuoListaEnlazed() {
+        return individuoListaEnlazed;
+    }
+
+    public void setRecursosListaEnlazed(ListaEnlazed<Recursos> recursosListaEnlazed) {
+        this.recursosListaEnlazed = recursosListaEnlazed;
+    }
+
+    public void setIndividuoListaEnlazed(ListaEnlazed<Individuo> individuoListaEnlazed) {
+        this.individuoListaEnlazed = individuoListaEnlazed;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void addIndividuo(Individuo individuo){
         if(individuoListaEnlazed.getNumeroElementos()< 3){
             individuoListaEnlazed.add(individuo);
@@ -38,6 +76,15 @@ public class Celdas extends StackPane {
             recursosListaEnlazed.add(recurso);
         }
     }
+    public void EliminarIndividuo(Individuo individuo){
+        int pos=individuoListaEnlazed.getPosicion(new ElementoLe<Individuo>(individuo));
+        individuoListaEnlazed.del(pos);
+    }
+    public void EliminarRecurso(Recursos recurso){
+        int pos=recursosListaEnlazed.getPosicion(new ElementoLe<Recursos>(recurso));
+        recursosListaEnlazed.del(pos);
+    }
+
 
 
 }

@@ -1,5 +1,9 @@
 package Individuo;
 
+import Bucle.ListaEnlazed;
+
+import java.util.Random;
+
 public class IndividuoBasico extends Individuo {
 
 
@@ -8,7 +12,33 @@ public class IndividuoBasico extends Individuo {
     }
 
     @Override
-    public void mover() {
+    public void mover(int maxcolumnas, int maxfilas, Celdas[][] matriz) {
+        /* 1 es arriba
+            2 es derecha
+            3 es abajo
+            4 es izquierda
+
+         */
+
+        ListaEnlazed<Integer> listamovimientos=new ListaEnlazed<Integer>();
+        listamovimientos.add(1);
+        listamovimientos.add(2);
+        listamovimientos.add(3);
+        listamovimientos.add(4);
+        Random random=new Random();
+        int azar= random.nextInt(listamovimientos.getNumeroElementos());
+        int Movimientoaleatorio=random.nextInt(listamovimientos.getElemento(azar).getData());
+        if(Movimientoaleatorio==1){
+            matriz[][]
+        }
+        else if (Movimientoaleatorio==2){
+
+        }
+        else if (Movimientoaleatorio==3){
+
+        }else if (Movimientoaleatorio==4){
+
+        }
 
     }
     @Override
