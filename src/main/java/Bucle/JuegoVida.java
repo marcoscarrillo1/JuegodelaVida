@@ -3,12 +3,16 @@ package Bucle;
 import Individuo.Individuo;
 import Recursos.Recursos;
 import Tablero.Tablero;
+import javafx.application.Application;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.util.Random;
 
-public class JuegoVida {
-    public static Tablero tablero;
+public class JuegoVida  {
+
+
+   /* public static Tablero tablero;
     private boolean juego;
 
     public JuegoVida(GridPane tablero) {
@@ -31,6 +35,6 @@ public class JuegoVida {
         celdas.getRecursos().add(recursonuevo);
         System.out.println("Se ha añadido un nuevo recurso");
     }
-    private void addTipo()
+    private void addTipo()*/
 
 }

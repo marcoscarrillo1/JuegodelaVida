@@ -1,6 +1,7 @@
 package Individuo;
 
 import Bucle.ListaEnlazed;
+import Tablero.Celdas;
 
 import java.util.Random;
 
@@ -29,7 +30,7 @@ public class IndividuoBasico extends Individuo {
         int azar= random.nextInt(listamovimientos.getNumeroElementos());
         int Movimientoaleatorio=random.nextInt(listamovimientos.getElemento(azar).getData());
         if(Movimientoaleatorio==1){
-            matriz[][]
+            //matriz[][]
         }
         else if (Movimientoaleatorio==2){
 

@@ -8,7 +8,7 @@ public class Bucle {
     //casillas individuo recrusos y esas vainas
 
     public ListaEnlazed<Individuo> individuos = new ListaEnlazed<Individuo>();
-    IndividuoNormal i= new IndiviudoNormal(1,1,1,1,1,1,1);
+   /* IndividuoNormal i= new IndiviudoNormal(1,1,1,1,1,1,1);
 
     public Individuo ElMatadorillia(Celdas celda){
         ListaEnlazed<Individuo> dentrocelda=new ListaEnlazed<Individuo>();
@@ -18,7 +18,7 @@ public class Bucle {
             }
         }
 
-    }
+    }*/
     public void Clonacion(){
         for(int i=0;i<individuos.getNumeroElementos();i++){
             Random random=new Random();
@@ -27,7 +27,8 @@ public class Bucle {
         }
 
     }
-    public Individuo Reproduccion(){
+    public Individuo Reproduccion() {
+        return individuos.getPrimero().getData();
 
     }
 

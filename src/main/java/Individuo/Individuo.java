@@ -1,6 +1,7 @@
 package Individuo;
 
 import Bucle.ListaEnlazed;
+import Tablero.Celdas;
 
 import java.util.Random;
 
@@ -82,11 +83,11 @@ public abstract class Individuo  {
     public void reproducirse(Individuo x){
 
     }
-    public abstract void mover() ;
+    public abstract void mover(int maxcolumnas, int maxfilas, Celdas[][] matriz) ;
     public abstract Individuo cambiarTipo(int x);
     public void mutar(){
     }
-    public  Recorrido(){
+    public void Recorrido(){
 
     }
 }

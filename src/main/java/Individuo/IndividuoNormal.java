@@ -1,5 +1,7 @@
 package Individuo;
 
+import Tablero.Celdas;
+
 public class IndividuoNormal extends Individuo{
 
     public IndividuoNormal(int identificador, int generacion, int turnosVida, int reproducion, int clonacion, int muerte, int tipo) {
@@ -12,7 +14,7 @@ public class IndividuoNormal extends Individuo{
     }
 
     @Override
-    public void mover() {
+    public void mover(int maxcolumnas, int maxfilas, Celdas[][] matriz) {
 
     }
 }
