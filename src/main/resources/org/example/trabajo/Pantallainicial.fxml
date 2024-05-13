@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="488.0" prefWidth="467.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.trabajo.InicializadorControler">
+
+
+    <Label text="Bienvenido al juego de la vida" />
+    <Button mnemonicParsing="false" onAction="#nuevaPartidaClick" text="Nueva Partida" />
+    <Button onAction="#cargarPartidaClick" text="Cargar Partida" />
+
+</VBox>
