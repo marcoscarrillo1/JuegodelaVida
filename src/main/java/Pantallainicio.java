@@ -1,4 +1,4 @@
-import javafx.fxml.FXMLLoader;
+/*import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.net.URL;
@@ -27,4 +27,4 @@ public void start(Stage stage )throws Exception{
     p.setStage(stage);
     stage.show();
 }
-}
+}*/

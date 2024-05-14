@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Bienevnidacontrol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Pantallainicio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/ParameterDataModelProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Imagenes/tablero.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_36_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_36__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_58_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_58__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_05_2024_12_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_05_2024_12_39__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_12_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_12_39__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_16_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_16_24__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bienevnidacontrol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bienevnidacontrol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pantallainicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pantallainicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/Iniciadorjuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/Iniciadorjuego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/InicializadorControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/InicializadorControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/ParameterControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/ParameterControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/PantallaParametros.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/PantallaParametros.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,19 +59,33 @@
   &quot;keyToString&quot;: {
     &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.Iniciadorjuego.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gabri/IdeaProjects/JuegodelaVida/src/main/resources/Imagenes&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.trabajo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gabri\IdeaProjects\JuegodelaVida\src\main\resources\Imagenes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gabri\IdeaProjects\JuegodelaVida\target\classes\org" />
     </key>
@@ -123,6 +150,11 @@
       <workItem from="1715599513345" duration="2750000" />
       <workItem from="1715602641567" duration="3534000" />
       <workItem from="1715610812058" duration="1246000" />
+      <workItem from="1715677037277" duration="84000" />
+      <workItem from="1715681236928" duration="4253000" />
+      <workItem from="1715688664752" duration="406000" />
+      <workItem from="1715689097315" duration="21000" />
+      <workItem from="1715689187123" duration="34000" />
     </task>
     <task id="LOCAL-00001" summary="KLK">
       <option name="closed" value="true" />
