@@ -4,9 +4,56 @@ import Bucle.ElementoLe;
 import Bucle.ListaEnlazed;
 import Individuo.Individuo;
 import Recursos.Recursos;
+import javafx.geometry.Insets;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 
 public class Celdas extends StackPane {
+    private int x,y;
+    private double tipo=0;
+    private int id;
+    private boolean hayalguien;
+    public Celdas(int x, int y){
+        this.x=x;
+        this.y=y;
+        this.hayalguien=false;
+    }
+
+    public double getTipo() {
+        return tipo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public boolean isHayalguien() {
+        return hayalguien;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setTipo(double tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setHayalguien(boolean hayalguien) {
+        this.hayalguien = hayalguien;
+    }
+    public void setColor(Color color){
+        setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY
+        , Insets.EMPTY)));
+    }
+
     private ListaEnlazed<Recursos> recursosListaEnlazed = new ListaEnlazed<Recursos>();
     private ListaEnlazed<Individuo> individuoListaEnlazed = new ListaEnlazed<Individuo>();
 
