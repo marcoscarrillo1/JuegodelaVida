@@ -1,72 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-  <tabs>
-    <Tab text="Individuos">
-         <content>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <AnchorPane layoutY="-15.0" prefHeight="375.0" prefWidth="600.0">
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.trabajo.ParameterControler">
+   <children>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab onSelectionChanged="#onBotonGuardarClick" text="Individuos">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Slider layoutX="230.0" layoutY="122.0" />
-                        <Slider layoutX="230.0" layoutY="181.0" />
-                        <Slider layoutX="230.0" layoutY="267.0" />
-                        <Label layoutX="231.0" layoutY="91.0" text="Probabilidad de clonacion" />
-                        <Label layoutX="212.0" layoutY="154.0" text="Turnos de vida de cada individuo" />
-                        <Label layoutX="224.0" layoutY="222.0" text="Probabilidad de reproducion" />
-                        <Label layoutX="154.0" layoutY="240.0" prefHeight="19.0" prefWidth="291.0" text="(esta afecta directamente a la probabilidad de muerte)" />
-                        <Label layoutX="204.0" layoutY="35.0" text="Parametros Individuos">
-                           <font>
-                              <Font name="Century" size="18.0" />
-                           </font>
-                        </Label>
+                        <AnchorPane layoutY="-15.0" prefHeight="375.0" prefWidth="600.0">
+                           <children>
+                              <Slider fx:id="sliderMutacion" layoutX="230.0" layoutY="122.0" />
+                              <Slider fx:id="sliderTurnosVIda" layoutX="230.0" layoutY="181.0" />
+                              <Slider fx:id="sliderReproducion" layoutX="230.0" layoutY="267.0" />
+                              <Label layoutX="231.0" layoutY="91.0" text="Probabilidad de clonacion" />
+                              <Label layoutX="212.0" layoutY="154.0" text="Turnos de vida de cada individuo" />
+                              <Label layoutX="224.0" layoutY="222.0" text="Probabilidad de reproducion" />
+                              <Label layoutX="154.0" layoutY="240.0" prefHeight="19.0" prefWidth="291.0" text="(esta afecta directamente a la probabilidad de muerte)" />
+                              <Label layoutX="204.0" layoutY="35.0" text="Parametros Individuos">
+                                 <font>
+                                    <Font name="Century" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
-               </children>
-            </AnchorPane>
-         </content></Tab>
-    <Tab text="Tablero">
-         <content>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <AnchorPane prefHeight="373.0" prefWidth="600.0">
+               </content>
+            </Tab>
+          <Tab text="Tablero">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="229.0" layoutY="27.0" text="Tablero de Juego">
-                           <font>
-                              <Font name="Century" size="18.0" />
-                           </font>
-                        </Label>
-                        <Slider layoutX="165.0" layoutY="87.0" orientation="VERTICAL" prefHeight="204.0" prefWidth="14.0" />
-                        <Slider layoutX="188.0" layoutY="307.0" prefHeight="14.0" prefWidth="239.0" />
-
-                        <Label layoutX="259.0" layoutY="321.0" prefHeight="29.0" prefWidth="130.0" text="Columnas" textAlignment="CENTER">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="126.0" layoutY="173.0" rotate="-90.0" text="Filas">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
+                        <AnchorPane prefHeight="373.0" prefWidth="600.0">
+                           <children>
+                              <Label layoutX="229.0" layoutY="27.0" text="Tablero de Juego">
+                                 <font>
+                                    <Font name="Century" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Slider fx:id="sliderTableroFilas" layoutX="165.0" layoutY="87.0" orientation="VERTICAL" prefHeight="204.0" prefWidth="14.0" />
+                              <Slider fx:id="sliderTableroColumnas" layoutX="188.0" layoutY="307.0" prefHeight="14.0" prefWidth="239.0" />
+      
+                              <Label layoutX="259.0" layoutY="321.0" prefHeight="29.0" prefWidth="130.0" text="Columnas" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="126.0" layoutY="173.0" rotate="-90.0" text="Filas">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
-               </children>
-            </AnchorPane>
-         </content></Tab>
-      <Tab text="Recursos">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-  </tabs>
-</TabPane>
+               </content>
+            </Tab>
+            <Tab text="Recursos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="201.0" layoutY="36.0" prefHeight="31.0" prefWidth="197.0" text="Parametros Recursos">
+                           <font>
+                              <Font name="Century" size="19.0" />
+                           </font>
+                        </Label>
+                        <Slider fx:id="sliderTiempoApracion" layoutX="66.0" layoutY="156.0" majorTickUnit="20.0" min="1.0" minorTickCount="5" showTickLabels="true" />
+                        <Slider fx:id="sliderProbAparicion" blockIncrement="1.0" layoutX="66.0" layoutY="226.0" majorTickUnit="1.0" max="10.0" min="1.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropComida" layoutX="350.0" layoutY="204.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropPozo" layoutX="350.0" layoutY="242.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropTesoro" layoutX="350.0" layoutY="271.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropBiblioteca" layoutX="350.0" layoutY="140.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropMontana" layoutX="350.0" layoutY="177.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropAgua" layoutX="350.0" layoutY="109.0" showTickLabels="true" />
+                        <Label layoutX="61.0" layoutY="76.0" text="Probabilidad de los recursos" />
+                        <Label layoutX="316.0" layoutY="76.0" prefHeight="17.0" prefWidth="164.0" text="Probabilidad de cada recurso" />
+                        <Label layoutX="80.0" layoutY="202.0" prefHeight="0.0" prefWidth="111.0" text="Tiempo de Aparicion" />
+                        <Label layoutX="66.0" layoutY="130.0" prefHeight="18.0" prefWidth="155.0" text="Probabilidad de Aparicion" />
+                        <Label layoutX="300.0" layoutY="107.0" text="Agua" />
+                        <Label layoutX="288.0" layoutY="139.0" text="Biblioteca" />
+                        <Label layoutX="292.0" layoutY="176.0" text="Montaña" />
+                        <Label layoutX="293.0" layoutY="202.0" text="Comida" />
+                        <Label layoutX="300.0" layoutY="242.0" text="Pozo" />
+                        <Label layoutX="296.0" layoutY="271.0" text="Tesoro" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button layoutX="457.0" layoutY="350.0" mnemonicParsing="false" text="Guardar" />
+      <Button layoutX="530.0" layoutY="350.0" mnemonicParsing="false" onAction="#onBotonReiniciarClick" text="Reiniciar" />
+      <Button layoutX="540.0" layoutY="2.0" mnemonicParsing="false" onAction="#onBotonCerrarClick" text="Cerrar" />
+   </children>
+</AnchorPane>

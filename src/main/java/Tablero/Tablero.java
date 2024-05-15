@@ -4,20 +4,24 @@ import Estructuras.ListaSimple;
 import javafx.scene.layout.*;
 import javafx.geometry.Insets;
 import javafx.scene.paint.Color;
+import org.example.trabajo.ParameterDataModel;
+import org.example.trabajo.ParameterDataModelProperties;
 
-public class Tablero {
+public class Tablero  {
+    private ParameterDataModel model;
     GridPane tableroJuego;
     String tema;
     public ListaSimple<Stack> stackis = new ListaSimple<Stack>();
 
     public Tablero(GridPane tableroJuego, String tema) {
+
         this.tableroJuego = tableroJuego;
         this.tema = tema;
     }
 
     void CrearTablero(GridPane tableroJuego, String tema) {
-        int filas = Integer.parseInt(filas);
-        int columnas = Integer.parseInt(columnas);
+        int filas = model.getTableroFilas();
+        int columnas = model.getTableroColumnas();
         int id = 0;
         for (int i = 0; i < columnas; i++) {
             for (int j = 0; j < filas; j++) {
@@ -38,9 +42,9 @@ public class Tablero {
     public void setTema(Stack stak, String tema) {
         Color color = null;
         if (tema == "oscuro") {
-            color = Color.web();
+            color = Color.web("black");
         } else if (tema == "claro") {
-            color = Color.web();
+            color = Color.web("white");
         }
         stak.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
     }

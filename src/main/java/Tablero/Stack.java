@@ -72,7 +72,7 @@ public class Stack extends StackPane {
         for (Node nodo: grid.getChildren()){
             if(nodo instanceof Celdas){
             Celdas celda=(Celdas) nodo;
-            if(celda.getId()==id){
+            if(Integer.parseInt(celda.getId())==id){
                 return celda;
             }
             }

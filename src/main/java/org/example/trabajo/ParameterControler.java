@@ -1,6 +1,7 @@
 package org.example.trabajo;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -8,12 +9,10 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ParameterControler {
+public class ParameterControler implements Initializable {
 
 
-    /**
-     * Hooks de conexión entre los controles visuales y el código, llevan @FXML para identificarlos
-     **/
+
 
     @FXML
     private Slider sliderTurnosVIda;
@@ -22,7 +21,9 @@ public class ParameterControler {
     @FXML
     private Slider sliderReproducion;
     @FXML
-    private Slider sliderTablero;
+    private Slider sliderTableroFilas;
+    @FXML
+    private Slider sliderTableroColumnas;
     @FXML
     private Slider sliderTiempoApracion;
     @FXML
@@ -39,20 +40,8 @@ public class ParameterControler {
     private Slider sliderPropPozo;
     @FXML
     private Slider sliderPropTesoro;
-
-
-    /**
-     * Controlador con modelo de datos en el que trabajar
-     **/
     private ParameterDataModelProperties model;
     private Stage scene;
-
-
-    /** Métodos de respuesta a eventos: El GUI llama a estos métodos del controlador para realizar operaciones **/
-    /**
-     * La convención es llamarlos on+TipoControl+operacionalaqueresponde :
-     * onMiBotonEjemploClick indica que es un "manejador de evento de tipo click" del botón MiBotonEjemplo del interfaz
-     */
 
 
     @FXML
@@ -85,9 +74,19 @@ public class ParameterControler {
      * Este método se encarga de conectar los datos del modelo con el GUI
      **/
     protected void updateGUIwithModel() {
-        sliderVelocidad.valueProperty().bindBidirectional(model.velocidadProperty());
-        sliderVida.valueProperty().bindBidirectional(model.vidaProperty());
-        textfieldNombre.textProperty().bindBidirectional(model.nombreProperty());
+        sliderTurnosVIda.valueProperty().bindBidirectional(model.turnosVidaProperty());
+        sliderMutacion.valueProperty().bindBidirectional(model.mutacionProperty());
+        sliderReproducion.valueProperty().bindBidirectional(model.reproduccionProperty());
+        sliderTableroFilas.valueProperty().bindBidirectional(model.tableroFilasProperty());
+        sliderTableroColumnas.valueProperty().bindBidirectional(model.tableroColumnasProperty());
+        sliderTiempoApracion.valueProperty().bindBidirectional(model.tiempoApariconProperty());
+        sliderProbAparicion.valueProperty().bindBidirectional(model.porpApariconProperty());
+        sliderPropAgua.valueProperty().bindBidirectional(model.propAguaProperty());
+        sliderPropBiblioteca.valueProperty().bindBidirectional(model.propBibliotecaProperty());
+        sliderPropMontana.valueProperty().bindBidirectional(model.propMontanaProperty());
+        sliderPropComida.valueProperty().bindBidirectional(model.propComidaProperty());
+        sliderPropPozo.valueProperty().bindBidirectional(model.propPozoProperty());
+        sliderPropTesoro.valueProperty().bindBidirectional(model.propTesoroProperty());
     }
 
     /**
