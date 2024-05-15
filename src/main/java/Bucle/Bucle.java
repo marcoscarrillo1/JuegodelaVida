@@ -1,8 +1,8 @@
 package Bucle;
 
+import Estructuras.ListaEnlazed;
 import Individuo.Individuo;
 import java.util.Random;
-import javafx.scene.layout.TilePane;
 
 public class Bucle {
     //casillas individuo recrusos y esas vainas

@@ -1,4 +1,6 @@
-package Bucle;
+package Estructuras;
+
+import Estructuras.ElementoLS;
 
 public class ListaSimple<T> {
 

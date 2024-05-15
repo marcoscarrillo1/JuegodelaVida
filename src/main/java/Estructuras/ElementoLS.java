@@ -1,4 +1,4 @@
-package Bucle;
+package Estructuras;
 
 public class ElementoLS<T> {
 

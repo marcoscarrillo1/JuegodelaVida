@@ -1,7 +1,7 @@
 package Tablero;
 
-import Bucle.ElementoLe;
-import Bucle.ListaEnlazed;
+import Estructuras.ElementoLe;
+import Estructuras.ListaEnlazed;
 import Individuo.Individuo;
 import Recursos.Recursos;
 import javafx.geometry.Insets;
@@ -26,9 +26,6 @@ public class Celdas extends StackPane {
         return tipo;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public boolean isHayalguien() {
         return hayalguien;

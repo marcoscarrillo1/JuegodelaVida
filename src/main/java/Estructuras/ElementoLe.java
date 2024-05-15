@@ -1,4 +1,4 @@
-package Bucle;
+package Estructuras;
 
 public class ElementoLe<T> {
     protected ElementoLe<T> siguiente;

@@ -1,4 +1,6 @@
-package Bucle;
+package Estructuras;
+
+import Estructuras.ElementoLe;
 
 public class ListaEnlazed<T> {
     private ElementoLe<T> primero;

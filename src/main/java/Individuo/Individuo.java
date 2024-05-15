@@ -1,9 +1,6 @@
 package Individuo;
 
-import Bucle.ListaEnlazed;
 import Tablero.Celdas;
-
-import java.util.Random;
 
 public abstract class Individuo  {
     protected int identificador;

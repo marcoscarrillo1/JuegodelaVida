@@ -1,8 +1,6 @@
 package Tablero;
 
-import Bucle.ListaSimple;
-import Individuo.Individuo;
-import Recursos.Recursos;
+import Estructuras.ListaSimple;
 import javafx.scene.layout.*;
 import javafx.geometry.Insets;
 import javafx.scene.paint.Color;

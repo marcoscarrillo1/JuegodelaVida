@@ -1,6 +1,6 @@
 package Individuo;
 
-import Bucle.ListaEnlazed;
+import Estructuras.ListaEnlazed;
 import Tablero.Celdas;
 
 import java.util.Random;

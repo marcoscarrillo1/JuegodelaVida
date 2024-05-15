@@ -1,6 +1,6 @@
 package Tablero;
 
-import Bucle.ListaSimple;
+import Estructuras.ListaSimple;
 import Individuo.Individuo;
 import Recursos.Recursos;
 import javafx.scene.Node;
