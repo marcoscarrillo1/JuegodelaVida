@@ -1,7 +1,5 @@
 package Estructuras;
 
-import Estructuras.ElementoLS;
-
 public class ListaSimple<T> {
 
     /**
@@ -21,7 +19,7 @@ public class ListaSimple<T> {
         this.datos=null;
         primero=datos[0];
     }
-        public Boolean isVacia(ElementoLS primero) {
+        public Boolean isVacia() {
             return datos[0] == null;
         }
 
@@ -74,9 +72,9 @@ public class ListaSimple<T> {
             return c ;
         }
 
-        public ElementoLS getPrimero() {
+        public T getPrimero() {
             primero=this.datos[0];
-            return primero;
+            return primero.getData();
         }
         public Integer getPosicion(ElementoLS el ){
             int posicion=0;
