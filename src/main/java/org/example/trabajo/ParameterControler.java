@@ -1,9 +1,12 @@
 package org.example.trabajo;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -12,8 +15,7 @@ import java.util.ResourceBundle;
 public class ParameterControler implements Initializable {
 
 
-
-
+    public Button iniciarJuego;
     @FXML
     private Slider sliderTurnosVIda;
     @FXML
@@ -43,15 +45,18 @@ public class ParameterControler implements Initializable {
     private ParameterDataModelProperties model;
     private Stage scene;
 
-
+    public void loadUserData(ParameterDataModelProperties parametrosData) {
+        this.model = parametrosData;
+        this.updateGUIwithModel();
+    }
     @FXML
     protected void onBotonGuardarClick() {
-        model.commit();
+       if(model != null){ model.commit();}
     }
 
     @FXML
     protected void onBotonReiniciarClick() {
-        model.rollback();
+        if(model != null){ model.rollback();}
     }
 
     @FXML protected void onBotonCerrarClick(){
@@ -65,9 +70,7 @@ public class ParameterControler implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.print("Inicialización en ejecución del controlador de parámetros\n");
 
-        if (model != null) {
-            this.updateGUIwithModel();
-        }
+
     }
 
     /**
@@ -92,13 +95,35 @@ public class ParameterControler implements Initializable {
     /**
      * Este método recibe los datos del modelo y los establece
      **/
-    public void loadUserData(ParameterDataModelProperties parametrosData) {
-        this.model = parametrosData;
-        this.updateGUIwithModel();
-    }
+
 
     public void setStage(Stage s){
         this.scene = s;
     }
+
+    public void onBotonJugarClick() {
+        Stage stage1 = (Stage) iniciarJuego.getScene().getWindow();
+        stage1.close();
+        try {
+            Stage stage = new Stage();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(Iniciadorjuego.class.getResource("Tablero.fxml"));
+            stage.setTitle("Juego de la Vida");
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+
+            stage.setScene(scene);
+            TableroController tableroController = fxmlLoader.getController();
+            tableroController.setTableroController(model.getOriginal());
+            tableroController.setStage(stage);
+            tableroController.CrearTablero();
+
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+
+        }
+    }
+
 }
 

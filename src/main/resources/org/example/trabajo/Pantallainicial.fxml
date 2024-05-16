@@ -7,7 +7,7 @@
 
 
     <Label text="Bienvenido al juego de la vida" />
-    <Button mnemonicParsing="false" onAction="#nuevaPartidaClick" text="Nueva Partida" />
+    <Button mnemonicParsing="false" fx:id="cerrar" onAction="#nuevaPartidaClick" text="Nueva Partida" />
     <Button onAction="#cargarPartidaClick" text="Cargar Partida" />
 
 </VBox>

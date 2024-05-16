@@ -102,5 +102,6 @@
       <Button layoutX="457.0" layoutY="350.0" mnemonicParsing="false" text="Guardar" />
       <Button layoutX="530.0" layoutY="350.0" mnemonicParsing="false" onAction="#onBotonReiniciarClick" text="Reiniciar" />
       <Button layoutX="540.0" layoutY="2.0" mnemonicParsing="false" onAction="#onBotonCerrarClick" text="Cerrar" />
+      <Button fx:id="iniciarJuego" layoutX="350.0" layoutY="350.0" mnemonicParsing="false" onAction="#onBotonJugarClick" text="Iniciar Juego" />
    </children>
 </AnchorPane>

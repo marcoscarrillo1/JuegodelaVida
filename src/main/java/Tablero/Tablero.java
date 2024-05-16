@@ -13,13 +13,13 @@ public class Tablero  {
     String tema;
     public ListaSimple<Stack> stackis = new ListaSimple<Stack>();
 
-    public Tablero(GridPane tableroJuego, String tema) {
-
+    public Tablero(GridPane tableroJuego, String tema,ParameterDataModel model) {
+        this.model = model;
         this.tableroJuego = tableroJuego;
         this.tema = tema;
     }
 
-    void CrearTablero(GridPane tableroJuego, String tema) {
+    public void CrearTablero(GridPane tableroJuego, String tema) {
         int filas = model.getTableroFilas();
         int columnas = model.getTableroColumnas();
         int id = 0;
