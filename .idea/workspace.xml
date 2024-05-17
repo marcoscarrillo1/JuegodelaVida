@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/TableroController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/Tablero.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_05_2024_12_39_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_05_2024_12_39__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_12_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_12_39__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_16_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_16_24__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tablero/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tablero/Tablero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/InicializadorControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/InicializadorControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/ParameterControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/ParameterControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/PantallaParametros.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/PantallaParametros.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/Pantallainicial.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/Pantallainicial.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bucle/JuegoVida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bucle/JuegoVida.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

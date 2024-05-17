@@ -117,6 +117,98 @@ public class JuegoVida  {
           }
       }
   }
+  public void bucledecontrol(){
+      individuoactualizado();
+      recursoactivo();
+      movimiento;
+      mejora();
+      reproduccion();
+      clonacion();
+      crearrecursos()
+  }
+
+  public void individuoactualizado(){
+      ListaSimple<Stack> listastakis=tablero.getStackis();
+      for(int i=0;i<listastakis.getNumeroElementos();i++){
+          Stack actual=listastakis.getDatos(i);
+          Individuo individuo=actual.getIndividuos().getPrimero();
+          individuo.setTurnosVida(individuo.getTurnosVida()-1);
+          individuo.setClonacion(individuo.getClonacion()-10);
+          individuo.setReproducion(individuo.getReproducion()-10);
+          if(individuo.getTurnosVida()==0){
+              eliminarIndividuos(individuo);
+          }
+      }
+  }
+  public void recursoactivo(){
+      ListaSimple<Stack> listastakis=tablero.getStackis();
+      for(int i=0;i<listastakis.getNumeroElementos();i++){
+          Stack actual=listastakis.getDatos(i);
+          Recursos recurso=actual.getRecursos().getPrimero();
+          recurso.setTiempo(recurso.getTiempo()-1);
+          if(recurso.getTiempo()==0){
+              eliminarrecurso(recurso);
+          }
+      }
+  }
+  public void eliminarrecurso(){
+      ListaSimple<Recursos> todos=getRecursos();
+      ListaSimple<Recursos> lista=new ListaSimple<Recursos>();
+      for(int i=0;i<todos.getNumeroElementos();i++){
+          Recursos recurso=todos.getDatos(i);
+          if(recurso.getTiempo()==0){
+              int stackid=
+              int celdaid=
+              tablero.getStack(stackid).getCelda(celdaid).setHayalguien(false);
+          }for(int numrecursos=0;numrecursos<3;numrecursos++){
+              if(tablero.getStack(stackid).getRecursos().getDatos(numrecursos)==recurso){
+                  tablero.getStack(stackid).getRecursos().del(numrecursos);
+              }
+          }lista.add(recurso);
+
+      }eliminarrecurso(lista);
+  }
+
+
+  private void eliminarrecurso(ListaSimple<Recursos> list){
+      ListaSimple<Recursos> todos=getRecursos();
+      for(int i=0;i<list.getNumeroElementos();i++){
+          for(int j=0;j<todos.getNumeroElementos();j++){
+              if(list.getDatos(i)==todos.getDatos(j)){
+                  todos.del(j);
+              }
+          }
+      }
+  }
+  public void clonacion(){
+      ListaSimple<Stack> listastakis= tablero.getStackis();
+      Random random=new Random();
+      int x= random.nextInt(101);
+      for(int i=0;i<listastakis.getNumeroElementos();i++){
+          Stack actual= listastakis.getDatos(i);
+          Individuo individuo=actual.getIndividuos().getPrimero();
+          Individuo individuonuevo;
+          if(individuo.getClonacion()>x){
+              if(individuo.getTipo()==1){
+                  individuonuevo=new IndividuoBasico();
+              } else if (individuo.getTipo()==2) {
+                  individuonuevo=new IndividuoNormal();
+              }else{
+                  individuonuevo=new IndividuoAvanzado();
+              }
+          }
+       actual.getIndividuos().add(individuonuevo);
+      }
+
+
+
+
+
+
+  }
+  public void acabar(){
+
+  }
 
 
 
