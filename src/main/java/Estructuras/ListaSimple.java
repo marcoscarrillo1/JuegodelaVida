@@ -12,12 +12,15 @@ public class ListaSimple<T> {
         public ListaSimple(int n ){
             this.maximo=n;
             this.datos= new ElementoLS[n];
-            primero=datos[0];
+            if (n>0){
+                primero = datos[0];
+            }else {
+            primero=null;}
         }
     public ListaSimple(){
         this.maximo=0;
         this.datos=null;
-        primero=datos[0];
+        primero=null;
     }
         public Boolean isVacia() {
             return datos[0] == null;

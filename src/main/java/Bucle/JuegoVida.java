@@ -45,7 +45,7 @@ public class JuegoVida  {
     }
     private void addTipo()*/
 
-  private void reproduccion(){
+ /* private void reproduccion(){
       ListaSimple<Stack> listastakis=tablero.getStackis();
       for(int i=0;i<listastakis.getNumeroElementos();i++){
           Stack ahora=listastakis.getDatos(i);
@@ -82,6 +82,9 @@ public class JuegoVida  {
               }
           }
       }
+  }*/
+  public int generarID(){
+return 4;
   }
   public void eliminarIndividuos(){
       ListaSimple<Stack> listastakis=tablero.getStackis();
@@ -91,8 +94,8 @@ public class JuegoVida  {
           if(!ahora.getIndividuos().isVacia()){
               int x=0;
               while(x<ahora.getIndividuos().getNumeroElementos()){
-                  if(ahora.getIndividuos().getDatos(x).getTurnosVida()<=0){
-                      listaaborrar.add(ahora.getIndividuos().getDatos(x));
+                  if(ahora.getIndividuos().getElemento(x).getData().getTurnosVida()<=0){
+                      listaaborrar.add(ahora.getIndividuos().getElemento(x));
                       ahora.getIndividuos().del(x);
                   }else{
                       x++;
@@ -102,20 +105,20 @@ public class JuegoVida  {
       }if(listaaborrar.isVacia()){
         return;
       }else{
-          eliminarIndividuos(listaaborrar);
+         // eliminarIndividuos(listaaborrar);
       }
 
 
   }
-  public void eliminarIndividuos(ListaSimple<Individuo> lista){
-      ListaSimple<Individuo> todos=getIndiviuos();
+  /*public void eliminarIndividuos(ListaSimple<Individuo> lista){
+      ListaSimple<Individuo> todos= getIndiviuos();
       for(int i=0;i<lista.getNumeroElementos();i++){
           for(int j=0;j<todos.getNumeroElementos();j++){
               if(lista.getDatos(i).getIdentificador()==todos.getDatos(j).getIdentificador()){
                   todos.del(j);
               }
           }
-      }
+      }*/
   }
 
 
@@ -125,4 +128,4 @@ public class JuegoVida  {
 
 
 
-}
+

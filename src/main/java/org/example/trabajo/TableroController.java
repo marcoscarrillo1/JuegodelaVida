@@ -1,5 +1,6 @@
 package org.example.trabajo;
 
+import Estructuras.ListaEnlazed;
 import Estructuras.ListaSimple;
 import Tablero.Stack;
 import javafx.fxml.FXML;
@@ -12,13 +13,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TableroController {
-
+@FXML
     public GridPane tableroJuego;
     private ParameterDataModel model;
     private Stage stage;
 
     String tema;
-    public ListaSimple<Stack> stackis = new ListaSimple<Stack>();
+    public ListaEnlazed<Stack> stackis = new ListaEnlazed<>();
 
     public void  setTableroController(ParameterDataModel parametros) {
         model = parametros;
@@ -28,17 +29,31 @@ public class TableroController {
         this.stage= stage;
 
     }
+    @FXML
     public void CrearTablero() {
         int filas = model.getTableroFilas();
         int columnas = model.getTableroColumnas();
         int id = 0;
+        for (int i = 0 ; i<columnas;i++){
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            columnConstraints.setHgrow(Priority.ALWAYS);
+            tableroJuego.getColumnConstraints().add((columnConstraints));
+
+        }
+        for (int j= 0; j<filas;j++){
+            RowConstraints rowConstraints = new RowConstraints();
+            rowConstraints.setVgrow(Priority.ALWAYS);
+            tableroJuego.getRowConstraints().add(rowConstraints);
+        }
         for (int i = 0; i < columnas; i++) {
             for (int j = 0; j < filas; j++) {
                 Stack stack = new Stack(i, j);
                 stack.setId(id);
-                stack.setPrefWidth(100);
                 stack.setPrefHeight(100);
-                stack.setBorder(new Border(new BorderStroke(Color.BLUE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+                stack.setPrefHeight(100);
+                stack.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+                stack.prefWidthProperty().bind(tableroJuego.widthProperty().divide(columnas));
+                stack.prefHeightProperty().bind(tableroJuego.heightProperty().divide(filas));
                 //setTema(stack, tema);
                 tableroJuego.add(stack, i, j);
                 stackis.add(stack);

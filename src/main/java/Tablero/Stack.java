@@ -1,6 +1,6 @@
 package Tablero;
 
-import Estructuras.ListaSimple;
+import Estructuras.ListaEnlazed;
 import Individuo.Individuo;
 import Recursos.Recursos;
 import javafx.scene.Node;
@@ -11,13 +11,14 @@ public class Stack extends StackPane {
     private Integer x,y;
     private boolean hayalguien;
     private int id;
-    private ListaSimple<Celdas> celdas=new ListaSimple<Celdas>();
-    private ListaSimple<Individuo> individuos;
-    private ListaSimple<Recursos> recursos;
+
+    private ListaEnlazed<Celdas> celdas=new ListaEnlazed<Celdas>();
+    private ListaEnlazed<Individuo> individuos;
+    private ListaEnlazed<Recursos> recursos;
     GridPane grid;
     public Stack(int x, int y){
-        this.individuos=new ListaSimple<Individuo>();
-        this.recursos=new ListaSimple<Recursos>();
+        this.individuos=new ListaEnlazed<Individuo>();
+        this.recursos=new ListaEnlazed<Recursos>();
         this.x=x;
         this.y=y;
         this.hayalguien=false;
@@ -49,11 +50,11 @@ public class Stack extends StackPane {
         return y;
     }
 
-    public ListaSimple<Individuo> getIndividuos() {
+    public ListaEnlazed<Individuo> getIndividuos() {
         return individuos;
     }
 
-    public ListaSimple<Recursos> getRecursos() {
+    public ListaEnlazed<Recursos> getRecursos() {
         return recursos;
     }
 
@@ -61,11 +62,11 @@ public class Stack extends StackPane {
         this.id = id;
     }
 
-    public void setIndividuos(ListaSimple<Individuo> individuos) {
+    public void setIndividuos(ListaEnlazed<Individuo> individuos) {
         this.individuos = individuos;
     }
 
-    public void setRecursos(ListaSimple<Recursos> recursos) {
+    public void setRecursos(ListaEnlazed<Recursos> recursos) {
         this.recursos = recursos;
     }
     public Celdas getCelda(int id){

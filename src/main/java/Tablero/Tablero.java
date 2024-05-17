@@ -19,6 +19,10 @@ public class Tablero  {
         this.tema = tema;
     }
 
+    public ParameterDataModel getModel() {
+        return model;
+    }
+
     public void CrearTablero(GridPane tableroJuego, String tema) {
         int filas = model.getTableroFilas();
         int columnas = model.getTableroColumnas();
