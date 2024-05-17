@@ -1,6 +1,7 @@
 package Bucle;
 
 import Estructuras.ListaEnlazed;
+import Estructuras.ListaSimple;
 import Individuo.Individuo;
 import java.util.Random;
 

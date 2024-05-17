@@ -16,30 +16,12 @@ public class Stack extends StackPane {
     private ListaEnlazed<Individuo> individuos;
     private ListaEnlazed<Recursos> recursos;
     GridPane grid;
-    public Stack(int x, int y){
-        this.individuos=new ListaEnlazed<Individuo>();
-        this.recursos=new ListaEnlazed<Recursos>();
-        this.x=x;
-        this.y=y;
-        this.hayalguien=false;
-        this.grid=new GridPane();
-        Integer id=0;
-        for(int i=0;i<3;i++){
-            for(int j=0;j<2;j++){
-                Celdas celda=new Celdas(i,j);
-                celda.setPrefHeight(100);
-                celda.setPrefWidth(100);
-                celda.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID,CornerRadii.EMPTY,BorderWidths.DEFAULT)));
-                celda.setColor(Color.RED);
-                celda.setId(id);
-                id++;
-                grid.add(celda,i,j);
-                celdas.add(celda);
-
-
-            }
-        }
-        getChildren().add(grid);
+    public Stack(int x, int y) {
+        this.individuos = new ListaEnlazed<Individuo>();
+        this.recursos = new ListaEnlazed<Recursos>();
+        this.x = x;
+        this.y = y;
+        this.hayalguien = false;
     }
 
     public Integer getX() {

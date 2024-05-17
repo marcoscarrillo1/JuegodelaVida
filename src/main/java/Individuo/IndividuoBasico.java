@@ -1,6 +1,7 @@
 package Individuo;
 
 import Estructuras.ListaEnlazed;
+import Estructuras.ListaSimple;
 import Tablero.Celdas;
 
 import java.util.Random;

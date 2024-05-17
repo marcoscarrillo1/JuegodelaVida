@@ -51,12 +51,14 @@ public class ParameterControler implements Initializable {
     }
     @FXML
     protected void onBotonGuardarClick() {
-       if(model != null){ model.commit();}
+       if(model != null){ model.commit();
+       }
     }
 
     @FXML
     protected void onBotonReiniciarClick() {
-        if(model != null){ model.rollback();}
+        if(model != null){ model.rollback();
+        }
     }
 
     @FXML protected void onBotonCerrarClick(){
@@ -113,7 +115,7 @@ public class ParameterControler implements Initializable {
 
             stage.setScene(scene);
             TableroController tableroController = fxmlLoader.getController();
-            tableroController.setTableroController(model.getOriginal());
+            tableroController.setTableroController(model);
             tableroController.setStage(stage);
             tableroController.CrearTablero();
 

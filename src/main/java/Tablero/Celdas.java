@@ -2,6 +2,7 @@ package Tablero;
 
 import Estructuras.ElementoLe;
 import Estructuras.ListaEnlazed;
+import Estructuras.ListaEnlazed;
 import Individuo.Individuo;
 import Recursos.Recursos;
 import javafx.geometry.Insets;

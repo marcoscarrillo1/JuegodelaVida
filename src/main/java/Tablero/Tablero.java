@@ -1,17 +1,17 @@
 package Tablero;
 
-import Estructuras.ListaSimple;
+import Estructuras.ListaEnlazed;
+import Estructuras.ListaEnlazed;
 import javafx.scene.layout.*;
 import javafx.geometry.Insets;
 import javafx.scene.paint.Color;
 import org.example.trabajo.ParameterDataModel;
-import org.example.trabajo.ParameterDataModelProperties;
 
 public class Tablero  {
     private ParameterDataModel model;
     GridPane tableroJuego;
     String tema;
-    public ListaSimple<Stack> stackis = new ListaSimple<Stack>();
+    public ListaEnlazed<Stack> stackis = new ListaEnlazed<Stack>();
 
     public Tablero(GridPane tableroJuego, String tema,ParameterDataModel model) {
         this.model = model;
@@ -53,12 +53,12 @@ public class Tablero  {
         stak.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
-    public ListaSimple<Stack> getStackis() {
+    public ListaEnlazed<Stack> getStackis() {
         return stackis;
     }
 
     public Stack getStack(int id) {
-        return stackis.getDatos(id);
+        return stackis.getElemento(id).getData();
     }
 
 

@@ -1,27 +1,27 @@
 package org.example.trabajo;
 
 import Estructuras.ListaEnlazed;
-import Estructuras.ListaSimple;
+
 import Tablero.Stack;
+import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 public class TableroController {
 @FXML
     public GridPane tableroJuego;
-    private ParameterDataModel model;
+    private ParameterDataModelProperties model;
     private Stage stage;
+    public ListaEnlazed<Stack> stackis = new ListaEnlazed<Stack>();
 
     String tema;
-    public ListaEnlazed<Stack> stackis = new ListaEnlazed<>();
 
-    public void  setTableroController(ParameterDataModel parametros) {
+
+    public void  setTableroController(ParameterDataModelProperties parametros) {
         model = parametros;
     }
 
@@ -31,33 +31,24 @@ public class TableroController {
     }
     @FXML
     public void CrearTablero() {
-        int filas = model.getTableroFilas();
-        int columnas = model.getTableroColumnas();
-        int id = 0;
-        for (int i = 0 ; i<columnas;i++){
-            ColumnConstraints columnConstraints = new ColumnConstraints();
-            columnConstraints.setHgrow(Priority.ALWAYS);
-            tableroJuego.getColumnConstraints().add((columnConstraints));
-
-        }
-        for (int j= 0; j<filas;j++){
-            RowConstraints rowConstraints = new RowConstraints();
-            rowConstraints.setVgrow(Priority.ALWAYS);
-            tableroJuego.getRowConstraints().add(rowConstraints);
-        }
-        for (int i = 0; i < columnas; i++) {
-            for (int j = 0; j < filas; j++) {
-                Stack stack = new Stack(i, j);
-                stack.setId(id);
-                stack.setPrefHeight(100);
-                stack.setPrefHeight(100);
-                stack.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-                stack.prefWidthProperty().bind(tableroJuego.widthProperty().divide(columnas));
-                stack.prefHeightProperty().bind(tableroJuego.heightProperty().divide(filas));
-                //setTema(stack, tema);
-                tableroJuego.add(stack, i, j);
-                stackis.add(stack);
-                id++;
+        int x = model.tableroFilasProperty().getValue().intValue();
+        int y = model.tableroColumnasProperty().getValue().intValue();
+        for (int j = y; j > 0; j--) {
+            for (int i = 0; i < x; i++) {
+                Button celdaButton = new Button();
+                celdaButton.setMinSize((double) 500/ x, (double) 500 / y);
+                celdaButton.setMaxSize((double) 500/ x, (double) 500 / y);
+                celdaButton.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
+                int finalI = i;
+                int finalJ = j;
+                celdaButton.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        //onBotonCelda(finalI, finalJ);
+                    }
+                });
+                tableroJuego.add(celdaButton, finalI, finalJ - 1);
+                //stackis.getElemento(finalJ - 1).getData().getElemento(finalI).getData().setBoton(celdaButton);
 
             }
         }

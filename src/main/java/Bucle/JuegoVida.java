@@ -1,27 +1,24 @@
 package Bucle;
 
-import Estructuras.ListaSimple;
+import Estructuras.ListaEnlazed;
 import Individuo.Individuo;
 import Individuo.IndividuoBasico;
 import Individuo.IndividuoNormal;
 import Individuo.IndividuoAvanzado;
 import Recursos.Recursos;
 import Tablero.Tablero;
-import Tablero.Celdas;
 import Tablero.Stack;
-import javafx.application.Application;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
 import java.util.Random;
 
-public class JuegoVida  {
+public class JuegoVida  {}
 
 
-    public static Tablero tablero;
+    /*public  Tablero tablero;
     private boolean juego;
 
-    /*public JuegoVida(GridPane tablero) {
+    public JuegoVida(GridPane tablero) {
         this.tablero = new Tablero(tablero);
         this.juego = true;
 
@@ -43,12 +40,12 @@ public class JuegoVida  {
         celdas.getRecursos().add(recursonuevo);
         System.out.println("Se ha añadido un nuevo recurso");
     }
-    private void addTipo()*/
+    private void addTipo(){}
 
- /* private void reproduccion(){
-      ListaSimple<Stack> listastakis=tablero.getStackis();
+ private void reproduccion(){
+      ListaEnlazed<Stack> listastakis=tablero.getStackis();
       for(int i=0;i<listastakis.getNumeroElementos();i++){
-          Stack ahora=listastakis.getDatos(i);
+          Stack ahora=listastakis.getElemento(i).getData();
           if(ahora.getIndividuos().getNumeroElementos()==2){
               Individuo paco=ahora.getIndividuos().getPrimero();
               Individuo jose=ahora.getIndividuos().getDatos(1);
@@ -82,13 +79,13 @@ public class JuegoVida  {
               }
           }
       }
-  }*/
+  }
   public int generarID(){
 return 4;
   }
   public void eliminarIndividuos(){
-      ListaSimple<Stack> listastakis=tablero.getStackis();
-      ListaSimple<Individuo> listaaborrar=new ListaSimple<Individuo>();
+      ListaEnlazed<Stack> listastakis=tablero.getStackis();
+      ListaEnlazed<Individuo> listaaborrar=new ListaEnlazed<Individuo>();
       for(int i=0;i<listastakis.getNumeroElementos();i++){
           Stack ahora=listastakis.getDatos(i);
           if(!ahora.getIndividuos().isVacia()){
@@ -105,20 +102,20 @@ return 4;
       }if(listaaborrar.isVacia()){
         return;
       }else{
-         // eliminarIndividuos(listaaborrar);
+         eliminarIndividuos(listaaborrar);
       }
 
 
   }
-  /*public void eliminarIndividuos(ListaSimple<Individuo> lista){
-      ListaSimple<Individuo> todos= getIndiviuos();
+  /*public void eliminarIndividuos(ListaEnlazed<Individuo> lista){
+      ListaEnlazed<Individuo> todos= getIndiviuos();
       for(int i=0;i<lista.getNumeroElementos();i++){
           for(int j=0;j<todos.getNumeroElementos();j++){
               if(lista.getDatos(i).getIdentificador()==todos.getDatos(j).getIdentificador()){
                   todos.del(j);
               }
           }
-      }*/
+      }
   }
   public void bucledecontrol(){
       individuoactualizado();
@@ -127,11 +124,11 @@ return 4;
       mejora();
       reproduccion();
       clonacion();
-      crearrecursos()
+      crearrecursos();
   }
 
   public void individuoactualizado(){
-      ListaSimple<Stack> listastakis=tablero.getStackis();
+      ListaEnlazed<Stack> listastakis=tablero.getStackis();
       for(int i=0;i<listastakis.getNumeroElementos();i++){
           Stack actual=listastakis.getDatos(i);
           Individuo individuo=actual.getIndividuos().getPrimero();
@@ -144,7 +141,7 @@ return 4;
       }
   }
   public void recursoactivo(){
-      ListaSimple<Stack> listastakis=tablero.getStackis();
+      ListaEnlazed<Stack> listastakis=tablero.getStackis();
       for(int i=0;i<listastakis.getNumeroElementos();i++){
           Stack actual=listastakis.getDatos(i);
           Recursos recurso=actual.getRecursos().getPrimero();
@@ -155,8 +152,8 @@ return 4;
       }
   }
   public void eliminarrecurso(){
-      ListaSimple<Recursos> todos=getRecursos();
-      ListaSimple<Recursos> lista=new ListaSimple<Recursos>();
+      ListaEnlazed<Recursos> todos=getRecursos();
+      ListaEnlazed<Recursos> lista=new ListaEnlazed<Recursos>();
       for(int i=0;i<todos.getNumeroElementos();i++){
           Recursos recurso=todos.getDatos(i);
           if(recurso.getTiempo()==0){
@@ -173,8 +170,8 @@ return 4;
   }
 
 
-  private void eliminarrecurso(ListaSimple<Recursos> list){
-      ListaSimple<Recursos> todos=getRecursos();
+  private void eliminarrecurso(ListaEnlazed<Recursos> list){
+      ListaEnlazed<Recursos> todos=getRecursos();
       for(int i=0;i<list.getNumeroElementos();i++){
           for(int j=0;j<todos.getNumeroElementos();j++){
               if(list.getDatos(i)==todos.getDatos(j)){
@@ -184,7 +181,7 @@ return 4;
       }
   }
   public void clonacion(){
-      ListaSimple<Stack> listastakis= tablero.getStackis();
+      ListaEnlazed<Stack> listastakis= tablero.getStackis();
       Random random=new Random();
       int x= random.nextInt(101);
       for(int i=0;i<listastakis.getNumeroElementos();i++){
@@ -211,7 +208,7 @@ return 4;
   }
   public void acabar(){
 
-  }
+  }*/
 
 
 
