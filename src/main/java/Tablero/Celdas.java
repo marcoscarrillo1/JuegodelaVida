@@ -6,13 +6,15 @@ import Estructuras.ListaEnlazed;
 import Individuo.Individuo;
 import Recursos.Recursos;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
-public class Celdas extends StackPane {
+public class Celdas  {
+    private Button boton;
     private int x,y;
     private double tipo=0;
     private int id;
@@ -21,6 +23,9 @@ public class Celdas extends StackPane {
         this.x=x;
         this.y=y;
         this.hayalguien=false;
+    }
+    public void setBoton(Button boton){
+        this.boton=boton;
     }
 
     public double getTipo() {
@@ -44,11 +49,15 @@ public class Celdas extends StackPane {
         this.id = id;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setHayalguien(boolean hayalguien) {
         this.hayalguien = hayalguien;
     }
     public void setColor(Color color){
-        setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY
+        boton.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY
         , Insets.EMPTY)));
     }
 
@@ -129,7 +138,6 @@ public class Celdas extends StackPane {
         int pos=recursosListaEnlazed.getPosicion(new ElementoLe<Recursos>(recurso));
         recursosListaEnlazed.del(pos);
     }
-
 
 
 }

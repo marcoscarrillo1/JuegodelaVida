@@ -19,47 +19,47 @@ public class Tablero  {
         this.tema = tema;
     }
 
-    public ParameterDataModel getModel() {
-        return model;
-    }
-
-    public void CrearTablero(GridPane tableroJuego, String tema) {
-        int filas = model.getTableroFilas();
-        int columnas = model.getTableroColumnas();
-        int id = 0;
-        for (int i = 0; i < columnas; i++) {
-            for (int j = 0; j < filas; j++) {
-                Stack stack = new Stack(i, j);
-                stack.setId(id);
-                stack.setPrefWidth(100);
-                stack.setPrefHeight(100);
-                stack.setBorder(new Border(new BorderStroke(Color.BLUE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-                setTema(stack, tema);
-                tableroJuego.add(stack, i, j);
-                stackis.add(stack);
-                id++;
-
-            }
-        }
-    }
-
-    public void setTema(Stack stak, String tema) {
-        Color color = null;
-        if (tema == "oscuro") {
-            color = Color.web("black");
-        } else if (tema == "claro") {
-            color = Color.web("white");
-        }
-        stak.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
-    }
-
-    public ListaEnlazed<Stack> getStackis() {
-        return stackis;
-    }
-
-    public Stack getStack(int id) {
-        return stackis.getElemento(id).getData();
-    }
+//    public ParameterDataModel getModel() {
+//        return model;
+//    }
+//
+//    public void CrearTablero(GridPane tableroJuego, String tema) {
+//        int filas = model.getTableroFilas();
+//        int columnas = model.getTableroColumnas();
+//        int id = 0;
+//        for (int i = 0; i < columnas; i++) {
+//            for (int j = 0; j < filas; j++) {
+//                Stack stack = new Stack(i, j);
+//                stack.setId(id);
+//                stack.setPrefWidth(100);
+//                stack.setPrefHeight(100);
+//                stack.setBorder(new Border(new BorderStroke(Color.BLUE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+//                setTema(stack, tema);
+//                tableroJuego.add(stack, i, j);
+//                stackis.add(stack);
+//                id++;
+//
+//            }
+//        }
+//    }
+//
+//    public void setTema(Stack stak, String tema) {
+//        Color color = null;
+//        if (tema == "oscuro") {
+//            color = Color.web("black");
+//        } else if (tema == "claro") {
+//            color = Color.web("white");
+//        }
+//        stak.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
+//    }
+//
+//    public ListaEnlazed<Stack> getStackis() {
+//        return stackis;
+//    }
+//
+//    public Stack getStack(int id) {
+//        return stackis.getElemento(id).getData();
+//    }
 
 
 

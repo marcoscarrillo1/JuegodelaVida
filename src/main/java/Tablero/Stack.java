@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
-public class Stack extends StackPane {
+public class Stack  {
     private Integer x,y;
     private boolean hayalguien;
     private int id;
@@ -15,7 +15,7 @@ public class Stack extends StackPane {
     private ListaEnlazed<Celdas> celdas=new ListaEnlazed<Celdas>();
     private ListaEnlazed<Individuo> individuos;
     private ListaEnlazed<Recursos> recursos;
-    GridPane grid;
+
     public Stack(int x, int y) {
         this.individuos = new ListaEnlazed<Individuo>();
         this.recursos = new ListaEnlazed<Recursos>();
@@ -52,13 +52,16 @@ public class Stack extends StackPane {
         this.recursos = recursos;
     }
     public Celdas getCelda(int id){
-        for (Node nodo: grid.getChildren()){
-            if(nodo instanceof Celdas){
-            Celdas celda=(Celdas) nodo;
-            if(Integer.parseInt(celda.getId())==id){
+        for(int i = 0; i<celdas.getNumeroElementos();i++){
+            Celdas celda = celdas.getElemento(i).getData();
+            if(celda.getId() == id){
                 return celda;
             }
-            }
-        }return null;
+        }
+return null;
+    }
+
+    public ListaEnlazed<Celdas> getCeldas() {
+        return celdas;
     }
 }

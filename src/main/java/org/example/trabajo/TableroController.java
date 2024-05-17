@@ -2,6 +2,7 @@ package org.example.trabajo;
 
 import Estructuras.ListaEnlazed;
 
+import Tablero.Celdas;
 import Tablero.Stack;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
@@ -29,6 +30,9 @@ public class TableroController {
         this.stage= stage;
 
     }
+    public void setButton(int finalI, int finalJ,int x, int y){
+
+    }
     @FXML
     public void CrearTablero() {
         int x = model.tableroFilasProperty().getValue().intValue();
@@ -44,15 +48,20 @@ public class TableroController {
                 celdaButton.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent actionEvent) {
-                        //onBotonCelda(finalI, finalJ);
+                        onBotonCelda(finalI, finalJ);
                     }
                 });
                 tableroJuego.add(celdaButton, finalI, finalJ - 1);
-                //stackis.getElemento(finalJ - 1).getData().getElemento(finalI).getData().setBoton(celdaButton);
+
 
             }
         }
     }
+
+    private void onBotonCelda(int finalI, int finalJ) {
+
+    }
+
     @FXML
     public void onBotonCerrar(){
         stage.close();
