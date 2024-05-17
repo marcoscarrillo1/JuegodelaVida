@@ -15,13 +15,12 @@
       <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_14_03__Changes_.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_14_06_[Changes]/shelved.patch" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_14_06__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/ControllerCeldita.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/CeldaView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_12_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_12_39__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_16_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_05_2024_16_24__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tablero/Celdas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tablero/Celdas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tablero/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tablero/Stack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tablero/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tablero/Tablero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/InicializadorControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/InicializadorControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/TableroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/TableroController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -163,7 +162,7 @@
       <workItem from="1715796392825" duration="31000" />
       <workItem from="1715796501679" duration="9500000" />
       <workItem from="1715940077147" duration="6624000" />
-      <workItem from="1715964307610" duration="10062000" />
+      <workItem from="1715964307610" duration="10637000" />
     </task>
     <task id="LOCAL-00001" summary="KLK">
       <option name="closed" value="true" />
@@ -261,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715970618180</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="KLK">
+      <option name="closed" value="true" />
+      <created>1715986963089</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715986963089</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

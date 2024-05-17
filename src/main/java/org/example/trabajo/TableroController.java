@@ -7,6 +7,8 @@ import Tablero.Stack;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -59,6 +61,22 @@ public class TableroController {
     }
 
     private void onBotonCelda(int finalI, int finalJ) {
+        try {
+            Stage stage = new Stage();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(Iniciadorjuego.class.getResource("CeldaView.fxml"));
+            stage.setTitle("Celda: "+finalI+","+finalJ);
+            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+
+            stage.setScene(scene);
+            ControllerCeldita controllerCeldita = fxmlLoader.getController();
+            controllerCeldita.setModel(model);
+            controllerCeldita.setStage(stage);
+
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

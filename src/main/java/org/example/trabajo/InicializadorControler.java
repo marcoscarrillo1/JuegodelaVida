@@ -10,7 +10,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class InicializadorControler {
+public class
+InicializadorControler {
     public Button cerrar;
     private ParameterDataModel model = new ParameterDataModel(4,6,7,8,9,7,3,1,4,6,8,7,8);
     private ParameterDataModelProperties model_observable = new ParameterDataModelProperties(model);
