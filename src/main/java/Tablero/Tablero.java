@@ -53,13 +53,13 @@ public class Tablero  {
 //        stak.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
 //    }
 //
-//    public ListaEnlazed<Stack> getStackis() {
-//        return stackis;
-//    }
+    public ListaEnlazed<Stack> getStackis() {
+        return stackis;
+    }
 //
-//    public Stack getStack(int id) {
-//        return stackis.getElemento(id).getData();
-//    }
+   public Stack getStack(int id) {
+        return stackis.getElemento(id).getData();
+    }
 
 
 

@@ -37,6 +37,7 @@ public class TableroController {
     }
     @FXML
     public void CrearTablero() {
+        ListaEnlazed<ListaEnlazed<TableroController>> listatablero=new ListaEnlazed<>();
         int x = model.tableroFilasProperty().getValue().intValue();
         int y = model.tableroColumnasProperty().getValue().intValue();
         for (int j = y; j > 0; j--) {
@@ -54,7 +55,6 @@ public class TableroController {
                     }
                 });
                 tableroJuego.add(celdaButton, finalI, finalJ - 1);
-
 
 
             }

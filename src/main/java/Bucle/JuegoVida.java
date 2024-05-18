@@ -6,16 +6,22 @@ import Individuo.IndividuoBasico;
 import Individuo.IndividuoNormal;
 import Individuo.IndividuoAvanzado;
 import Recursos.Recursos;
+import Recursos.Agua;
+import Recursos.Tesoro;
+import Recursos.Biblioteca;
+import Recursos.Comida;
+import Recursos.Montaña;
+import Recursos.Pozo;
 import Tablero.Tablero;
 import Tablero.Stack;
 import javafx.scene.layout.GridPane;
 
 import java.util.Random;
 
-public class JuegoVida  {}
+/*public class JuegoVida  {}
 
 
-    /*public  Tablero tablero;
+    public  Tablero tablero;
     private boolean juego;
 
     public JuegoVida(GridPane tablero) {
@@ -107,7 +113,7 @@ return 4;
 
 
   }
-  /*public void eliminarIndividuos(ListaEnlazed<Individuo> lista){
+  public void eliminarIndividuos(ListaEnlazed<Individuo> lista){
       ListaEnlazed<Individuo> todos= getIndiviuos();
       for(int i=0;i<lista.getNumeroElementos();i++){
           for(int j=0;j<todos.getNumeroElementos();j++){
@@ -126,95 +132,136 @@ return 4;
       clonacion();
       crearrecursos();
   }
-
-  public void individuoactualizado(){
-      ListaEnlazed<Stack> listastakis=tablero.getStackis();
-      for(int i=0;i<listastakis.getNumeroElementos();i++){
-          Stack actual=listastakis.getDatos(i);
-          Individuo individuo=actual.getIndividuos().getPrimero();
-          individuo.setTurnosVida(individuo.getTurnosVida()-1);
-          individuo.setClonacion(individuo.getClonacion()-10);
-          individuo.setReproducion(individuo.getReproducion()-10);
-          if(individuo.getTurnosVida()==0){
-              eliminarIndividuos(individuo);
-          }
-      }
-  }
-  public void recursoactivo(){
-      ListaEnlazed<Stack> listastakis=tablero.getStackis();
-      for(int i=0;i<listastakis.getNumeroElementos();i++){
-          Stack actual=listastakis.getDatos(i);
-          Recursos recurso=actual.getRecursos().getPrimero();
-          recurso.setTiempo(recurso.getTiempo()-1);
-          if(recurso.getTiempo()==0){
-              eliminarrecurso(recurso);
-          }
-      }
-  }
-  public void eliminarrecurso(){
-      ListaEnlazed<Recursos> todos=getRecursos();
-      ListaEnlazed<Recursos> lista=new ListaEnlazed<Recursos>();
-      for(int i=0;i<todos.getNumeroElementos();i++){
-          Recursos recurso=todos.getDatos(i);
-          if(recurso.getTiempo()==0){
-              int stackid=
-              int celdaid=
-              tablero.getStack(stackid).getCelda(celdaid).setHayalguien(false);
-          }for(int numrecursos=0;numrecursos<3;numrecursos++){
-              if(tablero.getStack(stackid).getRecursos().getDatos(numrecursos)==recurso){
-                  tablero.getStack(stackid).getRecursos().del(numrecursos);
-              }
-          }lista.add(recurso);
-
-      }eliminarrecurso(lista);
-  }
-
-
-  private void eliminarrecurso(ListaEnlazed<Recursos> list){
-      ListaEnlazed<Recursos> todos=getRecursos();
-      for(int i=0;i<list.getNumeroElementos();i++){
-          for(int j=0;j<todos.getNumeroElementos();j++){
-              if(list.getDatos(i)==todos.getDatos(j)){
-                  todos.del(j);
-              }
-          }
-      }
-  }
-  public void clonacion(){
-      ListaEnlazed<Stack> listastakis= tablero.getStackis();
+  public void crearrecursos(){
       Random random=new Random();
-      int x= random.nextInt(101);
-      for(int i=0;i<listastakis.getNumeroElementos();i++){
-          Stack actual= listastakis.getDatos(i);
-          Individuo individuo=actual.getIndividuos().getPrimero();
-          Individuo individuonuevo;
-          if(individuo.getClonacion()>x){
-              if(individuo.getTipo()==1){
-                  individuonuevo=new IndividuoBasico();
-              } else if (individuo.getTipo()==2) {
-                  individuonuevo=new IndividuoNormal();
-              }else{
-                  individuonuevo=new IndividuoAvanzado();
+      Agua agua=new Agua();
+      Biblioteca biblio=new Biblioteca();
+      Comida comida=new Comida();
+      Montaña montaña=new Montaña();
+      Pozo pozo=new Pozo();
+      Tesoro tesoro=new Tesoro();
+        for(int i=0;i<tablero.getStackis().getNumeroElementos();i++){
+            int x= random.nextInt(101);
+            if(x<agua.getProbabilidadagua()){
+                addRecursos(tablero.getStack(i));
+            }else if(x<biblio.getProbabilidadbiblio()){
+                addRecursos(tablero.getStack(i));
+            }else if(x<comida.getProbabilidadcomida()){
+                addRecursos(tablero.getStack(i));
+            }else if(x<montaña.getProbabilidadmontaña()){
+                addRecursos(tablero.getStack(i));
+            }else if(x<pozo.getProbabilidadpozo()){
+                addRecursos(tablero.getStack(i));
+            }else if(x<tesoro.getProbabilidadtesoro()){
+                addRecursos(tablero.getStack(i));
+            }
+        }
+  }
+  public void mejora() {
+      ListaEnlazed<Stack> listastakis = tablero.getStackis();
+      for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
+          Stack actual = listastakis.getDatos(i);
+          Individuo individuo = actual.getIndividuos().getElemento(0);
+          Recursos recurso = actual.getRecursos().getElemento(0);
+          if (individuo != null && recurso != null) {
+              if (recurso.getClass() == Agua.class) {
+                  recurso.Propiedad(individuo);
+              } else if (recurso.getClass() == Biblioteca.class) {
+                  recurso.Propiedad(individuo);
+              } else if (recurso.getClass() == Tesoro.class) {
+                  recurso.Propiedad(individuo);
+              } else if (recurso.getClass() == Pozo.class) {
+                  recurso.Propiedad(individuo);
+              } else if (recurso.getClass() == Montaña.class) {
+                  recurso.Propiedad(individuo);
+              } else if (recurso.getClass() == Comida.class) {
+                  recurso.Propiedad(individuo);
               }
           }
-       actual.getIndividuos().add(individuonuevo);
+
+
+      }
+  }
+
+
+      public void individuoactualizado () {
+          ListaEnlazed<Stack> listastakis = tablero.getStackis();
+          for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
+              Stack actual = listastakis.getDatos(i);
+              Individuo individuo = actual.getIndividuos().getPrimero();
+              individuo.setTurnosVida(individuo.getTurnosVida() - 1);
+              individuo.setClonacion(individuo.getClonacion() - 10);
+              individuo.setReproducion(individuo.getReproducion() - 10);
+              if (individuo.getTurnosVida() == 0) {
+                  eliminarIndividuos(individuo);
+              }
+          }
+      }
+      public void recursoactivo () {
+          ListaEnlazed<Stack> listastakis = tablero.getStackis();
+          for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
+              Stack actual = listastakis.getDatos(i);
+              Recursos recurso = actual.getRecursos().getPrimero();
+              recurso.setTiempo(recurso.getTiempo() - 1);
+              if (recurso.getTiempo() == 0) {
+                  eliminarrecurso(recurso);
+              }
+          }
+      }
+      public void eliminarrecurso () {
+          ListaEnlazed<Recursos> todos = getRecursos();
+          ListaEnlazed<Recursos> lista = new ListaEnlazed<Recursos>();
+          for (int i = 0; i < todos.getNumeroElementos(); i++) {
+              Recursos recurso = todos.getDatos(i);
+              if (recurso.getTiempo() == 0) {
+                  int stackid =
+                  int celdaid =
+                          tablero.getStack(stackid).getCelda(celdaid).setHayalguien(false);
+              } for (int numrecursos = 0; numrecursos < 3; numrecursos++) {
+                  if (tablero.getStack(stackid).getRecursos().getDatos(numrecursos) == recurso) {
+                      tablero.getStack(stackid).getRecursos().del(numrecursos);
+                  }
+              }
+              lista.add(recurso);
+
+          } eliminarrecurso(lista);
       }
 
 
+      private void eliminarrecurso (ListaEnlazed < Recursos > list) {
+          ListaEnlazed<Recursos> todos = getRecursos();
+          for (int i = 0; i < list.getNumeroElementos(); i++) {
+              for (int j = 0; j < todos.getNumeroElementos(); j++) {
+                  if (list.getDatos(i) == todos.getDatos(j)) {
+                      todos.del(j);
+                  }
+              }
+          }
+      }
+      public void clonacion () {
+          ListaEnlazed<Stack> listastakis = tablero.getStackis();
+          Random random = new Random();
+          int x = random.nextInt(101);
+          for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
+              Stack actual = listastakis.getDatos(i);
+              Individuo individuo = actual.getIndividuos().getPrimero();
+              Individuo individuonuevo;
+              if (individuo.getClonacion() > x) {
+                  if (individuo.getTipo() == 1) {
+                      individuonuevo = new IndividuoBasico();
+                  } else if (individuo.getTipo() == 2) {
+                      individuonuevo = new IndividuoNormal();
+                  } else {
+                      individuonuevo = new IndividuoAvanzado();
+                  }
+              }
+              actual.getIndividuos().add(individuonuevo);
+          }
 
 
+      }
+      public void acabar () {
 
-
-  }
-  public void acabar(){
-
-  }*/
-
-
-
-
-
-
-
-
+      }
+    */
 
