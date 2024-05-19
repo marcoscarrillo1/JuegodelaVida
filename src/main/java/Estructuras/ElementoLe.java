@@ -21,7 +21,9 @@ public class ElementoLe<T> {
     public ElementoLe<T> getSiguiente() {
         return siguiente;
     }
-
+    public T getsigui(){
+        return siguiente.getData();
+    }
     protected void setSiguiente(ElementoLe<T> siguiente) {
         this.siguiente = siguiente;
     }

@@ -14,17 +14,18 @@ import Recursos.Montaña;
 import Recursos.Pozo;
 import Tablero.Tablero;
 import Tablero.Stack;
+import Tablero.Celdas;
 import javafx.scene.layout.GridPane;
 
 import java.util.Random;
 
-/*public class JuegoVida  {}
+public class JuegoVida  {}
 
 
     public  Tablero tablero;
     private boolean juego;
 
-    public JuegoVida(GridPane tablero) {
+    public void JuegoVida(GridPane tablero) {
         this.tablero = new Tablero(tablero);
         this.juego = true;
 
@@ -53,7 +54,7 @@ import java.util.Random;
       for(int i=0;i<listastakis.getNumeroElementos();i++){
           Stack ahora=listastakis.getElemento(i).getData();
           if(ahora.getIndividuos().getNumeroElementos()==2){
-              Individuo paco=ahora.getIndividuos().getPrimero();
+              Individuo paco=ahora.getIndividuos().getDatos(0);
               Individuo jose=ahora.getIndividuos().getDatos(1);
               int probabilidad1=paco.getReproducion();
               int probabilidad2=jose.getReproducion();
@@ -161,8 +162,8 @@ return 4;
       ListaEnlazed<Stack> listastakis = tablero.getStackis();
       for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
           Stack actual = listastakis.getDatos(i);
-          Individuo individuo = actual.getIndividuos().getElemento(0);
-          Recursos recurso = actual.getRecursos().getElemento(0);
+          Individuo individuo = actual.getIndividuos().getDatos(0);
+          Recursos recurso = actual.getRecursos().getDatos(0);
           if (individuo != null && recurso != null) {
               if (recurso.getClass() == Agua.class) {
                   recurso.Propiedad(individuo);
@@ -188,7 +189,7 @@ return 4;
           ListaEnlazed<Stack> listastakis = tablero.getStackis();
           for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
               Stack actual = listastakis.getDatos(i);
-              Individuo individuo = actual.getIndividuos().getPrimero();
+              Individuo individuo = actual.getIndividuos().getDatos(0);
               individuo.setTurnosVida(individuo.getTurnosVida() - 1);
               individuo.setClonacion(individuo.getClonacion() - 10);
               individuo.setReproducion(individuo.getReproducion() - 10);
@@ -201,7 +202,7 @@ return 4;
           ListaEnlazed<Stack> listastakis = tablero.getStackis();
           for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
               Stack actual = listastakis.getDatos(i);
-              Recursos recurso = actual.getRecursos().getPrimero();
+              Recursos recurso = actual.getRecursos().getDatos(0);
               recurso.setTiempo(recurso.getTiempo() - 1);
               if (recurso.getTiempo() == 0) {
                   eliminarrecurso(recurso);
@@ -244,7 +245,7 @@ return 4;
           int x = random.nextInt(101);
           for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
               Stack actual = listastakis.getDatos(i);
-              Individuo individuo = actual.getIndividuos().getPrimero();
+              Individuo individuo = actual.getIndividuos().getDatos(0);
               Individuo individuonuevo;
               if (individuo.getClonacion() > x) {
                   if (individuo.getTipo() == 1) {
@@ -263,5 +264,5 @@ return 4;
       public void acabar () {
 
       }
-    */
 
+*/

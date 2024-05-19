@@ -123,6 +123,19 @@ public class ListaEnlazed<T> {
         }
 
     }
+    public T getDatos(int pos){
+        if (pos<0||pos>getNumeroElementos()) {
+            return null;
+        }else {
+            ElementoLe<T> Elemento = this.primero;
+            int contador=0;
+            while (contador<pos && Elemento!=null) {
+                Elemento = Elemento.getSiguiente();
+                contador++;
+            }
+            return Elemento.getData();
+        }
+    }
     public int del(int pos){
         int contador = 0;
         if (isVacia()) {
