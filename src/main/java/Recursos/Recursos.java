@@ -15,6 +15,9 @@ public  abstract class  Recursos {
         p=Probabilidad;
 
     }
+    public Recursos(){
+
+    }
 
     public int getCordenadax() {
         return cordenadax;

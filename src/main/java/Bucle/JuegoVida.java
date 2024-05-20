@@ -26,7 +26,7 @@ public class JuegoVida  {}
     private boolean juego;
 
     public void JuegoVida(GridPane tablero) {
-        this.tablero = new Tablero(tablero);
+        this.tablero = ;
         this.juego = true;
 
     }
@@ -75,7 +75,7 @@ public class JuegoVida  {}
                   } else if (tipohijo==2) {
                     elnuevo=new IndividuoNormal();
                   }else {
-                      tipohijo=new IndividuoAvanzado();
+                      elnuevo=new IndividuoAvanzado();
                   }
                   ahora.getIndividuos().add(elnuevo);
 
@@ -144,7 +144,7 @@ return 4;
         for(int i=0;i<tablero.getStackis().getNumeroElementos();i++){
             int x= random.nextInt(101);
             if(x<agua.getProbabilidadagua()){
-                addRecursos(tablero.getStack(i));
+                addRecursos(tablero.getStack(i).getCelda(0));
             }else if(x<biblio.getProbabilidadbiblio()){
                 addRecursos(tablero.getStack(i));
             }else if(x<comida.getProbabilidadcomida()){
@@ -187,6 +187,7 @@ return 4;
 
       public void individuoactualizado () {
           ListaEnlazed<Stack> listastakis = tablero.getStackis();
+          ListaEnlazed<Individuo> listaaborrar=new ListaEnlazed<>();
           for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
               Stack actual = listastakis.getDatos(i);
               Individuo individuo = actual.getIndividuos().getDatos(0);
@@ -194,20 +195,21 @@ return 4;
               individuo.setClonacion(individuo.getClonacion() - 10);
               individuo.setReproducion(individuo.getReproducion() - 10);
               if (individuo.getTurnosVida() == 0) {
-                  eliminarIndividuos(individuo);
+                  listaaborrar.add(individuo);
               }
-          }
+          } eliminarIndividuos(listaaborrar);
       }
       public void recursoactivo () {
           ListaEnlazed<Stack> listastakis = tablero.getStackis();
+          ListaEnlazed<Recursos> listarecurso=new ListaEnlazed<>();
           for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
               Stack actual = listastakis.getDatos(i);
               Recursos recurso = actual.getRecursos().getDatos(0);
               recurso.setTiempo(recurso.getTiempo() - 1);
               if (recurso.getTiempo() == 0) {
-                  eliminarrecurso(recurso);
+                  listarecurso.add(recurso);
               }
-          }
+          }eliminarrecurso(listarecurso);
       }
       public void eliminarrecurso () {
           ListaEnlazed<Recursos> todos = getRecursos();

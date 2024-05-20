@@ -11,6 +11,10 @@ public class Agua extends Recursos {
         this.probabilidadagua=Pagua;
 
     }
+    public Agua(){
+        super();
+    }
+
 
     public int getProbabilidadagua() {
         return probabilidadagua;

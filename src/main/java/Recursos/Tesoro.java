@@ -8,6 +8,9 @@ public class Tesoro extends Recursos{
     public Tesoro(int x, int y,  int t, int p) {
         super(x, y, t, p);
     }
+    public Tesoro(){
+        super();
+    }
     @Override
     public void Propiedad(Individuo individuo){
         Random random= new Random();

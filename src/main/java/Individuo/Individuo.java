@@ -20,6 +20,9 @@ public abstract class Individuo  {
         this.muerte = muerte;
         this.tipo = tipo;
     }
+    public Individuo(){
+
+    }
 
     public int getTipo() {
         return tipo;

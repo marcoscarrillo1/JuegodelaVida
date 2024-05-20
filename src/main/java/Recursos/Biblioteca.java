@@ -8,6 +8,9 @@ public class Biblioteca extends Recursos{
         super(x, y, t, p);
         probabilidadbiblio = pB;
     }
+    public Biblioteca(){
+        super();
+    }
 
     public int getProbabilidadbiblio() {
         return probabilidadbiblio;
