@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_05_2024_9_38_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_05_2024_9_38__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_05_2024_17_40_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_05_2024_17_40__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_14_03_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_14_03__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_14_06_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_14_06__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tablero/Celdas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tablero/Celdas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tablero/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tablero/Stack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/ControllerCeldita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/ControllerCeldita.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/TableroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/TableroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bucle/JuegoVida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bucle/JuegoVida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/Individuo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -16,13 +16,14 @@ import Tablero.Tablero;
 import Tablero.Stack;
 import Tablero.Celdas;
 import javafx.scene.layout.GridPane;
+import org.example.trabajo.TableroController;
 
 import java.util.Random;
 
 public class JuegoVida  {}
 
 
-    public  Tablero tablero;
+    public Tablero tablero;
     private boolean juego;
 
     public void JuegoVida(GridPane tablero) {
@@ -115,7 +116,7 @@ return 4;
 
   }
   public void eliminarIndividuos(ListaEnlazed<Individuo> lista){
-      ListaEnlazed<Individuo> todos= getIndiviuos();
+      ListaEnlazed<Individuo> todos=new ListaEnlazed<Individuo>();
       for(int i=0;i<lista.getNumeroElementos();i++){
           for(int j=0;j<todos.getNumeroElementos();j++){
               if(lista.getDatos(i).getIdentificador()==todos.getDatos(j).getIdentificador()){
@@ -212,7 +213,7 @@ return 4;
           }eliminarrecurso(listarecurso);
       }
       public void eliminarrecurso () {
-          ListaEnlazed<Recursos> todos = getRecursos();
+          ListaEnlazed<Recursos> todos = ();
           ListaEnlazed<Recursos> lista = new ListaEnlazed<Recursos>();
           for (int i = 0; i < todos.getNumeroElementos(); i++) {
               Recursos recurso = todos.getDatos(i);
@@ -232,7 +233,7 @@ return 4;
 
 
       private void eliminarrecurso (ListaEnlazed < Recursos > list) {
-          ListaEnlazed<Recursos> todos = getRecursos();
+          ListaEnlazed<Recursos> todos =list.
           for (int i = 0; i < list.getNumeroElementos(); i++) {
               for (int j = 0; j < todos.getNumeroElementos(); j++) {
                   if (list.getDatos(i) == todos.getDatos(j)) {
@@ -246,7 +247,7 @@ return 4;
           Random random = new Random();
           int x = random.nextInt(101);
           for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
-              Stack actual = listastakis.getDatos(i);
+              Stack actual = listastakis.getElemento(i).getData();
               Individuo individuo = actual.getIndividuos().getDatos(0);
               Individuo individuonuevo;
               if (individuo.getClonacion() > x) {

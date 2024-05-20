@@ -1,6 +1,7 @@
 package Individuo;
 
 import Tablero.Celdas;
+import org.example.trabajo.ParameterDataModel;
 
 public abstract class Individuo  {
     protected int identificador;
@@ -10,6 +11,7 @@ public abstract class Individuo  {
     protected int clonacion;
     protected int muerte;
     protected int tipo;
+    private ParameterDataModel datos;
 
     public Individuo(int identificador, int generacion, int turnosVida, int reproducion, int clonacion, int muerte, int tipo) {
         this.identificador = identificador;
@@ -22,6 +24,14 @@ public abstract class Individuo  {
     }
     public Individuo(){
 
+    }
+
+    public ParameterDataModel getDatos() {
+        return datos;
+    }
+
+    public void setDatos(ParameterDataModel datos) {
+        this.datos = datos;
     }
 
     public int getTipo() {
