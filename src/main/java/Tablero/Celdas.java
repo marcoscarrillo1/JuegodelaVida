@@ -13,6 +13,8 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
+import java.util.Random;
+
 public class Celdas  {
     private Button boton;
     private int x,y;
@@ -76,6 +78,7 @@ public class Celdas  {
     public void setIndividuoListaEnlazed(ListaEnlazed<Individuo> individuoListaEnlazed) {
         this.individuoListaEnlazed = individuoListaEnlazed;
     }
+
 
 
 

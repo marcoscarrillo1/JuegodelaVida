@@ -125,6 +125,112 @@ public class JuegoVida {
 
 
     }
+    public void getcaminobasico(){
+        for(int j=0;j< tablero.getCeldas().getNumeroElementos();j++) {
+            for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
+                if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData().getTipo() == 1) {
+                    Random random = new Random();
+                    int dir = random.nextInt(1, 8);
+                    if (dir == 1) {
+                       int newY= tablero.getCeldas().getElemento(j).getData().getY() -1;
+                       int newX=tablero.getCeldas().getElemento(j).getData().getX();
+                        for(int x=0; x<tablero.getCeldas().getNumeroElementos();x++){
+                            if(tablero.getCeldas().getElemento(x).getData().getY()==newY&&tablero.getCeldas().getElemento(x).getData().getX()==newX){
+                                tablero.getCeldas().getElemento(x).getData().getIndividuoListaEnlazed().add(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i));
+
+                            }
+                        }
+                        tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
+                    } else if (dir==2) {
+                        int newY= tablero.getCeldas().getElemento(j).getData().getY() -1;
+                        int newX=tablero.getCeldas().getElemento(j).getData().getX()+1;
+                        for(int x=0; x<tablero.getCeldas().getNumeroElementos();x++){
+                            if(tablero.getCeldas().getElemento(x).getData().getY()==newY&&tablero.getCeldas().getElemento(x).getData().getX()==newX){
+                                tablero.getCeldas().getElemento(x).getData().getIndividuoListaEnlazed().add(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i));
+
+                            }
+                        }
+                        tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
+
+
+                    } else if (dir==3) {
+                        int newY= tablero.getCeldas().getElemento(j).getData().getY();
+                        int newX=tablero.getCeldas().getElemento(j).getData().getX()+1;
+                        for(int x=0; x<tablero.getCeldas().getNumeroElementos();x++){
+                            if(tablero.getCeldas().getElemento(x).getData().getY()==newY&&tablero.getCeldas().getElemento(x).getData().getX()==newX){
+                                tablero.getCeldas().getElemento(x).getData().getIndividuoListaEnlazed().add(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i));
+
+                            }
+                        }
+                        tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
+
+
+                    } else if (dir==4) {
+                        int newY= tablero.getCeldas().getElemento(j).getData().getY() +1;
+                        int newX=tablero.getCeldas().getElemento(j).getData().getX()+1;
+                        for(int x=0; x<tablero.getCeldas().getNumeroElementos();x++){
+                            if(tablero.getCeldas().getElemento(x).getData().getY()==newY&&tablero.getCeldas().getElemento(x).getData().getX()==newX){
+                                tablero.getCeldas().getElemento(x).getData().getIndividuoListaEnlazed().add(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i));
+
+                            }
+                        }
+                        tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
+
+
+                    } else if (dir==5) {
+                        int newY= tablero.getCeldas().getElemento(j).getData().getY()+1;
+                        int newX=tablero.getCeldas().getElemento(j).getData().getX();
+                        for(int x=0; x<tablero.getCeldas().getNumeroElementos();x++){
+                            if(tablero.getCeldas().getElemento(x).getData().getY()==newY&&tablero.getCeldas().getElemento(x).getData().getX()==newX){
+                                tablero.getCeldas().getElemento(x).getData().getIndividuoListaEnlazed().add(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i));
+
+                            }
+                        }
+                        tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
+
+
+                    } else if (dir==6) {
+                        int newY= tablero.getCeldas().getElemento(j).getData().getY() +1;
+                        int newX=tablero.getCeldas().getElemento(j).getData().getX()-1;
+                        for(int x=0; x<tablero.getCeldas().getNumeroElementos();x++){
+                            if(tablero.getCeldas().getElemento(x).getData().getY()==newY&&tablero.getCeldas().getElemento(x).getData().getX()==newX){
+                                tablero.getCeldas().getElemento(x).getData().getIndividuoListaEnlazed().add(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i));
+
+                            }
+                        }
+                        tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
+
+
+                    } else if (dir==7) {
+                        int newY= tablero.getCeldas().getElemento(j).getData().getY();
+                        int newX=tablero.getCeldas().getElemento(j).getData().getX()-1;
+                        for(int x=0; x<tablero.getCeldas().getNumeroElementos();x++){
+                            if(tablero.getCeldas().getElemento(x).getData().getY()==newY&&tablero.getCeldas().getElemento(x).getData().getX()==newX){
+                                tablero.getCeldas().getElemento(x).getData().getIndividuoListaEnlazed().add(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i));
+
+                            }
+                        }
+                        tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
+
+
+                    } else if (dir==8) {
+                        int newY= tablero.getCeldas().getElemento(j).getData().getY() +1;
+                        int newX=tablero.getCeldas().getElemento(j).getData().getX()-1;
+                        for(int x=0; x<tablero.getCeldas().getNumeroElementos();x++){
+                            if(tablero.getCeldas().getElemento(x).getData().getY()==newY&&tablero.getCeldas().getElemento(x).getData().getX()==newX){
+                                tablero.getCeldas().getElemento(x).getData().getIndividuoListaEnlazed().add(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i));
+
+                            }
+                        }
+                        tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
+
+
+                    }
+                }
+            }
+        }
+
+    }
 
     public void crearrecursos() {
         Random random = new Random();

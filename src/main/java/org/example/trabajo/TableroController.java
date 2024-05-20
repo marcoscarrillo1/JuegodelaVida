@@ -19,7 +19,7 @@ public class TableroController {
     public GridPane tableroJuego;
     private ParameterDataModelProperties model;
     private Stage stage;
-    public ListaEnlazed<Celdas> celdas = new ListaEnlazed<Celdas>();
+    public ListaEnlazed<Celdas> celdas = new ListaEnlazed<>();
 
     String tema;
 

@@ -19,6 +19,10 @@ public class IndividuoBasico extends Individuo {
     @Override
     public void mover(int maxcolumnas, int maxfilas, Celdas[][] matriz) {
         Random random= new Random();
+        int dir= random.nextInt(8);
+        if(dir==1){
+
+        }
     }
 
     @Override
