@@ -100,6 +100,9 @@ public abstract class Individuo  {
     public void Recorrido(){
 
     }
+    public void mover(){
+
+    }
 }
 
 

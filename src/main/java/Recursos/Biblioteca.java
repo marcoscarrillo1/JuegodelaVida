@@ -1,11 +1,12 @@
 package Recursos;
 import Individuo.Individuo;
+import Tablero.Celdas;
 
 import java.util.Random;
 public class Biblioteca extends Recursos{
     protected int probabilidadbiblio;
-    public Biblioteca(int x, int y, int t, int p,int pB) {
-        super(x, y, t, p);
+    public Biblioteca(Celdas y, int t, int p, int pB) {
+        super(y, t, p);
         probabilidadbiblio = pB;
     }
     public Biblioteca(){

@@ -1,11 +1,12 @@
 package Recursos;
 
 import Individuo.Individuo;
+import Tablero.Celdas;
 
 public class Montaña  extends Recursos{
     public int probabilidadmontaña;
-    public Montaña(int x, int y, int t, int p) {
-        super(x, y, t, p);
+    public Montaña(Celdas x, int t, int p) {
+        super(x, t, p);
     }
     public Montaña(){
         super();

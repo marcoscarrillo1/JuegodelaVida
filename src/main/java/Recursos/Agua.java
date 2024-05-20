@@ -1,13 +1,14 @@
 package Recursos;
 
 import Individuo.Individuo;
+import Tablero.Celdas;
 
 public class Agua extends Recursos {
 
     protected   int probabilidadagua;
 
-    public Agua(int x, int y, int t,int p, int Pagua) {
-        super(x, y,t,p);
+    public Agua(Celdas x, int t, int p, int Pagua) {
+        super(x,t,p);
         this.probabilidadagua=Pagua;
 
     }

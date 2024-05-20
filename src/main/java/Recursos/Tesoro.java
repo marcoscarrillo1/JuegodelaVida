@@ -1,12 +1,13 @@
 package Recursos;
 import Individuo.Individuo;
+import Tablero.Celdas;
 
 import java.util.Random;
 
 public class Tesoro extends Recursos{
     int probabilidadtesoro;
-    public Tesoro(int x, int y,  int t, int p) {
-        super(x, y, t, p);
+    public Tesoro(Celdas x , int t, int p) {
+        super(x, t, p);
     }
     public Tesoro(){
         super();

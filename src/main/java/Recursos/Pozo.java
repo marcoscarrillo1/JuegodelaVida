@@ -1,11 +1,12 @@
 package Recursos;
 
 import Individuo.Individuo;
+import Tablero.Celdas;
 
 public class Pozo extends Recursos{
     int probabilidadpozo;
-    public Pozo(int x, int y, int t, int p) {
-        super(x, y, t, p);
+    public Pozo(Celdas x, int t, int p) {
+        super(x, t, p);
     }
     public Pozo(){
         super();

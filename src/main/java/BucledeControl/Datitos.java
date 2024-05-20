@@ -1,4 +1,4 @@
-package Bucle;
+package BucledeControl;
 
 public class Datitos {
     int mutacioones;

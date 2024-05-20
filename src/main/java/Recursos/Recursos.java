@@ -1,16 +1,15 @@
 package Recursos;
 
 import Individuo.Individuo;
+import Tablero.Celdas;
 
 public  abstract class  Recursos {
-    protected int cordenadax;
-    protected int cordenaday;
+    protected Celdas celda;
     protected int Tiempo;
     protected int Probabilidad;
 
-    public Recursos(int x, int y, int t,int p){
-        x=cordenadax;
-        y=cordenaday;
+    public Recursos(Celdas x, int t,int p){
+       x=celda;
         t=Tiempo;
         p=Probabilidad;
 
@@ -19,24 +18,13 @@ public  abstract class  Recursos {
 
     }
 
-    public int getCordenadax() {
-        return cordenadax;
+    public Celdas getCelda() {
+        return celda;
     }
 
-    public int getCordenaday() {
-        return cordenaday;
+    public void setCelda(Celdas celda) {
+        this.celda = celda;
     }
-
-
-
-    public void setCordenadax(int cordenadax) {
-        this.cordenadax = cordenadax;
-    }
-
-    public void setCordenaday(int cordenaday) {
-        this.cordenaday = cordenaday;
-    }
-
 
     public int getTiempo() {
         return Tiempo;

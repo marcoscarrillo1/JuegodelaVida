@@ -1,11 +1,12 @@
 package Recursos;
 
 import Individuo.Individuo;
+import Tablero.Celdas;
 
 public class Comida extends Recursos{
     public int probabilidadcomida;
-    public Comida(int x, int y, int t, int p) {
-        super(x, y, t, p);
+    public Comida(Celdas y, int t, int p) {
+        super(y, t, p);
     }
     public Comida(){
         super();

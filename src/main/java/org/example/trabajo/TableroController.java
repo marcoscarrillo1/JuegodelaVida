@@ -84,6 +84,9 @@ public class TableroController {
     public ListaEnlazed<Celdas> getCeldas() {
         return celdas;
     }
+    public Celdas getcelditas(int id){
+        return celdas.getElemento(id).getData();
+    }
 
     @FXML
     public void onBotonCerrar(){
