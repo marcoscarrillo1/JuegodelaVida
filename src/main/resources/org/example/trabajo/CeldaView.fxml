@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.trabajo.ControllerCeldita"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane blendMode="ADD" prefHeight="399.0" prefWidth="441.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.trabajo.ControllerCeldita">
+   <children>
+      <Button fx:id="delBasico" layoutX="179.0" layoutY="83.0" mnemonicParsing="false" text="-" />
+      <Button fx:id="addBasico" layoutX="248.0" layoutY="83.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="delNormal" layoutX="179.0" layoutY="120.0" mnemonicParsing="false" text="-" />
+      <Button fx:id="addNormal" layoutX="248.0" layoutY="120.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="delAvanzado" layoutX="179.0" layoutY="160.0" mnemonicParsing="false" text="-" />
+      <Button fx:id="addAvanzado" layoutX="248.0" layoutY="160.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="delAgua" layoutX="73.0" layoutY="267.0" mnemonicParsing="false" text="-" />
+      <Button fx:id="addAgua" layoutX="72.0" layoutY="310.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="delMontaña" layoutX="340.0" layoutY="267.0" mnemonicParsing="false" text="-" />
+      <Button fx:id="addMontana" layoutX="339.0" layoutY="310.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="delBiblioteca" layoutX="276.0" layoutY="267.0" mnemonicParsing="false" text="-" />
+      <Button fx:id="addBiblioteca" layoutX="275.0" layoutY="310.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="delTesoro" layoutX="219.0" layoutY="267.0" mnemonicParsing="false" text="-" />
+      <Button fx:id="addTesoro" layoutX="218.0" layoutY="310.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="delPozo" layoutX="169.0" layoutY="267.0" mnemonicParsing="false" text="-" />
+      <Button fx:id="addPozo" layoutX="168.0" layoutY="310.0" mnemonicParsing="false" text="+" />
+      <Button fx:id="delComida" layoutX="125.0" layoutY="267.0" mnemonicParsing="false" text="-" />
+      <Button fx:id="addComida" layoutX="124.0" layoutY="310.0" mnemonicParsing="false" text="+" />
+      <Label layoutX="70.0" layoutY="241.0" text="Agua" />
+      <Label layoutX="115.0" layoutY="241.0" text="Comida" />
+      <Label layoutX="166.0" layoutY="241.0" text="Pozo" />
+      <Label layoutX="212.0" layoutY="241.0" text="Tesoro" />
+      <Label layoutX="261.0" layoutY="241.0" text="Biblioteca" />
+      <Label layoutX="328.0" layoutY="241.0" text="Montaña" />
+      <Label fx:id="numAgua" layoutX="70.0" layoutY="343.0" text="Label" />
+      <Label fx:id="numComida" layoutX="122.0" layoutY="343.0" text="Label" />
+      <Label fx:id="numPozo" layoutX="166.0" layoutY="343.0" text="Label" />
+      <Label fx:id="numTesoro" layoutX="216.0" layoutY="343.0" text="Label" />
+      <Label fx:id="numBiblioteca" layoutX="273.0" layoutY="343.0" text="Label" />
+      <Label fx:id="numMontana" layoutX="340.0" layoutY="343.0" text="Label" />
+      <Label layoutX="177.0" layoutY="200.0" text="Recursos">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="170.0" layoutY="41.0" text="Individuos">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="122.0" layoutY="87.0" text="Basico" />
+      <Label layoutX="122.0" layoutY="124.0" text="Normal" />
+      <Label layoutX="116.0" layoutY="164.0" text="Avanzado" />
+      <Label fx:id="numBasico" layoutX="285.0" layoutY="87.0" text="Label" />
+      <Label fx:id="numNormal" layoutX="286.0" layoutY="124.0" text="Label" />
+      <Label fx:id="numAvanzado" layoutX="287.0" layoutY="164.0" text="Label" />
+      <Button fx:id="infoBasico" layoutX="212.0" layoutY="83.0" mnemonicParsing="false" text="?" />
+      <Button fx:id="infoNormal" layoutX="212.0" layoutY="120.0" mnemonicParsing="false" text="?" />
+      <Button fx:id="infoAvanzado" layoutX="212.0" layoutY="160.0" mnemonicParsing="false" text="?" />
+      <Label layoutX="215.0" layoutY="187.0" text="Info">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

@@ -38,7 +38,7 @@ public class TableroController {
 
         int x = model.tableroFilasProperty().getValue().intValue();
         int y = model.tableroColumnasProperty().getValue().intValue();
-        for (int j = 1; j <= y; j++) {
+        for (int j = 0; j < y; j++) {
             for (int i = 0; i < x; i++) {
                 Button celdaButton = new Button();
                 celdaButton.setMinSize((double) 500/ x, (double) 500 / y);
@@ -46,12 +46,7 @@ public class TableroController {
                 celdaButton.setStyle("-fx-border-color: #000000; -fx-text-alignment: center;");
                 int finalI = i;
                 int finalJ = j;
-                celdaButton.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent actionEvent) {
-                        onBotonCelda(finalI, finalJ);
-                    }
-                });
+                celdaButton.setOnAction(actionEvent -> onBotonCelda(finalI, finalJ));
                 tableroJuego.add(celdaButton, finalI, finalJ );
                 Celdas celdita = new Celdas(finalI,finalJ);
                 celdas.add(celdita);
@@ -72,6 +67,8 @@ public class TableroController {
             stage.setScene(scene);
             ControllerCeldita controllerCeldita = fxmlLoader.getController();
             controllerCeldita.setModel(model);
+            controllerCeldita.setXY(finalI,finalJ);
+            controllerCeldita.setCeldas(celdas);
             controllerCeldita.setStage(stage);
 
             stage.show();
