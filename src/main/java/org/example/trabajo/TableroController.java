@@ -19,7 +19,7 @@ public class TableroController {
     public GridPane tableroJuego;
     private ParameterDataModelProperties model;
     private Stage stage;
-    public ListaEnlazed<Stack> stackis = new ListaEnlazed<Stack>();
+    public ListaEnlazed<Celdas> celdas = new ListaEnlazed<Celdas>();
 
     String tema;
 
@@ -32,15 +32,13 @@ public class TableroController {
         this.stage= stage;
 
     }
-    public void setButton(int finalI, int finalJ,int x, int y){
 
-    }
     @FXML
     public void CrearTablero() {
-        ListaEnlazed<ListaEnlazed<TableroController>> listatablero=new ListaEnlazed<>();
+
         int x = model.tableroFilasProperty().getValue().intValue();
         int y = model.tableroColumnasProperty().getValue().intValue();
-        for (int j = y; j > 0; j--) {
+        for (int j = 1; j <= y; j++) {
             for (int i = 0; i < x; i++) {
                 Button celdaButton = new Button();
                 celdaButton.setMinSize((double) 500/ x, (double) 500 / y);
@@ -54,7 +52,9 @@ public class TableroController {
                         onBotonCelda(finalI, finalJ);
                     }
                 });
-                tableroJuego.add(celdaButton, finalI, finalJ - 1);
+                tableroJuego.add(celdaButton, finalI, finalJ );
+                Celdas celdita = new Celdas(finalI,finalJ);
+                celdas.add(celdita);
 
 
             }
@@ -79,6 +79,10 @@ public class TableroController {
             e.printStackTrace();
         }
 
+    }
+
+    public ListaEnlazed<Celdas> getCeldas() {
+        return celdas;
     }
 
     @FXML

@@ -16,51 +16,6 @@ import javafx.scene.paint.Color;
 public class Celdas  {
     private Button boton;
     private int x,y;
-    private double tipo=0;
-    private int id;
-    private boolean hayalguien;
-    public Celdas(int x, int y){
-        this.x=x;
-        this.y=y;
-        this.hayalguien=false;
-    }
-    public void setBoton(Button boton){
-        this.boton=boton;
-    }
-
-    public double getTipo() {
-        return tipo;
-    }
-
-
-    public boolean isHayalguien() {
-        return hayalguien;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setTipo(double tipo) {
-        this.tipo = tipo;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setHayalguien(boolean hayalguien) {
-        this.hayalguien = hayalguien;
-    }
-    public void setColor(Color color){
-        boton.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY
-        , Insets.EMPTY)));
-    }
-
     private ListaEnlazed<Recursos> recursosListaEnlazed = new ListaEnlazed<Recursos>();
     private ListaEnlazed<Individuo> individuoListaEnlazed = new ListaEnlazed<Individuo>();
 
@@ -72,6 +27,48 @@ public class Celdas  {
         return individuoListaEnlazed;
     }
 
+    private boolean hayalguien;
+
+    public Celdas(int x, int y){
+        this.x=x;
+        this.y=y;
+        this.hayalguien=false;
+    }
+    public void setBoton(Button boton){
+        this.boton=boton;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public boolean isHayalguien() {
+        if (recursosListaEnlazed.isVacia() && individuoListaEnlazed.isVacia()){
+            setHayalguien(false);
+            return hayalguien;
+        }else {
+            return true;
+        }
+
+    }
+
+
+
+
+    public void setHayalguien(boolean hayalguien) {
+        this.hayalguien = hayalguien;
+    }
+    public void setColor(Color color){
+        boton.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY
+        , Insets.EMPTY)));
+    }
+
+
+
     public void setRecursosListaEnlazed(ListaEnlazed<Recursos> recursosListaEnlazed) {
         this.recursosListaEnlazed = recursosListaEnlazed;
     }
@@ -79,6 +76,7 @@ public class Celdas  {
     public void setIndividuoListaEnlazed(ListaEnlazed<Individuo> individuoListaEnlazed) {
         this.individuoListaEnlazed = individuoListaEnlazed;
     }
+
 
 
 

@@ -28,25 +28,25 @@ public class ControllerCeldita {
     public Stage getStage() {
         return stage;
     }
-    @FXML
-    protected void onBottonAgua(){
-        if(celdacontroller.RecursosisCompleto==Boolean.FALSE) {
-        }else{
-         celdacontroller.getRecursosListaEnlazed().add(agua);
-         agua.setDatos(recurso)
-            }
-
-    }
-    @FXML
-    protected void onBottonIndividuoBasico(){
-        if(celdacontroller.Individuosiscompleto()==Boolean.TRUE){
-            System.out.println("No se añade");
-        }else{
-            celdacontroller.getIndividuoListaEnlazed().add(Individuobasico);
-            System.out.println("Se añade");
-            Individuobasico.setDatos(individuosc)
-        }
-    }
+//    @FXML
+//    protected void onBottonAgua(){
+//        if(celdacontroller.RecursosisCompleto==Boolean.FALSE) {
+//        }else{
+//         celdacontroller.getRecursosListaEnlazed().add(agua);
+//         agua.setDatos(recurso)
+//            }
+//
+//    }
+//    @FXML
+//    protected void onBottonIndividuoBasico(){
+//        if(celdacontroller.Individuosiscompleto()==Boolean.TRUE){
+//            System.out.println("No se añade");
+//        }else{
+//            celdacontroller.getIndividuoListaEnlazed().add(Individuobasico);
+//            System.out.println("Se añade");
+//            Individuobasico.setDatos(individuosc);
+//        }
+//    }
 
     public void setStage(Stage stage) {
         this.stage = stage;

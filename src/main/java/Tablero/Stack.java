@@ -10,9 +10,7 @@ import javafx.scene.paint.Color;
 public class Stack  {
     private Integer x,y;
     private boolean hayalguien;
-    private int id;
 
-    private ListaEnlazed<Celdas> celdas=new ListaEnlazed<Celdas>();
     private ListaEnlazed<Individuo> individuos;
     private ListaEnlazed<Recursos> recursos;
 
@@ -22,6 +20,11 @@ public class Stack  {
         this.x = x;
         this.y = y;
         this.hayalguien = false;
+    }
+
+    public Stack(Integer x, Integer y) {
+        this.x = x;
+        this.y = y;
     }
 
     public Integer getX() {
@@ -40,9 +43,6 @@ public class Stack  {
         return recursos;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public void setIndividuos(ListaEnlazed<Individuo> individuos) {
         this.individuos = individuos;
@@ -51,17 +51,5 @@ public class Stack  {
     public void setRecursos(ListaEnlazed<Recursos> recursos) {
         this.recursos = recursos;
     }
-    public Celdas getCelda(int id){
-        for(int i = 0; i<celdas.getNumeroElementos();i++){
-            Celdas celda = celdas.getElemento(i).getData();
-            if(celda.getId() == id){
-                return celda;
-            }
-        }
-return null;
-    }
 
-    public ListaEnlazed<Celdas> getCeldas() {
-        return celdas;
-    }
 }
