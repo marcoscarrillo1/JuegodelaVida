@@ -36,6 +36,9 @@ public class Celdas  {
         this.y=y;
         this.hayalguien=false;
     }
+    public Celdas(){
+
+    }
     public void setBoton(Button boton){
         this.boton=boton;
     }

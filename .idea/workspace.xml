@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_05_2024_9_38_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_05_2024_9_38__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_05_2024_17_40_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_05_2024_17_40__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_14_03_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_14_03__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_14_06_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_14_06__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BucledeControl/JuegoVida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BucledeControl/JuegoVida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/Individuo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/Individuo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/ControllerCeldita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/ControllerCeldita.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/TableroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/TableroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/CeldaView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/CeldaView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoAvanzado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoAvanzado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoBasico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoBasico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Individuo/IndividuoNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tablero/Celdas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tablero/Celdas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/Pantallainicial.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/Pantallainicial.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,30 +49,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Iniciadorjuego.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gabri/IdeaProjects/JuegodelaVida/src/main/resources/Imagenes&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Iniciadorjuego.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "true",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/gabri/IdeaProjects/JuegodelaVida/src/main/resources/Imagenes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.trabajo" />
@@ -163,6 +157,7 @@
       <workItem from="1716016446116" duration="22000" />
       <workItem from="1716116987553" duration="1578000" />
       <workItem from="1716224255990" duration="1920000" />
+      <workItem from="1716290496588" duration="8413000" />
     </task>
     <task id="LOCAL-00001" summary="KLK">
       <option name="closed" value="true" />

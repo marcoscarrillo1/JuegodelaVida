@@ -10,16 +10,26 @@ public abstract class Individuo  {
     protected int reproducion;
     protected int clonacion;
     protected int muerte;
+    protected Celdas ruta;
+
+    public Celdas getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(Celdas ruta) {
+        this.ruta = ruta;
+    }
+
     protected int tipo;
     private ParameterDataModel datos;
 
-    public Individuo(int identificador, int generacion, int turnosVida, int reproducion, int clonacion, int muerte, int tipo) {
+    public Individuo(int identificador, int generacion, int turnosVida, int reproducion, int clonacion, Celdas ruta, int tipo) {
         this.identificador = identificador;
         this.generacion = generacion;
         this.turnosVida = turnosVida;
         this.reproducion = reproducion;
         this.clonacion = clonacion;
-        this.muerte = muerte;
+        this.ruta=ruta;
         this.tipo = tipo;
     }
     public Individuo(){

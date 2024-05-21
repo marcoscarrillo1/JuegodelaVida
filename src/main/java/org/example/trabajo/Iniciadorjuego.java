@@ -13,7 +13,7 @@ public class Iniciadorjuego extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Iniciadorjuego.class.getResource("Pantallainicial.fxml")); // Va a cargar un fichero .fxml
 
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 720, 740);
         stage.setTitle("Juego de la vida");
         stage.setScene(scene);
         stage.show();}

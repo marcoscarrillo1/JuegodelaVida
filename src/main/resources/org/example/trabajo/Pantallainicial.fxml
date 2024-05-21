@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="488.0" prefWidth="467.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.trabajo.InicializadorControler">
+<VBox alignment="CENTER" prefHeight="888.0" prefWidth="867.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.trabajo.InicializadorControler">
 
 
     <Label text="Bienvenido al juego de la vida" />
