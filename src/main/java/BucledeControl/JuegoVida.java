@@ -64,15 +64,15 @@ public class JuegoVida {
                     }
                     generarID(elnuevo);
                     ahora.getIndividuoListaEnlazed().add(elnuevo);
-                    int vida=90000;
-                    for(int y=0;y<ahora.getIndividuoListaEnlazed().getNumeroElementos();y++){
-                        int vidaloca=ahora.getIndividuoListaEnlazed().getElemento(y).getData().getTurnosVida();
-                        if(vidaloca<vida){
-                            vida=vidaloca;
+                    int vida = 90000;
+                    for (int y = 0; y < ahora.getIndividuoListaEnlazed().getNumeroElementos(); y++) {
+                        int vidaloca = ahora.getIndividuoListaEnlazed().getElemento(y).getData().getTurnosVida();
+                        if (vidaloca < vida) {
+                            vida = vidaloca;
                         }
                     }
-                    for(int f=0;f<ahora.getIndividuoListaEnlazed().getNumeroElementos();f++){
-                        if(ahora.getIndividuoListaEnlazed().getElemento(f).getData().getTurnosVida()==vida){
+                    for (int f = 0; f < ahora.getIndividuoListaEnlazed().getNumeroElementos(); f++) {
+                        if (ahora.getIndividuoListaEnlazed().getElemento(f).getData().getTurnosVida() == vida) {
                             ahora.getIndividuoListaEnlazed().del(f);
                         }
                     }
@@ -98,7 +98,8 @@ public class JuegoVida {
                     }
                 }
             }
-        }indi.setIdentificador(id+1);
+        }
+        indi.setIdentificador(id + 1);
     }
 
     public void eliminarIndividuos() {
@@ -444,7 +445,6 @@ public class JuegoVida {
     }
 
 
-
     public void crearrecursos() {
         Random random = new Random();
         Agua agua = new Agua();
@@ -457,15 +457,20 @@ public class JuegoVida {
             int x = random.nextInt(101);
             if (x < agua.getProbabilidadagua()) {
                 tablero.getcelditas(i).addRecurso(agua);
-            } else if (x < biblio.getProbabilidadbiblio()) {
+            }
+            if (x < biblio.getProbabilidadbiblio()) {
                 tablero.getcelditas(i).addRecurso(biblio);
-            } else if (x < comida.getProbabilidadcomida()) {
+            }
+            if (x < comida.getProbabilidadcomida()) {
                 tablero.getcelditas(i).addRecurso(comida);
-            } else if (x < montaña.getProbabilidadmontaña()) {
+            }
+            if (x < montaña.getProbabilidadmontaña() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
                 tablero.getcelditas(i).addRecurso(montaña);
-            } else if (x < pozo.getProbabilidadpozo()) {
+            }
+            if (x < pozo.getProbabilidadpozo() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
                 tablero.getcelditas(i).addRecurso(pozo);
-            } else if (x < tesoro.getProbabilidadtesoro()) {
+            }
+            if (x < tesoro.getProbabilidadtesoro() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
                 tablero.getcelditas(i).addRecurso(tesoro);
             }
         }
@@ -499,19 +504,17 @@ public class JuegoVida {
 
 
     public void individuoactualizado() {
-        ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
-        ListaEnlazed<Individuo> listaaborrar = new ListaEnlazed<>();
-        for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
-            Celdas actual = listastakis.getDatos(i);
-            Individuo individuo = actual.getIndividuoListaEnlazed().getDatos(0);
-            individuo.setTurnosVida(individuo.getTurnosVida() - 1);
-            individuo.setClonacion(individuo.getClonacion() - 10);
-            individuo.setReproducion(individuo.getReproducion() - 10);
-            if (individuo.getTurnosVida() == 0) {
-                listaaborrar.add(individuo);
+        for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
+            for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
+                Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(0);
+                individuo.setTurnosVida(individuo.getTurnosVida() - 1);
+                individuo.setClonacion(individuo.getClonacion() - 10);
+                individuo.setReproducion(individuo.getReproducion() - 10);
+                if (individuo.getTurnosVida() == 0) {
+                    tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
+                }
             }
         }
-        eliminarIndividuos(listaaborrar);
     }
 
     public void recursoactivo() {
@@ -562,29 +565,31 @@ public class JuegoVida {
         int x = random.nextInt(101);
         for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
             Celdas actual = listastakis.getElemento(i).getData();
-            if(actual.getIndividuoListaEnlazed().getNumeroElementos()<2&&!actual.getIndividuoListaEnlazed().isVacia()){
+            if (actual.getIndividuoListaEnlazed().getNumeroElementos() < 2 && !actual.getIndividuoListaEnlazed().isVacia()) {
                 Individuo individuo = actual.getIndividuoListaEnlazed().getDatos(0);
-            Individuo individuonuevo = null;
-            if (individuo.getClonacion() > x) {
-                if (individuo.getTipo() == 1) {
-                    individuonuevo = new IndividuoBasico();
-                } else if (individuo.getTipo() == 2) {
-                    individuonuevo = new IndividuoNormal();
-                } else {
-                    individuonuevo = new IndividuoAvanzado();
+                Individuo individuonuevo = null;
+                if (individuo.getClonacion() > x) {
+                    if (individuo.getTipo() == 1) {
+                        individuonuevo = new IndividuoBasico();
+                    } else if (individuo.getTipo() == 2) {
+                        individuonuevo = new IndividuoNormal();
+                    } else {
+                        individuonuevo = new IndividuoAvanzado();
+                    }
+                }
+                if (individuonuevo != null) {
+                    tablero.getcelditas(i).addIndividuo(individuonuevo);
                 }
             }
-            if (individuonuevo != null) {
-                tablero.getcelditas(i).addIndividuo(individuonuevo);
-            }
-        }}
+        }
 
 
     }
 
     public boolean acabar() {
-    return juego=false;
+        return juego = false;
     }
+
     public void getcaminobasico() {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
             for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {

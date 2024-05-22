@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK">
-      <change beforePath="$PROJECT_DIR$/src/main/java/BucledeControl/JuegoVida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BucledeControl/JuegoVida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/Tablero.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/Tablero.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716383798775</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="KLK">
+      <option name="closed" value="true" />
+      <created>1716389793072</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1716389793072</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
