@@ -2,11 +2,16 @@ package Recursos;
 
 import Individuo.Individuo;
 import Tablero.Celdas;
+import org.example.trabajo.ParameterDataModelProperties;
 
 public class Montaña  extends Recursos{
     public int probabilidadmontaña;
     public Montaña(Celdas x, int t, int p) {
         super(x, t, p);
+    }
+    public Montaña(ParameterDataModelProperties model){
+        super(model);
+        probabilidadmontaña = model.propMontanaProperty().getValue().intValue();
     }
     public Montaña(){
         super();

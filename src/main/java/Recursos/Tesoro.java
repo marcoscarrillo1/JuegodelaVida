@@ -1,6 +1,7 @@
 package Recursos;
 import Individuo.Individuo;
 import Tablero.Celdas;
+import org.example.trabajo.ParameterDataModelProperties;
 
 import java.util.Random;
 
@@ -8,6 +9,10 @@ public class Tesoro extends Recursos{
     int probabilidadtesoro;
     public Tesoro(Celdas x , int t, int p) {
         super(x, t, p);
+    }
+    public Tesoro(ParameterDataModelProperties model){
+        super((model));
+        probabilidadtesoro = model.propTesoroProperty().getValue().intValue();
     }
     public Tesoro(){
         super();

@@ -55,22 +55,23 @@ public class TableroController {
             }
         }
     }
-
+@FXML
     private void onBotonCelda(int finalI, int finalJ) {
         try {
             Stage stage = new Stage();
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Iniciadorjuego.class.getResource("CeldaView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(TableroController.class.getResource("CeldaView.fxml"));
             stage.setTitle("Celda: "+finalI+","+finalJ);
-            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            Scene scene = new Scene(fxmlLoader.load(), 441, 399);
 
             stage.setScene(scene);
             ControllerCeldita controllerCeldita = fxmlLoader.getController();
+
+            controllerCeldita.setStage(stage);
             controllerCeldita.setModel(model);
             controllerCeldita.setXY(finalI,finalJ);
             controllerCeldita.setCeldas(celdas);
-            controllerCeldita.setStage(stage);
-
+            controllerCeldita.updateLabels();
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

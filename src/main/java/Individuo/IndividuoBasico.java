@@ -3,6 +3,7 @@ package Individuo;
 import Estructuras.ListaEnlazed;
 import Estructuras.ListaSimple;
 import Tablero.Celdas;
+import org.example.trabajo.ParameterDataModelProperties;
 
 import java.util.Random;
 
@@ -11,6 +12,9 @@ public class IndividuoBasico extends Individuo {
 
     public IndividuoBasico(int identificador, int generacion, int turnosVida, int reproducion, int clonacion, Celdas ruta,int tipo) {
         super(identificador, generacion, turnosVida, reproducion, clonacion, ruta, tipo);
+    }
+    public IndividuoBasico(ParameterDataModelProperties x){
+        super(x);
     }
     public IndividuoBasico(){
         super();

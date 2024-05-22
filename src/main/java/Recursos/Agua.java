@@ -2,6 +2,7 @@ package Recursos;
 
 import Individuo.Individuo;
 import Tablero.Celdas;
+import org.example.trabajo.ParameterDataModelProperties;
 
 public class Agua extends Recursos {
 
@@ -11,6 +12,10 @@ public class Agua extends Recursos {
         super(x,t,p);
         this.probabilidadagua=Pagua;
 
+    }
+    public Agua(ParameterDataModelProperties model){
+        super((model));
+        probabilidadagua = model.propAguaProperty().getValue().intValue();
     }
     public Agua(){
         super();

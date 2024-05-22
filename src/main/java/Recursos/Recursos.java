@@ -2,17 +2,23 @@ package Recursos;
 
 import Individuo.Individuo;
 import Tablero.Celdas;
+import org.example.trabajo.ParameterDataModelProperties;
 
 public  abstract class  Recursos {
     protected Celdas celda;
     protected int Tiempo;
     protected int Probabilidad;
+    protected ParameterDataModelProperties model;
 
     public Recursos(Celdas x, int t,int p){
        x=celda;
         t=Tiempo;
         p=Probabilidad;
 
+    }
+    public Recursos(ParameterDataModelProperties model){
+        Tiempo = model.tiempoApariconProperty().getValue().intValue();
+        Probabilidad = model.porpApariconProperty().getValue().intValue();
     }
     public Recursos(){
 

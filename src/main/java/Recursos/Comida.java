@@ -2,11 +2,16 @@ package Recursos;
 
 import Individuo.Individuo;
 import Tablero.Celdas;
+import org.example.trabajo.ParameterDataModelProperties;
 
 public class Comida extends Recursos{
     public int probabilidadcomida;
     public Comida(Celdas y, int t, int p) {
         super(y, t, p);
+    }
+    public Comida(ParameterDataModelProperties model){
+        super((model));
+        probabilidadcomida= model.propComidaProperty().getValue().intValue();
     }
     public Comida(){
         super();

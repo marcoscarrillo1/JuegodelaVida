@@ -2,6 +2,7 @@ package Individuo;
 
 import Tablero.Celdas;
 import org.example.trabajo.ParameterDataModel;
+import org.example.trabajo.ParameterDataModelProperties;
 
 public abstract class Individuo  {
     protected int identificador;
@@ -21,7 +22,7 @@ public abstract class Individuo  {
     }
 
     protected int tipo;
-    private ParameterDataModel datos;
+    private ParameterDataModelProperties datos;
 
     public Individuo(int identificador, int generacion, int turnosVida, int reproducion, int clonacion, Celdas ruta, int tipo) {
         this.identificador = identificador;
@@ -32,15 +33,21 @@ public abstract class Individuo  {
         this.ruta=ruta;
         this.tipo = tipo;
     }
+    public Individuo(ParameterDataModelProperties x){
+        turnosVida = x.turnosVidaProperty().getValue().intValue();
+        reproducion = x.reproduccionProperty().getValue().intValue();
+        muerte = 1 - reproducion;
+        clonacion = x.mutacionProperty().getValue().intValue();
+    }
     public Individuo(){
 
     }
 
-    public ParameterDataModel getDatos() {
+    public ParameterDataModelProperties getDatos() {
         return datos;
     }
 
-    public void setDatos(ParameterDataModel datos) {
+    public void setDatos(ParameterDataModelProperties datos) {
         this.datos = datos;
     }
 
