@@ -518,17 +518,14 @@ public class JuegoVida {
     }
 
     public void recursoactivo() {
-        ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
-        ListaEnlazed<Recursos> listarecurso = new ListaEnlazed<>();
-        for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
-            Celdas actual = listastakis.getDatos(i);
-            Recursos recurso = actual.getRecursosListaEnlazed().getDatos(0);
+        for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
+            for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getNumeroElementos(); i++) {
+            Recursos recurso = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getDatos(i);
             recurso.setTiempo(recurso.getTiempo() - 1);
             if (recurso.getTiempo() == 0) {
-                listarecurso.add(recurso);
+                tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().del(i);
             }
-        }
-        eliminarrecurso(listarecurso);
+        }}
     }
 
     public void eliminarrecurso() {
