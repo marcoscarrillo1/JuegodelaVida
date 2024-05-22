@@ -62,18 +62,43 @@ public class JuegoVida {
                     } else {
                         elnuevo = new IndividuoAvanzado();
                     }
+                    generarID(elnuevo);
                     ahora.getIndividuoListaEnlazed().add(elnuevo);
+                    int vida=90000;
+                    for(int y=0;y<ahora.getIndividuoListaEnlazed().getNumeroElementos();y++){
+                        int vidaloca=ahora.getIndividuoListaEnlazed().getElemento(y).getData().getTurnosVida();
+                        if(vidaloca<vida){
+                            vida=vidaloca;
+                        }
+                    }
+                    for(int f=0;f<ahora.getIndividuoListaEnlazed().getNumeroElementos();f++){
+                        if(ahora.getIndividuoListaEnlazed().getElemento(f).getData().getTurnosVida()==vida){
+                            ahora.getIndividuoListaEnlazed().del(f);
+                        }
+                    }
 
 
                 } else {
-                    //mueren
+                    ahora.getIndividuoListaEnlazed().del(1);
+                    ahora.getIndividuoListaEnlazed().del(0);
+
                 }
             }
         }
     }
 
-    public int generarID() {
-        return 4;
+    public void generarID(Individuo indi) {
+        int id = 0;
+        for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
+            for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
+                for (int x = 0; x < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); x++) {
+                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(x);
+                    if (individuo.getIdentificador() > id) {
+                        id = individuo.getIdentificador();
+                    }
+                }
+            }
+        }indi.setIdentificador(id+1);
     }
 
     public void eliminarIndividuos() {
@@ -410,20 +435,156 @@ public class JuegoVida {
 
                                 }
                                 tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
-
                             }
-
                         }
                     }
                 }
-
-
             }
         }
+    }
+
+
+
+    public void crearrecursos() {
+        Random random = new Random();
+        Agua agua = new Agua();
+        Biblioteca biblio = new Biblioteca();
+        Comida comida = new Comida();
+        Montaña montaña = new Montaña();
+        Pozo pozo = new Pozo();
+        Tesoro tesoro = new Tesoro();
+        for (int i = 0; i < tablero.getCeldas().getNumeroElementos(); i++) {
+            int x = random.nextInt(101);
+            if (x < agua.getProbabilidadagua()) {
+                tablero.getcelditas(i).addRecurso(agua);
+            } else if (x < biblio.getProbabilidadbiblio()) {
+                tablero.getcelditas(i).addRecurso(biblio);
+            } else if (x < comida.getProbabilidadcomida()) {
+                tablero.getcelditas(i).addRecurso(comida);
+            } else if (x < montaña.getProbabilidadmontaña()) {
+                tablero.getcelditas(i).addRecurso(montaña);
+            } else if (x < pozo.getProbabilidadpozo()) {
+                tablero.getcelditas(i).addRecurso(pozo);
+            } else if (x < tesoro.getProbabilidadtesoro()) {
+                tablero.getcelditas(i).addRecurso(tesoro);
+            }
+        }
+    }
+
+    public void mejora() {
+        ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
+        for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
+            Celdas actual = listastakis.getDatos(i);
+            Individuo individuo = actual.getIndividuoListaEnlazed().getDatos(0);
+            Recursos recurso = actual.getRecursosListaEnlazed().getDatos(0);
+            if (individuo != null && recurso != null) {
+                if (recurso.getClass() == Agua.class) {
+                    recurso.Propiedad(individuo);
+                } else if (recurso.getClass() == Biblioteca.class) {
+                    recurso.Propiedad(individuo);
+                } else if (recurso.getClass() == Tesoro.class) {
+                    recurso.Propiedad(individuo);
+                } else if (recurso.getClass() == Pozo.class) {
+                    recurso.Propiedad(individuo);
+                } else if (recurso.getClass() == Montaña.class) {
+                    recurso.Propiedad(individuo);
+                } else if (recurso.getClass() == Comida.class) {
+                    recurso.Propiedad(individuo);
+                }
+            }
+
+
+        }
+    }
+
+
+    public void individuoactualizado() {
+        ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
+        ListaEnlazed<Individuo> listaaborrar = new ListaEnlazed<>();
+        for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
+            Celdas actual = listastakis.getDatos(i);
+            Individuo individuo = actual.getIndividuoListaEnlazed().getDatos(0);
+            individuo.setTurnosVida(individuo.getTurnosVida() - 1);
+            individuo.setClonacion(individuo.getClonacion() - 10);
+            individuo.setReproducion(individuo.getReproducion() - 10);
+            if (individuo.getTurnosVida() == 0) {
+                listaaborrar.add(individuo);
+            }
+        }
+        eliminarIndividuos(listaaborrar);
+    }
+
+    public void recursoactivo() {
+        ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
+        ListaEnlazed<Recursos> listarecurso = new ListaEnlazed<>();
+        for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
+            Celdas actual = listastakis.getDatos(i);
+            Recursos recurso = actual.getRecursosListaEnlazed().getDatos(0);
+            recurso.setTiempo(recurso.getTiempo() - 1);
+            if (recurso.getTiempo() == 0) {
+                listarecurso.add(recurso);
+            }
+        }
+        eliminarrecurso(listarecurso);
+    }
+
+    public void eliminarrecurso() {
+        ListaEnlazed<Recursos> todos = new ListaEnlazed<>();
+        ListaEnlazed<Recursos> lista = new ListaEnlazed<>();
+        for (int i = 0; i < todos.getNumeroElementos(); i++) {
+            Recursos recurso = todos.getDatos(i);
+            if (recurso.getTiempo() == 0) {
+                Celdas celdaid = recurso.getCelda();
+                celdaid.setHayalguien(false);
+                lista.add(recurso);
+            }
+
+
+        }
+        eliminarrecurso(lista);
+    }
+
+
+    private void eliminarrecurso(ListaEnlazed<Recursos> list) {
+        ListaEnlazed<Recursos> todos = new ListaEnlazed<>();
+        for (int i = 0; i < list.getNumeroElementos(); i++) {
+            for (int j = 0; j < todos.getNumeroElementos(); j++) {
+                if (list.getDatos(i) == todos.getDatos(j)) {
+                    todos.del(j);
+                }
+            }
+        }
+    }
+
+    public void clonacion() {
+        ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
+        Random random = new Random();
+        int x = random.nextInt(101);
+        for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
+            Celdas actual = listastakis.getElemento(i).getData();
+            if(actual.getIndividuoListaEnlazed().getNumeroElementos()<2&&!actual.getIndividuoListaEnlazed().isVacia()){
+                Individuo individuo = actual.getIndividuoListaEnlazed().getDatos(0);
+            Individuo individuonuevo = null;
+            if (individuo.getClonacion() > x) {
+                if (individuo.getTipo() == 1) {
+                    individuonuevo = new IndividuoBasico();
+                } else if (individuo.getTipo() == 2) {
+                    individuonuevo = new IndividuoNormal();
+                } else {
+                    individuonuevo = new IndividuoAvanzado();
+                }
+            }
+            if (individuonuevo != null) {
+                tablero.getcelditas(i).addIndividuo(individuonuevo);
+            }
+        }}
 
 
     }
 
+    public boolean acabar() {
+    return juego=false;
+    }
     public void getcaminobasico() {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
             for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
@@ -522,13 +683,10 @@ public class JuegoVida {
                             }
                         }
                         tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
-
-
                     }
                 }
             }
         }
-
     }
 
     public void getcaminonormal() {
@@ -596,17 +754,10 @@ public class JuegoVida {
 
                             }
                             tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
-
                         }
                     }
-
-
                 }
-
-
             }
-
-
         }
     }
 
@@ -736,146 +887,6 @@ public class JuegoVida {
                 }
             }
         }
-    }
-
-    public void crearrecursos() {
-        Random random = new Random();
-        Agua agua = new Agua();
-        Biblioteca biblio = new Biblioteca();
-        Comida comida = new Comida();
-        Montaña montaña = new Montaña();
-        Pozo pozo = new Pozo();
-        Tesoro tesoro = new Tesoro();
-        for (int i = 0; i < tablero.getCeldas().getNumeroElementos(); i++) {
-            int x = random.nextInt(101);
-            if (x < agua.getProbabilidadagua()) {
-                tablero.getcelditas(i).addRecurso(agua);
-            } else if (x < biblio.getProbabilidadbiblio()) {
-                tablero.getcelditas(i).addRecurso(biblio);
-            } else if (x < comida.getProbabilidadcomida()) {
-                tablero.getcelditas(i).addRecurso(comida);
-            } else if (x < montaña.getProbabilidadmontaña()) {
-                tablero.getcelditas(i).addRecurso(montaña);
-            } else if (x < pozo.getProbabilidadpozo()) {
-                tablero.getcelditas(i).addRecurso(pozo);
-            } else if (x < tesoro.getProbabilidadtesoro()) {
-                tablero.getcelditas(i).addRecurso(tesoro);
-            }
-        }
-    }
-
-    public void mejora() {
-        ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
-        for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
-            Celdas actual = listastakis.getDatos(i);
-            Individuo individuo = actual.getIndividuoListaEnlazed().getDatos(0);
-            Recursos recurso = actual.getRecursosListaEnlazed().getDatos(0);
-            if (individuo != null && recurso != null) {
-                if (recurso.getClass() == Agua.class) {
-                    recurso.Propiedad(individuo);
-                } else if (recurso.getClass() == Biblioteca.class) {
-                    recurso.Propiedad(individuo);
-                } else if (recurso.getClass() == Tesoro.class) {
-                    recurso.Propiedad(individuo);
-                } else if (recurso.getClass() == Pozo.class) {
-                    recurso.Propiedad(individuo);
-                } else if (recurso.getClass() == Montaña.class) {
-                    recurso.Propiedad(individuo);
-                } else if (recurso.getClass() == Comida.class) {
-                    recurso.Propiedad(individuo);
-                }
-            }
-
-
-        }
-    }
-
-
-    public void individuoactualizado() {
-        ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
-        ListaEnlazed<Individuo> listaaborrar = new ListaEnlazed<>();
-        for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
-            Celdas actual = listastakis.getDatos(i);
-            Individuo individuo = actual.getIndividuoListaEnlazed().getDatos(0);
-            individuo.setTurnosVida(individuo.getTurnosVida() - 1);
-            individuo.setClonacion(individuo.getClonacion() - 10);
-            individuo.setReproducion(individuo.getReproducion() - 10);
-            if (individuo.getTurnosVida() == 0) {
-                listaaborrar.add(individuo);
-            }
-        }
-        eliminarIndividuos(listaaborrar);
-    }
-
-    public void recursoactivo() {
-        ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
-        ListaEnlazed<Recursos> listarecurso = new ListaEnlazed<>();
-        for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
-            Celdas actual = listastakis.getDatos(i);
-            Recursos recurso = actual.getRecursosListaEnlazed().getDatos(0);
-            recurso.setTiempo(recurso.getTiempo() - 1);
-            if (recurso.getTiempo() == 0) {
-                listarecurso.add(recurso);
-            }
-        }
-        eliminarrecurso(listarecurso);
-    }
-
-    public void eliminarrecurso() {
-        ListaEnlazed<Recursos> todos = new ListaEnlazed<>();
-        ListaEnlazed<Recursos> lista = new ListaEnlazed<>();
-        for (int i = 0; i < todos.getNumeroElementos(); i++) {
-            Recursos recurso = todos.getDatos(i);
-            if (recurso.getTiempo() == 0) {
-                Celdas celdaid = recurso.getCelda();
-                celdaid.setHayalguien(false);
-                lista.add(recurso);
-            }
-
-
-        }
-        eliminarrecurso(lista);
-    }
-
-
-    private void eliminarrecurso(ListaEnlazed<Recursos> list) {
-        ListaEnlazed<Recursos> todos = new ListaEnlazed<>();
-        for (int i = 0; i < list.getNumeroElementos(); i++) {
-            for (int j = 0; j < todos.getNumeroElementos(); j++) {
-                if (list.getDatos(i) == todos.getDatos(j)) {
-                    todos.del(j);
-                }
-            }
-        }
-    }
-
-    public void clonacion() {
-        ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
-        Random random = new Random();
-        int x = random.nextInt(101);
-        for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
-            Celdas actual = listastakis.getElemento(i).getData();
-            Individuo individuo = actual.getIndividuoListaEnlazed().getDatos(0);
-            Individuo individuonuevo = null;
-            if (individuo.getClonacion() > x) {
-                if (individuo.getTipo() == 1) {
-                    individuonuevo = new IndividuoBasico();
-                } else if (individuo.getTipo() == 2) {
-                    individuonuevo = new IndividuoNormal();
-                } else {
-                    individuonuevo = new IndividuoAvanzado();
-                }
-            }
-            if (individuonuevo != null) {
-                tablero.getcelditas(i).addIndividuo(individuonuevo);
-            }
-        }
-
-
-    }
-
-    public void acabar() {
-
     }
 
 }
