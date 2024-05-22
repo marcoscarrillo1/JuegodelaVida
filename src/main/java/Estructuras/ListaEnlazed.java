@@ -6,11 +6,7 @@ public class ListaEnlazed<T> {
     private ElementoLe<T> primero;
 
     public boolean isVacia() {
-        if (primero != null) {
-            return false;
-        } else {
-            return true;
-        }
+        return primero == null;
 
     }
 
@@ -137,25 +133,24 @@ public class ListaEnlazed<T> {
         }
     }
     public void del(int pos){
-        int contador = 0;
-        if (isVacia()||(1 == getNumeroElementos())) {
-            primero.setSiguiente(null);
-            this.primero = null;
-        } else {
-            ElementoLe<T> e = this.primero;
-            if(pos==0){
-                e.setData( this.primero.getSiguiente().getData());
-            }
-            contador++;
-            while (e != null && contador<pos-1) {
-                contador++;
-                e = e.getSiguiente();
+    if(isVacia()){
 
-            }
-            e.setSiguiente(e.getSiguiente().getSiguiente());
+        return;
+    }
+    ElementoLe temp = primero;
+    if(pos == 0){
+        primero= temp.siguiente;
+        return;
+    }
+    for (int i = 0; temp != null && i < pos-1 ;i++){
+        temp= temp.siguiente;
+    }
+    if(temp == null || temp.getSiguiente() == null){
+        return;
+    }
+    ElementoLe sig = temp.siguiente.siguiente;
+    temp.siguiente = sig;
 
-
-        }
 
 
     }

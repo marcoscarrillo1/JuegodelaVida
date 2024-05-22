@@ -19,7 +19,7 @@ public class TableroController {
     public GridPane tableroJuego;
     private ParameterDataModelProperties model;
     private Stage stage;
-    public ListaEnlazed<Celdas> celdas = new ListaEnlazed<>();
+    public  ListaEnlazed<Celdas> celdas = new ListaEnlazed<>();
 
     String tema;
 
@@ -82,6 +82,11 @@ public class TableroController {
     public ListaEnlazed<Celdas> getCeldas() {
         return celdas;
     }
+
+    public  void setCeldas(ListaEnlazed<Celdas> celdotas) {
+        celdas = celdotas;
+    }
+
     public Celdas getcelditas(int id){
         return celdas.getElemento(id).getData();
     }

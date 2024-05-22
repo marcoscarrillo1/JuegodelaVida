@@ -7,7 +7,10 @@ import Individuo.IndividuoBasico;
 import Individuo.IndividuoNormal;
 import Recursos.*;
 import Tablero.Celdas;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -19,6 +22,8 @@ import java.util.ResourceBundle;
 public class ControllerCeldita {
     @FXML
     public Label avisos;
+    @FXML
+    public Button guardar;
     private int x,y;
     @FXML
     public Button delBasico;
@@ -118,21 +123,22 @@ public class ControllerCeldita {
         if (!celda.getIndividuoListaEnlazed().isVacia()){
             for(int i = 0; i < celda.getIndividuoListaEnlazed().getNumeroElementos();i++){
             if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoBasico;")){
-                basicos++;
+                basicos++;}
                 numBasico.setText(String.valueOf(basicos));
-            } else if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoNormal;")){
-                normal++;
+             if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoNormal;")){
+                normal++;}
                 numNormal.setText(String.valueOf(normal));
 
-            } else if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoAvanzado;")){
-                avanzado++;
+           if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoAvanzado;")){
+                avanzado++;}
                 numAvanzado.setText(String.valueOf(avanzado));
 
-            }}}else{
+            }}else {
             numBasico.setText("0");
             numNormal.setText("0");
             numAvanzado.setText("0");
         }
+
 
         int agua = 0;
         int montaña = 0;
@@ -142,40 +148,39 @@ public class ControllerCeldita {
         int comida= 0;
         if(!celda.getRecursosListaEnlazed().isVacia()){for(int i = 0; i < celda.getRecursosListaEnlazed().getNumeroElementos();i++){
             if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Agua;")){
-                agua++;
+                agua++;}
                 numAgua.setText(String.valueOf(agua));
-            } else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Montaña;")){
-                montaña++;
+             if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Montaña;")){
+                montaña++;}
                 numMontana.setText(String.valueOf(montaña));
 
-            } else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Pozo;")){
-                pozo++;
+           if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Pozo;")){
+                pozo++;}
                 numPozo.setText(String.valueOf(pozo));
 
-            }else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Comida;")){
-                comida++;
+           if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Comida;")){
+                comida++;}
                 numComida.setText(String.valueOf(comida));
 
-            }else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Tesoro;")) {
-                tesoro++;
+           if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Tesoro;")) {
+                tesoro++;}
                 numTesoro.setText(String.valueOf(tesoro));
-            }else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Biblioteca;")){
-                biblioteca++;
-                numBiblioteca.setText(String.valueOf(biblioteca));}}}
-            else {
-                numTesoro.setText("0");
+            if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Biblioteca;")){
+                biblioteca++;}
+                numBiblioteca.setText(String.valueOf(biblioteca));}}else {
+            numTesoro.setText("0");
             numAgua.setText("0");
             numComida.setText("0");
             numPozo.setText("0");
             numMontana.setText("0");
             numBiblioteca.setText("0");
-
-            }
-
+        }}
 
 
 
-            }
+
+
+
 
     public void addIndividuo(Class clase){
         int columnas = model.tableroColumnasProperty().getValue().intValue();
@@ -257,29 +262,35 @@ public class ControllerCeldita {
                 int i = 0;
                 while(!borrado){
 
+                    if(i == celda.getIndividuoListaEnlazed().getNumeroElementos()-1){borrado = true;}
                     if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoBasico;")){
+                        avisos.setText("IndividuoBasico borrado");
                         celda.getIndividuoListaEnlazed().del(i);
                         borrado = true;
+
                     }
                     i++;
                 }
-                avisos.setText("IndividuoBasico borrado");
+
 
             } else if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoNormal;")) {
                 int i = 0;
                 while(!borrado) {
+                    if(i == celda.getIndividuoListaEnlazed().getNumeroElementos()-1){borrado = true;}
 
                     if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoNormal;")) {
                         celda.getIndividuoListaEnlazed().del(i);
+                        avisos.setText("IndividuoNormal borrado");
                         borrado = true;
                     }
                     i++;
-                    avisos.setText("IndividuoNormal borrado");
+
                 }
 
             } else if (Objects.equals(clase.descriptorString(),"LIndividuo/IndividuoAvanzado;")) {
                 int i = 0;
                 while(!borrado){
+                    if(i == celda.getIndividuoListaEnlazed().getNumeroElementos()-1){borrado = true;}
 
                     if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoAvanzado;")){
                         celda.getIndividuoListaEnlazed().del(i);
@@ -309,20 +320,26 @@ public class ControllerCeldita {
                     int i = 0;
                     while(!borrado){
 
+
+
                         if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Agua;")){
+                            System.out.println(i);
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
-                        }
+                            avisos.setText("Recurso borrado");
+                        }if(i == celda.getRecursosListaEnlazed().getNumeroElementos()-1){borrado = true;}
                         i++;
                     }
 
                 } else if (Objects.equals(clase.descriptorString(), "LRecursos/Biblioteca;")) {
                     int i = 0;
                     while(!borrado){
+                        if(i == celda.getRecursosListaEnlazed().getNumeroElementos()-1){borrado = true;}
 
                         if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Biblioteca;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
+                            avisos.setText("Recurso borrado");
                         }
                         i++;
                     }
@@ -330,10 +347,12 @@ public class ControllerCeldita {
                 } else if (Objects.equals(clase.descriptorString(), "LRecursos/Pozo;")) {
                     int i = 0;
                     while(!borrado){
+                        if(i == celda.getRecursosListaEnlazed().getNumeroElementos()-1){borrado = true;}
 
                         if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Pozo;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
+                            avisos.setText("Recurso borrado");
                         }
                         i++;
                     }
@@ -341,10 +360,12 @@ public class ControllerCeldita {
                 }else if (Objects.equals(clase.descriptorString(), "LRecursos/Comida;")) {
                     int i = 0;
                     while(!borrado){
+                        if(i == celda.getRecursosListaEnlazed().getNumeroElementos()-1){borrado = true;}
 
                         if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Comida;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
+                            avisos.setText("Recurso borrado");
                         }
                         i++;
                     }
@@ -352,10 +373,12 @@ public class ControllerCeldita {
                 }else if (Objects.equals(clase.descriptorString(), "LRecursos/Tesoro;")) {
                     int i = 0;
                     while(!borrado){
+                        if(i == celda.getRecursosListaEnlazed().getNumeroElementos()-1){borrado = true;}
 
-                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Teosoro;")){
+                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Tesoro;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
+                            avisos.setText("Recurso borrado");
                         }
                         i++;
                     }
@@ -363,16 +386,19 @@ public class ControllerCeldita {
                 }else if (Objects.equals(clase.descriptorString(), "LRecursos/Montaña;")) {
                     int i = 0;
                     while(!borrado){
+                        if(i == celda.getRecursosListaEnlazed().getNumeroElementos()-1){borrado = true;}
+
 
                         if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Montaña;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
+                            avisos.setText("Recurso borrado");
                         }
                         i++;
                     }
 
                 }
-                avisos.setText("Recurso borrado");
+
             }else{
                 avisos.setText("No hay recursos que borrar");
             }
@@ -452,6 +478,11 @@ public class ControllerCeldita {
     public void delAvanzado(){
         delIndividuo(IndividuoAvanzado.class);
     }
+@FXML
+    public void guardarCambios() {
+        Stage stage1 = (Stage) guardar.getScene().getWindow();
+        stage1.close();
 
+    }
 }
 
