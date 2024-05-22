@@ -136,10 +136,11 @@ public class ListaEnlazed<T> {
             return Elemento.getData();
         }
     }
-    public int del(int pos){
+    public void del(int pos){
         int contador = 0;
-        if (isVacia()) {
-            return 0;
+        if (isVacia()||(1 == getNumeroElementos())) {
+            primero.setSiguiente(null);
+            this.primero = null;
         } else {
             ElementoLe<T> e = this.primero;
             if(pos==0){
@@ -153,7 +154,7 @@ public class ListaEnlazed<T> {
             }
             e.setSiguiente(e.getSiguiente().getSiguiente());
 
-            return pos;
+
         }
 
 

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane  prefHeight="399.0" prefWidth="441.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.trabajo.ControllerCeldita">
+<AnchorPane prefHeight="399.0" prefWidth="441.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.trabajo.ControllerCeldita">
    <children>
       <Button fx:id="delBasico" layoutX="179.0" layoutY="83.0" mnemonicParsing="false" onAction="#delBasico" text="-" />
       <Button fx:id="addBasico" layoutX="248.0" layoutY="83.0" mnemonicParsing="false" onAction="#addBasico" text="+" />

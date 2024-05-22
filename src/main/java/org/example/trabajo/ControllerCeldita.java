@@ -107,74 +107,91 @@ public class ControllerCeldita {
 
 
     public void updateLabels(){
-        int pos = (x)*model.tableroFilasProperty().getValue().intValue()+ (y);
-
+        int columnas = model.tableroColumnasProperty().getValue().intValue();
+        int filas = model.tableroFilasProperty().getValue().intValue();
+        int pos = (columnas - x)* filas + (filas-y);
         Celdas celda = celdas.getElemento(pos).getData();
-        System.out.println(pos+celda.getX()+celda.getY());
+
         int basicos = 0;
         int normal = 0;
         int avanzado = 0;
-        for(int i = 0; i < celda.getIndividuoListaEnlazed().getNumeroElementos();i++){
-            if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "IndividuoBasico")){
+        if (!celda.getIndividuoListaEnlazed().isVacia()){
+            for(int i = 0; i < celda.getIndividuoListaEnlazed().getNumeroElementos();i++){
+            if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoBasico;")){
                 basicos++;
                 numBasico.setText(String.valueOf(basicos));
-            } else if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "IndividuoNormal")){
+            } else if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoNormal;")){
                 normal++;
                 numNormal.setText(String.valueOf(normal));
 
-            } else if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "IndividuoAvanzado")){
+            } else if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoAvanzado;")){
                 avanzado++;
                 numAvanzado.setText(String.valueOf(avanzado));
 
-            }
+            }}}else{
+            numBasico.setText("0");
+            numNormal.setText("0");
+            numAvanzado.setText("0");
         }
+
         int agua = 0;
         int montaña = 0;
         int biblioteca = 0;
         int tesoro= 0;
         int pozo = 0;
         int comida= 0;
-        for(int i = 0; i < celda.getRecursosListaEnlazed().getNumeroElementos();i++){
-            if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Agua")){
+        if(!celda.getRecursosListaEnlazed().isVacia()){for(int i = 0; i < celda.getRecursosListaEnlazed().getNumeroElementos();i++){
+            if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Agua;")){
                 agua++;
                 numAgua.setText(String.valueOf(agua));
-            } else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Montaña")){
+            } else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Montaña;")){
                 montaña++;
                 numMontana.setText(String.valueOf(montaña));
 
-            } else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Pozo")){
+            } else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Pozo;")){
                 pozo++;
                 numPozo.setText(String.valueOf(pozo));
 
-            }else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Comida")){
+            }else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Comida;")){
                 comida++;
                 numComida.setText(String.valueOf(comida));
 
-            }else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Tesoro")) {
+            }else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Tesoro;")) {
                 tesoro++;
                 numTesoro.setText(String.valueOf(tesoro));
-            }else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Biblioteca")){
+            }else if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Biblioteca;")){
                 biblioteca++;
-                numBiblioteca.setText(String.valueOf(biblioteca));
+                numBiblioteca.setText(String.valueOf(biblioteca));}}}
+            else {
+                numTesoro.setText("0");
+            numAgua.setText("0");
+            numComida.setText("0");
+            numPozo.setText("0");
+            numMontana.setText("0");
+            numBiblioteca.setText("0");
+
+            }
 
 
 
 
-            }}}
+            }
 
     public void addIndividuo(Class clase){
-        int pos = (x)*model.tableroFilasProperty().getValue().intValue()+ (y);
+        int columnas = model.tableroColumnasProperty().getValue().intValue();
+        int filas = model.tableroFilasProperty().getValue().intValue();
+        int pos = (columnas - x)* filas + (filas-y);
         Celdas celda = celdas.getElemento(pos).getData();
         if (celda.getIndividuoListaEnlazed().getNumeroElementos() < 3){
-            if (Objects.equals(clase.descriptorString(), "IndividuoBasico")){
+            if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoBasico;")){
                 IndividuoBasico nuevoB = new IndividuoBasico(model);
                 celda.addIndividuo(nuevoB);
 
-            } else if (Objects.equals(clase.descriptorString(), "IndividuoNormal")) {
+            } else if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoNormal;")) {
                 IndividuoNormal nuevoN = new IndividuoNormal(model);
                 celda.addIndividuo(nuevoN);
 
-            } else if (Objects.equals(clase.descriptorString(),"IndividuoAvanzado")) {
+            } else if (Objects.equals(clase.descriptorString(),"LIndividuo/IndividuoAvanzado;")) {
                 IndividuoAvanzado nuevoA = new IndividuoAvanzado(model);
                 celda.addIndividuo(nuevoA);
 
@@ -183,41 +200,45 @@ public class ControllerCeldita {
 
         }else {
             avisos.setText("Nose puede añadir individuo casilla llena");
+
         }
         updateLabels();
 
 
     }
     public void addRecurso(Class clase){
-        int pos = (x)*model.tableroFilasProperty().getValue().intValue()+ (y);
+        int columnas = model.tableroColumnasProperty().getValue().intValue();
+        int filas = model.tableroFilasProperty().getValue().intValue();
+        int pos = (columnas - x)* filas + (filas-y);
         Celdas celda = celdas.getElemento(pos).getData();
         if (celda.getRecursosListaEnlazed().getNumeroElementos() < 3){
-            if (Objects.equals(clase.descriptorString(), "Agua")){
+            if (Objects.equals(clase.descriptorString(), "LRecursos/Agua;")){
                 Agua nuevoA = new Agua(model);
                 celda.addRecurso(nuevoA);
 
 
-            } else if (Objects.equals(clase.descriptorString(), "Biblioteca")) {
+            } else if (Objects.equals(clase.descriptorString(), "LRecursos/Biblioteca;")) {
                 Biblioteca nuevoB = new Biblioteca(model);
                 celda.addRecurso(nuevoB);
 
-            } else if (Objects.equals(clase.descriptorString(),"Comida")) {
+            } else if (Objects.equals(clase.descriptorString(),"LRecursos/Comida;")) {
                 Comida nuevoC= new Comida(model);
                 celda.addRecurso(nuevoC);
 
-            }else if (Objects.equals(clase.descriptorString(),"Montaña")) {
+            }else if (Objects.equals(clase.descriptorString(),"LRecursos/Montaña;")) {
                 Montaña nuevoM= new Montaña(model);
                 celda.addRecurso(nuevoM);
 
-            }else if (Objects.equals(clase.descriptorString(),"Pozo")) {
+            }else if (Objects.equals(clase.descriptorString(),"LRecursos/Pozo;")) {
                 Pozo nuevoP= new Pozo(model);
                 celda.addRecurso(nuevoP);
 
-            }else if (Objects.equals(clase.descriptorString(),"Tesoro")) {
+            }else if (Objects.equals(clase.descriptorString(),"LRecursos/Tesoro;")) {
                 Tesoro nuevoT= new Tesoro(model);
                 celda.addRecurso(nuevoT);
 
             }avisos.setText("Recurso añadido");
+
         }else {
                 avisos.setText("No se puede añadir recurso casilla completa");
             }
@@ -226,116 +247,124 @@ public class ControllerCeldita {
 
     }
     public void delIndividuo(Class clase){
-        int pos = (x)*model.tableroFilasProperty().getValue().intValue()+ (y);
+        int columnas = model.tableroColumnasProperty().getValue().intValue();
+        int filas = model.tableroFilasProperty().getValue().intValue();
+        int pos = (columnas - x)* filas + (filas-y);
         Celdas celda = celdas.getElemento(pos).getData();
         boolean borrado = false;
-        if (celda.getIndividuoListaEnlazed().isVacia()== false){
-            if (Objects.equals(clase.descriptorString(), "IndividuoBasico")){
+        if (!celda.getIndividuoListaEnlazed().isVacia()){
+            if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoBasico;")){
                 int i = 0;
                 while(!borrado){
 
-                    if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "IndividuoBasico")){
+                    if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoBasico;")){
                         celda.getIndividuoListaEnlazed().del(i);
                         borrado = true;
                     }
                     i++;
                 }
+                avisos.setText("IndividuoBasico borrado");
 
-            } else if (Objects.equals(clase.descriptorString(), "IndividuoNormal")) {
+            } else if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoNormal;")) {
                 int i = 0;
                 while(!borrado) {
 
-                    if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "IndividuoNormal")) {
+                    if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoNormal;")) {
                         celda.getIndividuoListaEnlazed().del(i);
                         borrado = true;
                     }
                     i++;
+                    avisos.setText("IndividuoNormal borrado");
                 }
 
-            } else if (Objects.equals(clase.descriptorString(),"IndividuoAvanzado")) {
+            } else if (Objects.equals(clase.descriptorString(),"LIndividuo/IndividuoAvanzado;")) {
                 int i = 0;
                 while(!borrado){
 
-                    if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "IndividuoAvanzado")){
+                    if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoAvanzado;")){
                         celda.getIndividuoListaEnlazed().del(i);
                         borrado = true;
                     }
                     i++;
             }
+                avisos.setText("IndividuoAvanzado borrado");
             }
-        avisos.setText("Individuo borrado");}
+       }
         else {
                 avisos.setText("No hay Individuos que eliminar");
             }
         updateLabels();
+        System.out.println("Ejecutan update");
 
 
         }
         public void delRecursos(Class clase){
-            int pos = (x)*model.tableroFilasProperty().getValue().intValue()+ (y);
+            int columnas = model.tableroColumnasProperty().getValue().intValue();
+            int filas = model.tableroFilasProperty().getValue().intValue();
+            int pos = (columnas - x)* filas + (filas-y);
             Celdas celda = celdas.getElemento(pos).getData();
             boolean borrado = false;
             if (!celda.getRecursosListaEnlazed().isVacia()){
-                if (Objects.equals(clase.descriptorString(), "Agua")){
+                if (Objects.equals(clase.descriptorString(), "LRecursos/Agua;")){
                     int i = 0;
                     while(!borrado){
 
-                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Agua")){
+                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Agua;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
                         }
                         i++;
                     }
 
-                } else if (Objects.equals(clase.descriptorString(), "Biblioteca")) {
+                } else if (Objects.equals(clase.descriptorString(), "LRecursos/Biblioteca;")) {
                     int i = 0;
                     while(!borrado){
 
-                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Biblioteca")){
+                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Biblioteca;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
                         }
                         i++;
                     }
 
-                } else if (Objects.equals(clase.descriptorString(), "Pozo")) {
+                } else if (Objects.equals(clase.descriptorString(), "LRecursos/Pozo;")) {
                     int i = 0;
                     while(!borrado){
 
-                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Pozo")){
+                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Pozo;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
                         }
                         i++;
                     }
 
-                }else if (Objects.equals(clase.descriptorString(), "Comida")) {
+                }else if (Objects.equals(clase.descriptorString(), "LRecursos/Comida;")) {
                     int i = 0;
                     while(!borrado){
 
-                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Comida")){
+                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Comida;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
                         }
                         i++;
                     }
 
-                }else if (Objects.equals(clase.descriptorString(), "Tesoro")) {
+                }else if (Objects.equals(clase.descriptorString(), "LRecursos/Tesoro;")) {
                     int i = 0;
                     while(!borrado){
 
-                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Teosoro")){
+                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Teosoro;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
                         }
                         i++;
                     }
 
-                }else if (Objects.equals(clase.descriptorString(), "Montaña")) {
+                }else if (Objects.equals(clase.descriptorString(), "LRecursos/Montaña;")) {
                     int i = 0;
                     while(!borrado){
 
-                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "Montaña")){
+                        if (Objects.equals(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LRecursos/Montaña;")){
                             celda.getRecursosListaEnlazed().del(i);
                             borrado = true;
                         }
