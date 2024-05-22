@@ -43,6 +43,7 @@ public abstract class Individuo  {
 
     }
 
+
     public ParameterDataModelProperties getDatos() {
         return datos;
     }

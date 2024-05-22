@@ -1,7 +1,9 @@
 package org.example.trabajo;
 
+import BucledeControl.JuegoVida;
 import Estructuras.ElementoLe;
 import Estructuras.ListaEnlazed;
+import Individuo.Individuo;
 import Individuo.IndividuoAvanzado;
 import Individuo.IndividuoBasico;
 import Individuo.IndividuoNormal;
@@ -90,6 +92,7 @@ public class ControllerCeldita {
 
     public void setCeldas(ListaEnlazed<Celdas> celdas) {
         this.celdas = celdas;
+
     }
 
     public void setXY(int x, int y){
@@ -108,6 +111,7 @@ public class ControllerCeldita {
 
     public void setModel(ParameterDataModelProperties model) {
         this.model = model;
+        avisos.setText("");
     }
 
 
@@ -174,12 +178,26 @@ public class ControllerCeldita {
             numPozo.setText("0");
             numMontana.setText("0");
             numBiblioteca.setText("0");
-        }}
+        }
+        System.out.println("Se actualizo");
+    }
 
 
 
 
-
+    public void generarID(Individuo indi) {
+        int id = 0;
+        for (int j = 0; j < celdas.getNumeroElementos(); j++) {
+            for (int i = 0; i <celdas.getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
+                for (int x = 0; x < celdas.getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); x++) {
+                    Individuo individuo = celdas.getElemento(j).getData().getIndividuoListaEnlazed().getDatos(x);
+                    if (individuo.getIdentificador() > id) {
+                        id = individuo.getIdentificador();
+                    }
+                }
+            }
+        }indi.setIdentificador(id+1);
+    }
 
 
     public void addIndividuo(Class clase){
@@ -190,14 +208,19 @@ public class ControllerCeldita {
         if (celda.getIndividuoListaEnlazed().getNumeroElementos() < 3){
             if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoBasico;")){
                 IndividuoBasico nuevoB = new IndividuoBasico(model);
+                generarID(nuevoB);
+
                 celda.addIndividuo(nuevoB);
 
             } else if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoNormal;")) {
                 IndividuoNormal nuevoN = new IndividuoNormal(model);
+                generarID(nuevoN);
                 celda.addIndividuo(nuevoN);
+
 
             } else if (Objects.equals(clase.descriptorString(),"LIndividuo/IndividuoAvanzado;")) {
                 IndividuoAvanzado nuevoA = new IndividuoAvanzado(model);
+                generarID(nuevoA);
                 celda.addIndividuo(nuevoA);
 
             }
@@ -305,7 +328,7 @@ public class ControllerCeldita {
                 avisos.setText("No hay Individuos que eliminar");
             }
         updateLabels();
-        System.out.println("Ejecutan update");
+
 
 
         }

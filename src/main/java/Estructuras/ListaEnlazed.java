@@ -1,9 +1,10 @@
 package Estructuras;
 
+
 import Estructuras.ElementoLe;
 
 public class ListaEnlazed<T> {
-    private ElementoLe<T> primero;
+    public ElementoLe<T> primero;
 
     public boolean isVacia() {
         return primero == null;

@@ -1,5 +1,6 @@
 package BucledeControl;
 
+
 import Estructuras.ListaEnlazed;
 import Individuo.Individuo;
 import Individuo.IndividuoBasico;
@@ -15,6 +16,7 @@ import Recursos.Pozo;
 import Tablero.Celdas;
 import javafx.scene.layout.GridPane;
 import org.example.trabajo.ParameterDataModel;
+import org.example.trabajo.ParameterDataModelProperties;
 import org.example.trabajo.TableroController;
 
 import java.util.Random;
@@ -24,11 +26,25 @@ public class JuegoVida {
 
     public TableroController tablero;
     private boolean juego;
-    ParameterDataModel model;
+    ParameterDataModelProperties model;
+
+    public JuegoVida(TableroController tablero, boolean juego, ParameterDataModelProperties model) {
+        this.tablero = tablero;
+        this.juego = juego;
+        this.model = model;
+    }
 
     public void JuegoVida(GridPane tablero) {
         this.juego = false;
 
+    }
+
+    public boolean getJuego() {
+        return juego;
+    }
+
+    public void setJuego(boolean juego) {
+        this.juego = juego;
     }
 
     private void addTipo() {
@@ -141,14 +157,25 @@ public class JuegoVida {
 
     public void bucledecontrol() {
         while (juego) {
-
+            int turnos = tablero.getTurnosDeJuego();
+            turnos++;
+            tablero.setTurnosDeJuego(turnos);
             individuoactualizado();
+            System.out.println("Individuo actualizado");
             recursoactivo();
+            System.out.println("Recursoactivo");
             movimiento();
+            System.out.println("Mov");
             mejora();
+            System.out.println("Mejora");
             reproduccion();
+            System.out.println("Repro");
             clonacion();
+            System.out.println("Clonado");
             crearrecursos();
+            System.out.println("Creaso");
+            setJuego(false);
+
         }
     }
 
@@ -260,8 +287,8 @@ public class JuegoVida {
                         Celdas ruta = new Celdas();
                         Random random = new Random();
                         while (ruta.getRecursosListaEnlazed().isVacia()) {
-                            int x = random.nextInt(model.getTableroColumnas());
-                            int y = random.nextInt(model.getTableroFilas());
+                            int x = random.nextInt(model.tableroColumnasProperty().getValue().intValue());
+                            int y = random.nextInt(model.tableroFilasProperty().getValue().intValue());
                             ruta = new Celdas(x, y);
                         }
                         individuo.setRuta(ruta);
@@ -457,46 +484,49 @@ public class JuegoVida {
             int x = random.nextInt(101);
             if (x < agua.getProbabilidadagua()) {
                 tablero.getcelditas(i).addRecurso(agua);
+                System.out.println("aguita");
             }
             if (x < biblio.getProbabilidadbiblio()) {
                 tablero.getcelditas(i).addRecurso(biblio);
+                System.out.println("aguita");
             }
             if (x < comida.getProbabilidadcomida()) {
                 tablero.getcelditas(i).addRecurso(comida);
+                System.out.println("aguita");
             }
             if (x < montaña.getProbabilidadmontaña() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
                 tablero.getcelditas(i).addRecurso(montaña);
+                System.out.println("aguita");
             }
             if (x < pozo.getProbabilidadpozo() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
                 tablero.getcelditas(i).addRecurso(pozo);
+                System.out.println("aguita");
             }
             if (x < tesoro.getProbabilidadtesoro() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
                 tablero.getcelditas(i).addRecurso(tesoro);
+                System.out.println("aguita");
             }
         }
     }
 
     public void mejora() {
         ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
+
         for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
             Celdas actual = listastakis.getDatos(i);
+            ListaEnlazed<Individuo> listIndi = actual.getIndividuoListaEnlazed();
+            ListaEnlazed<Recursos> listRecur = actual.getRecursosListaEnlazed();
+           // System.out.println("Antes if");
+            if(!listIndi.isVacia() && !listRecur.isVacia()){
+
             Individuo individuo = actual.getIndividuoListaEnlazed().getDatos(0);
             Recursos recurso = actual.getRecursosListaEnlazed().getDatos(0);
-            if (individuo != null && recurso != null) {
-                if (recurso.getClass() == Agua.class) {
-                    recurso.Propiedad(individuo);
-                } else if (recurso.getClass() == Biblioteca.class) {
-                    recurso.Propiedad(individuo);
-                } else if (recurso.getClass() == Tesoro.class) {
-                    recurso.Propiedad(individuo);
-                } else if (recurso.getClass() == Pozo.class) {
-                    recurso.Propiedad(individuo);
-                } else if (recurso.getClass() == Montaña.class) {
-                    recurso.Propiedad(individuo);
-                } else if (recurso.getClass() == Comida.class) {
-                    recurso.Propiedad(individuo);
-                }
-            }
+
+            if(recurso instanceof Agua || recurso instanceof Pozo ||recurso instanceof Montaña ||
+                    recurso instanceof Biblioteca ||recurso instanceof Comida ||recurso instanceof Tesoro ){
+                recurso.Propiedad(individuo);
+
+            }}
 
 
         }
@@ -700,8 +730,8 @@ public class JuegoVida {
                         Celdas ruta = new Celdas();
                         Random random = new Random();
                         while (ruta.getRecursosListaEnlazed().isVacia()) {
-                            int x = random.nextInt(model.getTableroColumnas());
-                            int y = random.nextInt(model.getTableroFilas());
+                            int x = random.nextInt(model.tableroColumnasProperty().getValue().intValue());
+                            int y = random.nextInt(model.tableroFilasProperty().getValue().intValue());
                             ruta = new Celdas(x, y);
                         }
                         individuo.setRuta(ruta);

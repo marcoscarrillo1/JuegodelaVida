@@ -1,8 +1,8 @@
 package Estructuras;
 
 public class ElementoLe<T> {
-    protected ElementoLe<T> siguiente;
-    private T data;
+    public ElementoLe<T> siguiente;
+    public T data;
 
     public ElementoLe(T data) {
         this.data = data;
@@ -24,7 +24,7 @@ public class ElementoLe<T> {
     public T getsigui(){
         return siguiente.getData();
     }
-    protected void setSiguiente(ElementoLe<T> siguiente) {
+    public void setSiguiente(ElementoLe<T> siguiente) {
         this.siguiente = siguiente;
     }
 

@@ -17,7 +17,7 @@ InicializadorControler {
     private ParameterDataModelProperties model_observable = new ParameterDataModelProperties(model);
 
     @FXML
-    protected void cargarPartidaClick() throws IOException {
+    protected void cargarPartidaClick()  {
 
 
 
@@ -32,7 +32,7 @@ InicializadorControler {
 
             FXMLLoader fxmlLoader = new FXMLLoader(Iniciadorjuego.class.getResource("PantallaParametros.fxml"));
             stage.setTitle("Establezca parámetros: ");
-            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
             stage.setScene(scene);
             ParameterControler parametrosContralor = fxmlLoader.getController();

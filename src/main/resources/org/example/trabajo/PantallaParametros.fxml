@@ -18,9 +18,9 @@
                      <children>
                         <AnchorPane layoutY="-15.0" prefHeight="375.0" prefWidth="600.0">
                            <children>
-                              <Slider fx:id="sliderMutacion" layoutX="230.0" layoutY="122.0" />
-                              <Slider fx:id="sliderTurnosVIda" layoutX="230.0" layoutY="181.0" />
-                              <Slider fx:id="sliderReproducion" layoutX="230.0" layoutY="267.0" />
+                              <Slider fx:id="sliderMutacion" layoutX="230.0" layoutY="122.0" min="5.0" showTickLabels="true" />
+                              <Slider fx:id="sliderTurnosVIda" layoutX="230.0" layoutY="181.0" min="5.0" showTickLabels="true" />
+                              <Slider fx:id="sliderReproducion" layoutX="230.0" layoutY="267.0" min="5.0" showTickLabels="true" />
                               <Label layoutX="231.0" layoutY="91.0" text="Probabilidad de clonacion" />
                               <Label layoutX="212.0" layoutY="154.0" text="Turnos de vida de cada individuo" />
                               <Label layoutX="224.0" layoutY="222.0" text="Probabilidad de reproducion" />
@@ -47,10 +47,10 @@
                                     <Font name="Century" size="18.0" />
                                  </font>
                               </Label>
-                              <Slider fx:id="sliderTableroFilas" layoutX="165.0" layoutY="87.0" orientation="VERTICAL" prefHeight="204.0" prefWidth="14.0" />
-                              <Slider fx:id="sliderTableroColumnas" layoutX="188.0" layoutY="307.0" prefHeight="14.0" prefWidth="239.0" />
+                              <Slider fx:id="sliderTableroFilas" blockIncrement="5.0" layoutX="165.0" layoutY="87.0" majorTickUnit="5.0" max="30.0" min="5.0" minorTickCount="2" orientation="VERTICAL" prefHeight="204.0" prefWidth="14.0" showTickLabels="true" />
+                              <Slider fx:id="sliderTableroColumnas" layoutX="189.0" layoutY="291.0" majorTickUnit="5.0" max="30.0" min="5.0" prefHeight="14.0" prefWidth="239.0" showTickLabels="true" />
       
-                              <Label layoutX="259.0" layoutY="321.0" prefHeight="29.0" prefWidth="130.0" text="Columnas" textAlignment="CENTER">
+                              <Label layoutX="244.0" layoutY="317.0" prefHeight="29.0" prefWidth="130.0" text="Columnas" textAlignment="CENTER">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -75,14 +75,14 @@
                               <Font name="Century" size="19.0" />
                            </font>
                         </Label>
-                        <Slider fx:id="sliderTiempoApracion" layoutX="66.0" layoutY="156.0" majorTickUnit="20.0" min="1.0" minorTickCount="5" showTickLabels="true" />
+                        <Slider fx:id="sliderTiempoApracion" layoutX="66.0" layoutY="156.0" majorTickUnit="20.0" min="5.0" minorTickCount="5" showTickLabels="true" />
                         <Slider fx:id="sliderProbAparicion" blockIncrement="1.0" layoutX="66.0" layoutY="226.0" majorTickUnit="1.0" max="10.0" min="1.0" showTickLabels="true" />
-                        <Slider fx:id="sliderPropComida" layoutX="350.0" layoutY="204.0" showTickLabels="true" />
-                        <Slider fx:id="sliderPropPozo" layoutX="350.0" layoutY="242.0" showTickLabels="true" />
-                        <Slider fx:id="sliderPropTesoro" layoutX="350.0" layoutY="271.0" showTickLabels="true" />
-                        <Slider fx:id="sliderPropBiblioteca" layoutX="350.0" layoutY="140.0" showTickLabels="true" />
-                        <Slider fx:id="sliderPropMontana" layoutX="350.0" layoutY="177.0" showTickLabels="true" />
-                        <Slider fx:id="sliderPropAgua" layoutX="350.0" layoutY="108.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropComida" layoutX="350.0" layoutY="204.0" min="5.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropPozo" layoutX="350.0" layoutY="242.0" min="5.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropTesoro" layoutX="350.0" layoutY="271.0" min="5.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropBiblioteca" layoutX="350.0" layoutY="140.0" min="5.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropMontana" layoutX="350.0" layoutY="177.0" min="5.0" showTickLabels="true" />
+                        <Slider fx:id="sliderPropAgua" layoutX="350.0" layoutY="108.0" min="5.0" showTickLabels="true" />
                         <Label layoutX="61.0" layoutY="76.0" text="Probabilidad de los recursos" />
                         <Label layoutX="316.0" layoutY="76.0" prefHeight="17.0" prefWidth="164.0" text="Probabilidad de cada recurso" />
                         <Label layoutX="80.0" layoutY="202.0" prefHeight="0.0" prefWidth="111.0" text="Tiempo de Aparicion" />

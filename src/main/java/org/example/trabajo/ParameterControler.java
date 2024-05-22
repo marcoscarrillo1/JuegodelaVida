@@ -1,6 +1,5 @@
 package org.example.trabajo;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -52,6 +51,7 @@ public class ParameterControler implements Initializable {
     @FXML
     protected void onBotonGuardarClick() {
        if(model != null){ model.commit();
+
        }
     }
 
@@ -111,13 +111,18 @@ public class ParameterControler implements Initializable {
 
             FXMLLoader fxmlLoader = new FXMLLoader(Iniciadorjuego.class.getResource("Tablero.fxml"));
             stage.setTitle("Juego de la Vida");
-            Scene scene = new Scene(fxmlLoader.load(), 820, 640);
+            Scene scene = new Scene(fxmlLoader.load(), 720, 500);
 
             stage.setScene(scene);
             TableroController tableroController = fxmlLoader.getController();
             tableroController.setTableroController(model);
             tableroController.setStage(stage);
+
             tableroController.CrearTablero();
+
+
+
+
 
             stage.show();
         } catch (Exception e) {
