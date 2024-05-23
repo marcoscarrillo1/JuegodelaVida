@@ -1,10 +1,9 @@
 package org.example.trabajo;
 
 import Individuo.Individuo;
-import Json.Json;
+//import Json.Json;
 import Estructuras.ListaEnlazed;
 import Tablero.Celdas;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +34,6 @@ public int turnosDeJuego= 0;
 
     public  ListaEnlazed<Celdas> celdas = new ListaEnlazed<>();
     private String tema;
-    private Timeline control = new Timeline(1);
 
 
 
@@ -131,13 +129,12 @@ public int turnosDeJuego= 0;
 
 
     public void pausarPartida() {
-        juegoVida.setJuego(!juegoVida.getJuego());
-
+        juegoVida.setJuego(true);
+        juegoVida.bucledecontrol();
 
 
 
     }
-
 
     public void guardarPartida() {
 
