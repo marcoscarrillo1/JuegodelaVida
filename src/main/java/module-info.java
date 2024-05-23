@@ -5,7 +5,7 @@ module org.example.trabajo {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
-    requires com.google.gson;
+ //   requires com.google.gson;
     opens Tablero to com.google.gson;
     opens Individuo to com.google.gson;
 

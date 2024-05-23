@@ -1,7 +1,7 @@
 package org.example.trabajo;
 
 import Individuo.Individuo;
-import Json.Json;
+//import Json.Json;
 import Estructuras.ListaEnlazed;
 import Tablero.Celdas;
 import javafx.event.ActionEvent;
@@ -129,7 +129,7 @@ public int turnosDeJuego= 0;
 
 
     public void pausarPartida() {
-        juegoVida.setJuego(!juegoVida.getJuego());
+        juegoVida.setJuego(true);
         juegoVida.bucledecontrol();
 
 
