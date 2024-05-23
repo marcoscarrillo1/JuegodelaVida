@@ -174,17 +174,17 @@ public class JuegoVida {
         if(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().isVacia()){
             if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().isVacia()){
                 //blanca
-            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData()==Biblioteca){
+            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass()==Biblioteca.class){
                 //marron
-            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData()==Comida){
+            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass()==Comida.class){
                 //verde
-            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData()==Montaña){
+            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass()==Montaña.class){
                 //marron
-            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData()==Agua){
+            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass()==Agua.class){
                 //azul
-            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData()==Pozo){
+            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass()==Pozo.class){
                 //negro
-            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData()==Tesoro){
+            }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass()==Tesoro.class){
                 //gris
             }
         } else if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos()==1) {

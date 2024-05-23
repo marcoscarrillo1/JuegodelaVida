@@ -119,7 +119,7 @@ public class ParameterControler implements Initializable {
             tableroController.setStage(stage);
 
             tableroController.CrearTablero();
-            tableroController.bucleControlador();
+
 
 
 
