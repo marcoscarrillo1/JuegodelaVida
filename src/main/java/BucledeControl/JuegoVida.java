@@ -14,6 +14,7 @@ import Recursos.Comida;
 import Recursos.Montaña;
 import Recursos.Pozo;
 import Tablero.Celdas;
+import javafx.animation.Timeline;
 import javafx.scene.layout.GridPane;
 import org.example.trabajo.ParameterDataModel;
 import org.example.trabajo.ParameterDataModelProperties;
@@ -26,7 +27,9 @@ public class JuegoVida {
 
     public TableroController tablero;
     private boolean juego;
+
     ParameterDataModelProperties model;
+    private Timeline control = new Timeline(1);
 
     public JuegoVida(TableroController tablero, boolean juego, ParameterDataModelProperties model) {
         this.tablero = tablero;
@@ -156,33 +159,38 @@ public class JuegoVida {
     }
 
     public void bucledecontrol() {
-        while (juego) {
+        if (juego){
+            control.play();
             int turnos = tablero.getTurnosDeJuego();
             turnos++;
             tablero.setTurnosDeJuego(turnos);
             individuoactualizado();
-            System.out.println("Individuo actualizado");
+
             recursoactivo();
-            System.out.println("Recursoactivo");
+
             movimiento();
-            System.out.println("Mov");
+
             mejora();
-            System.out.println("Mejora");
+
             reproduccion();
-            System.out.println("Repro");
+
             clonacion();
-            System.out.println("Clonado");
+
             crearrecursos();
-            System.out.println("Creaso");
+
             setJuego(false);
 
+        }else {
+            control.stop();
         }
     }
 
     public void movimiento() {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
             for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
+                System.out.println(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos());
                 if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData().getTipo() == 1) {
+                    System.out.println("moviendome");
                     Random random = new Random();
                     int dir = random.nextInt(1, 8);
                     if (dir == 1) {
