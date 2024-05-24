@@ -120,7 +120,7 @@ public class ListaEnlazed<T> {
         }
 
     }
-    public T getDatos(int pos){
+    public ElementoLe<T> getDatos(int pos){
         if (pos<0||pos>getNumeroElementos()) {
             return null;
         }else {
@@ -130,7 +130,7 @@ public class ListaEnlazed<T> {
                 Elemento = Elemento.getSiguiente();
                 contador++;
             }
-            return Elemento.getData();
+            return Elemento;
         }
     }
     public T[] toArray(T[] array) {

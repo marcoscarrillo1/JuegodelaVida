@@ -1,9 +1,14 @@
 package org.example.trabajo;
 
+import BucledeControl.Bucle;
+import Excepciones.IDexistente;
 import Individuo.Individuo;
 //import Json.Json;
 import Estructuras.ListaEnlazed;
 import Tablero.Celdas;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +22,7 @@ import Individuo.IndividuoAvanzado;
 import Individuo.IndividuoBasico;
 import Individuo.IndividuoNormal;
 import BucledeControl.JuegoVida;
+import javafx.util.Duration;
 
 
 public class TableroController {
@@ -24,8 +30,10 @@ public class TableroController {
 
 public int turnosDeJuego= 0;
     public GridPane tableroJuego;
+    public Timeline control;
     public Button ventanParametros;
     public Button pausa;
+    public Button play;
     public Button finalizarPartida;
     public Button guardarPartida;
     public Label turnosDeJuegoText;
@@ -34,6 +42,7 @@ public int turnosDeJuego= 0;
 
     public  ListaEnlazed<Celdas> celdas = new ListaEnlazed<>();
     private String tema;
+    public ParameterDataModelProperties tablerodatamodel;
 
 
 
@@ -126,13 +135,36 @@ public int turnosDeJuego= 0;
     public void volverParametros() {
 
     }
+    public void buclecontroliniciar(){
+        if(control==null){
+            control=new Timeline(new KeyFrame(Duration.seconds(1),event->{
+                if(juegoVida.getJuego()) {
+                    JuegoVida elquecontrola = new JuegoVida(celdas);
+                    elquecontrola.setModel(tablerodatamodel);
+                    try {
+                        juegoVida.bucledecontrol();
+                    } catch (IDexistente e) {
+                        throw new RuntimeException(e);
+                    }
+                }else{
+                    System.out.println("Se ha pausado el juego");
+                    control.stop();
+                }
+            }));
+            control.setCycleCount(Animation.INDEFINITE);
+        }else{
+            control.stop();
+        }control.play();
+
+    }
 
 
-    public void pausarPartida() {
+    public void pausarPartida() throws IDexistente {
+        buclecontroliniciar();
         juegoVida.setJuego(true);
-        juegoVida.bucledecontrol();
 
-
+    }
+    public void playJuego(){
 
     }
 
@@ -142,5 +174,10 @@ public int turnosDeJuego= 0;
     }
 
     public void terminarPartida(ActionEvent actionEvent) {
+    }
+
+    public void jugarPartida(ActionEvent actionEvent) {
+        juegoVida.setJuego(true);
+        buclecontroliniciar();
     }
 }

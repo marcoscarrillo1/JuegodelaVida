@@ -190,7 +190,7 @@ public class ControllerCeldita {
         for (int j = 0; j < celdas.getNumeroElementos(); j++) {
             for (int i = 0; i <celdas.getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
                 for (int x = 0; x < celdas.getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); x++) {
-                    Individuo individuo = celdas.getElemento(j).getData().getIndividuoListaEnlazed().getDatos(x);
+                    Individuo individuo = celdas.getElemento(j).getData().getIndividuoListaEnlazed().getElemento(x).getData();
                     if (individuo.getIdentificador() > id) {
                         id = individuo.getIdentificador();
                     }

@@ -2,6 +2,7 @@ package BucledeControl;
 
 
 import Estructuras.ListaEnlazed;
+import Excepciones.IDexistente;
 import Individuo.Individuo;
 import Individuo.IndividuoBasico;
 import Individuo.IndividuoNormal;
@@ -21,9 +22,12 @@ import org.example.trabajo.ParameterDataModelProperties;
 import org.example.trabajo.TableroController;
 
 import java.util.Random;
-
 public class JuegoVida {
+    public ListaEnlazed<Celdas> celdas;
 
+    public void setModel(ParameterDataModelProperties model) {
+        this.model = model;
+    }
 
     public TableroController tablero;
     private boolean juego;
@@ -36,9 +40,8 @@ public class JuegoVida {
         this.juego = juego;
         this.model = model;
     }
-
-    public void JuegoVida(GridPane tablero) {
-
+    public JuegoVida(ListaEnlazed<Celdas> celdas){
+        this.celdas=celdas;
     }
 
     public boolean getJuego() {
@@ -52,13 +55,13 @@ public class JuegoVida {
     private void addTipo() {
     }
 
-    private void reproduccion() {
+    private void reproduccion() throws IDexistente {
         ListaEnlazed<Celdas> listastakis = tablero.getCeldas();
         for (int i = 0; i < listastakis.getNumeroElementos(); i++) {
             Celdas ahora = listastakis.getElemento(i).getData();
             if (ahora.getIndividuoListaEnlazed().getNumeroElementos() == 2) {
-                Individuo paco = ahora.getIndividuoListaEnlazed().getDatos(0);
-                Individuo jose = ahora.getIndividuoListaEnlazed().getDatos(1);
+                Individuo paco = ahora.getIndividuoListaEnlazed().getElemento(0).getData();
+                Individuo jose = ahora.getIndividuoListaEnlazed().getElemento(1).getData();
                 int probabilidad1 = paco.getReproducion();
                 int probabilidad2 = jose.getReproducion();
                 Random random = new Random();
@@ -105,12 +108,12 @@ public class JuegoVida {
         }
     }
 
-    public void generarID(Individuo indi) {
+    public void generarID(Individuo indi) throws IDexistente {
         int id = 0;
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
             for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
                 for (int x = 0; x < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); x++) {
-                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(x);
+                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(x).getData();
                     if (individuo.getIdentificador() > id) {
                         id = individuo.getIdentificador();
                     }
@@ -123,7 +126,7 @@ public class JuegoVida {
     public void eliminarIndividuos() {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
             for (int i = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i > 0; i--) {
-                Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(i);
+                Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData();
                 if (individuo.getTurnosVida() == 0) {
                     tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
                 }
@@ -143,7 +146,7 @@ public class JuegoVida {
         }
     }*/
 
-    public void bucledecontrol() {
+    public void bucledecontrol() throws IDexistente {
         if (juego){
             control.play();
             int turnos = tablero.getTurnosDeJuego();
@@ -163,8 +166,6 @@ public class JuegoVida {
 
             crearrecursos();
 
-            setJuego(false);
-
         }else {
             control.stop();
         }
@@ -175,7 +176,7 @@ public class JuegoVida {
             if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().isVacia()){
                 //blanca
             }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass()==Biblioteca.class){
-                //marron
+                //morada
             }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass()==Comida.class){
                 //verde
             }else if(tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass()==Montaña.class){
@@ -302,7 +303,7 @@ public class JuegoVida {
                     }
                 } else if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData().getTipo() == 2) {
 
-                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(i);
+                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData();
                     if (individuo.getRuta() == null || individuo.getRuta().getRecursosListaEnlazed() == null) {
                         Celdas ruta = new Celdas();
                         Random random = new Random();
@@ -369,7 +370,7 @@ public class JuegoVida {
 
 
                 } else if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData().getTipo() == 3) {
-                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(i);
+                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData();
                     if (individuo.getRuta() == null || individuo.getRuta().getRecursosListaEnlazed() == null) {
                         Celdas ruta = new Celdas();
                         double distanciaminima = Double.MAX_VALUE;
@@ -534,8 +535,8 @@ public class JuegoVida {
             if (!tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().isVacia() && !tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().isVacia()) {
                 for (int i = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getNumeroElementos(); i > 0; i--) {
                     // System.out.println("Antes if");
-                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(0);
-                    Recursos recurso = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getDatos(i);
+                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(0).getData();
+                    Recursos recurso = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(i).getData();
 
                     if (recurso instanceof Agua || recurso instanceof Pozo || recurso instanceof Montaña ||
                             recurso instanceof Biblioteca || recurso instanceof Comida || recurso instanceof Tesoro) {
@@ -551,34 +552,37 @@ public class JuegoVida {
 
     public void individuoactualizado() {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
-            for (int i = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i >0; i--) {
-                Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(i);
+            if(!tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().isVacia()){
+            for (int i = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos()-1; i >-1; i--) {
+                Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData();
                 individuo.setTurnosVida(individuo.getTurnosVida() - 1);
                 individuo.setClonacion(individuo.getClonacion() - 10);
                 individuo.setReproducion(individuo.getReproducion() - 10);
                 if (individuo.getTurnosVida() == 0) {
                     tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(i);
                 }
-            }
+            }}
         }
     }
 
     public void recursoactivo() {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
-            for (int i = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getNumeroElementos(); i >0; i--) {
-                Recursos recurso = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getDatos(i);
+            if(!tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().isVacia()){
+
+            for (int i = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getNumeroElementos()-1; i >-1; i--) {
+                Recursos recurso = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(i).getData();
                 recurso.setTiempo(recurso.getTiempo() - 1);
                 if (recurso.getTiempo() == 0) {
                     tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().del(i);
                 }
-            }
+            }}
         }
     }
 
     public void eliminarrecurso() {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
             for (int i = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getNumeroElementos(); i > 0; i--) {
-                Recursos recurso = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getDatos(i);
+                Recursos recurso = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(i).getData();
                 if (recurso.getTiempo() == 0) {
                     tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().del(i);
                 }
@@ -603,7 +607,7 @@ public class JuegoVida {
             if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos()== 1) {
         Random random = new Random();
         int x = random.nextInt(101);
-                Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(0);
+                Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(0).getData();
                 Individuo individuonuevo = null;
                 if (individuo.getClonacion() > x) {
                     if (individuo.getTipo() == 1) {
@@ -735,7 +739,7 @@ public class JuegoVida {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
             for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
                 if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData().getTipo() == 2) {
-                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(i);
+                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData();
                     if (individuo.getRuta() == null || individuo.getRuta().getRecursosListaEnlazed() == null) {
                         Celdas ruta = new Celdas();
                         Random random = new Random();
@@ -807,7 +811,7 @@ public class JuegoVida {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
             for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
                 if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData().getTipo() == 3) {
-                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getDatos(i);
+                    Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData();
                     if (individuo.getRuta() == null || individuo.getRuta().getRecursosListaEnlazed() == null) {
                         Celdas ruta = new Celdas();
                         double distanciaminima = Double.MAX_VALUE;
@@ -932,3 +936,4 @@ public class JuegoVida {
     }
 
 }
+
