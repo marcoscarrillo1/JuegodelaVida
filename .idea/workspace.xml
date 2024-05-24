@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87637fac-bb40-4acf-b6d5-b4c05413311f" name="Changes" comment="KLK">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_05_2024_13_35__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BucledeControl/JuegoVida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BucledeControl/JuegoVida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Estructuras/ListaEnlazed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Estructuras/ListaEnlazed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Json/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Json/Json.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/trabajo/TableroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/trabajo/TableroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/Tablero.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/trabajo/Tablero.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +161,7 @@
       <workItem from="1716394806151" duration="67000" />
       <workItem from="1716394884483" duration="13584000" />
       <workItem from="1716453961416" duration="4312000" />
+      <workItem from="1716558863710" duration="3939000" />
     </task>
     <task id="LOCAL-00001" summary="KLK">
       <option name="closed" value="true" />
@@ -320,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716389793072</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="KLK">
+      <option name="closed" value="true" />
+      <created>1716482050925</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1716482050925</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

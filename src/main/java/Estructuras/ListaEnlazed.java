@@ -133,6 +133,15 @@ public class ListaEnlazed<T> {
             return Elemento.getData();
         }
     }
+    public T[] toArray(T[] array) {
+        ElementoLe<T> actual = primero;
+        int index = 0;
+        while (actual != null) {
+            array[index++] = actual.getData();
+            actual = actual.getSiguiente();
+        }
+        return array;
+    }
     public void del(int pos){
     if(isVacia()){
 
