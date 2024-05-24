@@ -14,7 +14,7 @@ public class ParameterDataModelProperties {
     private IntegerProperty tableroColumnas = new SimpleIntegerProperty();
     private IntegerProperty tiempoAparicion = new SimpleIntegerProperty();
 
-    private IntegerProperty propAparicion= new SimpleIntegerProperty();
+    private IntegerProperty probAparicion= new SimpleIntegerProperty();
 
     private IntegerProperty propAgua = new SimpleIntegerProperty();
 
@@ -42,7 +42,7 @@ public class ParameterDataModelProperties {
         original.setReproducion(reproduccion.get());
         original.setTableroColumnas(tableroColumnas.get());
         original.setTableroFilas(tableroFilas.get());
-        original.setProbAparicion(propAparicion.get());
+        original.setProbAparicion(probAparicion.get());
         original.setTiempoApracion(tiempoAparicion.get());
         original.setPropAgua(propAgua.get());
         original.setPropBiblioteca(propBiblioteca.get());
@@ -60,7 +60,7 @@ public class ParameterDataModelProperties {
         reproduccion.set(original.getReproducion());
         tableroColumnas.set(original.getTableroColumnas());
         tableroFilas.set(original.getTableroFilas());
-        propAparicion.set(original.getProbAparicion());
+        probAparicion.set(original.getProbAparicion());
         tiempoAparicion.set(original.getTiempoApracion());
         propAgua.set(original.getPropAgua());
         propBiblioteca.set(original.getPropBiblioteca());
@@ -102,7 +102,7 @@ public class ParameterDataModelProperties {
         return tiempoAparicion;
     }
     public Property<Number> porpApariconProperty() {
-        return propAparicion;
+        return probAparicion;
     }
     public Property<Number> propAguaProperty() {
         return propAgua;

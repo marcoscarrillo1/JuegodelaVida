@@ -13,11 +13,12 @@ import java.io.IOException;
 public class
 InicializadorControler {
     public Button cerrar;
-    private ParameterDataModel model = new ParameterDataModel(4,6,7,8,9,7,3,1,4,6,8,7,8);
+    private ParameterDataModel model = new ParameterDataModel(4,6,7,8,9,7,60,1,4,6,8,7,8);
     private ParameterDataModelProperties model_observable = new ParameterDataModelProperties(model);
 
     @FXML
     protected void cargarPartidaClick()  {
+
 
 
 
