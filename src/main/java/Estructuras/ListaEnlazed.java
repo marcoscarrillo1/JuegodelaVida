@@ -90,10 +90,7 @@ public class ListaEnlazed<T> {
             pos++;
         }
         return pos;
-
-
     }
-
     public ElementoLe<T> getUltimo() {
         int x = getNumeroElementos();
         ElementoLe<T> r = new ElementoLe<T>();
