@@ -1,5 +1,6 @@
 package Individuo;
 
+import Estructuras.Cola;
 import Estructuras.Generacion;
 import Estructuras.ListaEnlazed;
 import Estructuras.ListaSimple;
@@ -20,8 +21,17 @@ public class IndividuoBasico extends Individuo {
     public IndividuoBasico(ParameterDataModelProperties x,Generacion generacion){
         super(x,generacion);
     }
+    public IndividuoBasico(ParameterDataModelProperties x,Generacion generacion,int tipo){
+        super(x,generacion,tipo);
+    }
+    public IndividuoBasico(ParameterDataModelProperties x, int tipo){
+        super(x,tipo);
+    }
     public IndividuoBasico(){
         super();
+    }
+
+    public IndividuoBasico(ParameterDataModelProperties model, Estructuras.Generacion generacion, int i, Cola cola) {
     }
 
     @Override

@@ -33,9 +33,12 @@ import Recursos.Biblioteca;
 
 
 import javafx.util.Duration;
+import org.apache.logging.log4j.Logger;
 
 import java.security.cert.PolicyNode;
 import java.util.Objects;
+
+import static org.example.trabajo.ControllerCeldita.log;
 
 
 public class TableroController {
@@ -44,7 +47,8 @@ public class TableroController {
 public int turnosDeJuego= 0;
 
 
-
+    private ParameterDataModel parametrosData = new ParameterDataModel(5, 10, 5,8,8,5,5,5,5,5,5,5,5);
+   private ParameterDataModelProperties modeloParaGUICompartido= new ParameterDataModelProperties(parametrosData);
     public GridPane tableroJuego;
     public Timeline control;
     public ListaEnlazed<StackPane> stacks= new ListaEnlazed<>();
@@ -122,31 +126,35 @@ public int turnosDeJuego= 0;
        for(int i = 0; i< celdas.getNumeroElementos();i++){
        Celdas celda = celdas.getElemento(i).getData();
         int Individuos = celda.getIndividuoListaEnlazed().getNumeroElementos();
-
-        if(Individuos!=0 && Individuos<=3){
+        celda.setBoton(celda.getBoton());
+        if(celda.getBoton()!=null){
+        if(Individuos<=3){
+            if(Individuos==0&&celda.getRecursosListaEnlazed().isVacia()){
+                celda.getBoton().setStyle("-fx-background-color: #ffffff ; -fx-border-color:#ffffff");
+            }
             if(Individuos ==1 ){
-                celda.getBoton().setStyle("-fx-background-color: #d22727 ; -fx-border-color:#d22727");
+                celda.getBoton().setStyle("-fx-background-color: #ffc300 ; -fx-border-color:#ffd500");
             } else if (Individuos == 2) {
-                celda.getBoton().setStyle("-fx-background-color: #ad4f28 ; -fx-border-color:#ad4f28 ");
+                celda.getBoton().setStyle("-fx-background-color: #ff8000 ; -fx-border-color:#ff7400 ");
             } else if (Individuos==3) {
-                celda.getBoton().setStyle("-fx-background-color: #77ea0b ; -fx-border-color:#77ea0b");
+                celda.getBoton().setStyle("-fx-background-color: #ff0000 ; -fx-border-color:#ff0101");
 
             }
-        } else  for (int j=0 ; i<celda.getRecursosListaEnlazed().getNumeroElementos();j++){
-            if(celda.getRecursosListaEnlazed().getElemento(i).getData().getClass()== Agua.class){
+        } if(Individuos==0&& !celda.getRecursosListaEnlazed().isVacia()){
+            if(celda.getRecursosListaEnlazed().getElemento(0).getData().getClass()== Agua.class){
                 celda.getBoton().setStyle("-fx-background-color: #00fff7 ; -fx-border-color:#00fff7");
-            } else if (celda.getRecursosListaEnlazed().getElemento(i).getData().getClass()== Comida.class) {
+            } else if (celda.getRecursosListaEnlazed().getElemento(0).getData().getClass()== Comida.class) {
                 celda.getBoton().setStyle("-fx-background-color: #5a7227 ; -fx-border-color:#5a7227");
-            }else if (celda.getRecursosListaEnlazed().getElemento(i).getData().getClass()==Biblioteca.class){
+            }else if (celda.getRecursosListaEnlazed().getElemento(0).getData().getClass()==Biblioteca.class){
                 celda.getBoton().setStyle("-fx-background-color: #8a5928 ; -fx-border-color:#8a5928");
-            }else if (celda.getRecursosListaEnlazed().getElemento(i).getData().getClass()== Montaña.class){
+            }else if (celda.getRecursosListaEnlazed().getElemento(0).getData().getClass()== Montaña.class){
                 celda.getBoton().setStyle("-fx-background-color: #332820 ; -fx-border-color:#332820");
-            }else if (celda.getRecursosListaEnlazed().getElemento(i).getData().getClass()== Tesoro.class){
+            }else if (celda.getRecursosListaEnlazed().getElemento(0).getData().getClass()== Tesoro.class){
                 celda.getBoton().setStyle("-fx-background-color: #d7d70e ; -fx-border-color:#d7d70e");
-            }else if (celda.getRecursosListaEnlazed().getElemento(i).getData().getClass()==Pozo.class){
+            }else if (celda.getRecursosListaEnlazed().getElemento(0).getData().getClass()==Pozo.class){
                 celda.getBoton().setStyle("-fx-background-color: #202062 ; -fx-border-color:#202062");
             }}
-        }}
+        }}}
 @FXML
     private void onBotonCelda(int finalI, int finalJ) {
         if(!juegoVida.getJuego()){
@@ -188,8 +196,26 @@ public int turnosDeJuego= 0;
     public void onBotonCerrar(){
         stage.close();
     }
-
+@FXML
     public void volverParametros() {
+    log.info("has entrado a parameter controller");
+    ;
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(TableroController.class.getResource("PantallaParametros.fxml"));
+            try {
+                Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+                stage.setTitle("Establezca parámetros: ");
+                stage.setScene(scene);
+                ParameterControler p = fxmlLoader.getController();
+                p.loadUserData(this.modeloParaGUICompartido);
+                p.tab.setDisable(true);
+                p.setStage(stage);
+                stage.show();
+                log.info("terminando la pestaña de nueva partida ");
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.error("No se ha podido iniciar");
+            }
 
 
 
@@ -243,7 +269,7 @@ public int turnosDeJuego= 0;
 
 
     }
-
+@FXML
     public void terminarPartida(ActionEvent actionEvent) {
         juegoVida.setJuego(false);
         Stage stage1 = (Stage) finalizarPartida.getScene().getWindow();
@@ -251,12 +277,12 @@ public int turnosDeJuego= 0;
         try {
             Stage stage = new Stage();
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Iniciadorjuego.class.getResource("Tablero.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Iniciadorjuego.class.getResource("Pantallafinal.fxml"));
             stage.setTitle("Final de Juego");
             Scene scene = new Scene(fxmlLoader.load(), 400, 400);
 
             stage.setScene(scene);
-            ContrllerFinal controllerFinal = fxmlLoader.getController();
+            PantallaFinalControler Pantallafinal = fxmlLoader.getController();
 
 
 
@@ -268,6 +294,9 @@ public int turnosDeJuego= 0;
 
 
         }}
+    public void pantallafinal(){
+
+    }
 
     public void jugarPartida(ActionEvent actionEvent) {
         juegoVida.setJuego(true);

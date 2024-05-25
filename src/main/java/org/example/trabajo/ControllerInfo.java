@@ -3,8 +3,12 @@ package org.example.trabajo;
 import Estructuras.ListaEnlazed;
 import Individuo.Individuo;
 import javafx.scene.control.Label;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 public class ControllerInfo {
+    private static Logger log = LogManager.getLogger(ControllerInfo.class);
     public Label Individuo1;
     public Label id1;
     public Label generacion1;

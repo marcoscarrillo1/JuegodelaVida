@@ -1,6 +1,7 @@
 package org.example.trabajo;
 
 import BucledeControl.JuegoVida;
+import Estructuras.Cola;
 import Estructuras.ElementoLe;
 import Estructuras.Generacion;
 import Estructuras.ListaEnlazed;
@@ -17,12 +18,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ControllerCeldita {
+    static Logger log = LogManager.getLogger(ControllerCeldita.class);
     @FXML
     public Label avisos;
     @FXML
@@ -207,9 +211,11 @@ public class ControllerCeldita {
         int filas = model.tableroFilasProperty().getValue().intValue();
         int pos = (columnas - x)* filas + (filas-y);
         Celdas celda = celdas.getElemento(pos).getData();
+        Cola cola=new Cola();
+        cola.push("Creado");
         if (celda.getIndividuoListaEnlazed().getNumeroElementos() < 3){
             if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoBasico;")){
-                IndividuoBasico nuevoB = new IndividuoBasico(model);
+                IndividuoBasico nuevoB = new IndividuoBasico(model,1);
                 Generacion arbol=new Generacion();
                 nuevoB.setTipo(1);
                 generarID(nuevoB);
@@ -220,7 +226,7 @@ public class ControllerCeldita {
                 celda.addIndividuo(nuevoB);
 
             } else if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoNormal;")) {
-                IndividuoNormal nuevoN = new IndividuoNormal(model);
+                IndividuoNormal nuevoN = new IndividuoNormal(model,2);
                 Generacion arbol=new Generacion();
                 nuevoN.setTipo(2);
                 generarID(nuevoN);
@@ -231,7 +237,7 @@ public class ControllerCeldita {
 
 
             } else if (Objects.equals(clase.descriptorString(),"LIndividuo/IndividuoAvanzado;")) {
-                IndividuoAvanzado nuevoA = new IndividuoAvanzado(model);
+                IndividuoAvanzado nuevoA = new IndividuoAvanzado(model,3);
                 Generacion arbol=new Generacion();
                 nuevoA.setTipo(3);
                 generarID(nuevoA);
@@ -603,6 +609,7 @@ public class ControllerCeldita {
     public void infoNormal() {
         if(informacion(IndividuoNormal.class)!= null){
         try {
+            log.info(("Se esta inicializando"));
             Stage stage = new Stage();
 
             FXMLLoader fxmlLoader = new FXMLLoader(TableroController.class.getResource("Info.fxml"));
@@ -613,8 +620,10 @@ public class ControllerCeldita {
             ControllerInfo pestaña = fxmlLoader.getController();
             pestaña.setInfo(informacion(IndividuoBasico.class));
             pestaña.setText();
+            log.info(("Se esta inicializando"));
             stage.show();
         }catch (Exception e) {
+            log.error(("Se esta rompiendo"));
             e.printStackTrace();
         }}else {
             avisos.setText("No hay informacion que ver");

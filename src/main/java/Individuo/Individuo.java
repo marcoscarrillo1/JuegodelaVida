@@ -1,5 +1,6 @@
 package Individuo;
 
+import Estructuras.Cola;
 import Estructuras.Generacion;
 import Tablero.Celdas;
 import com.google.gson.annotations.Expose;
@@ -12,6 +13,8 @@ public abstract class Individuo  {
     @Expose
     protected Generacion Generacion;
     @Expose
+    protected Cola cola;
+    @Expose
     protected int turnosVida;
     @Expose
     protected int reproducion;
@@ -22,6 +25,7 @@ public abstract class Individuo  {
     protected boolean movido;
     @Expose
     protected Celdas ruta;
+
 
     public Celdas getRuta() {
         return ruta;
@@ -50,7 +54,7 @@ public abstract class Individuo  {
         return movido;
     }
 
-    public Individuo(int identificador,Generacion generacion , int turnosVida, int reproducion, int clonacion, Celdas ruta, int tipo) {
+    public Individuo(int identificador, Generacion generacion , int turnosVida, int reproducion, int clonacion, Celdas ruta, int tipo) {
         this.identificador = identificador;
         this.Generacion = generacion;
         this.turnosVida = turnosVida;
@@ -72,6 +76,30 @@ public abstract class Individuo  {
         muerte = 1 - reproducion;
         clonacion = x.mutacionProperty().getValue().intValue();
         this.Generacion=generacion;
+    }
+
+    public Cola getCola() {
+        return cola;
+    }
+
+    public void setCola(Cola cola) {
+        this.cola = cola;
+    }
+
+    public Individuo(ParameterDataModelProperties x, Generacion generacion, int tipo){
+        turnosVida = x.turnosVidaProperty().getValue().intValue();
+        reproducion = x.reproduccionProperty().getValue().intValue();
+        muerte = 1 - reproducion;
+        clonacion = x.mutacionProperty().getValue().intValue();
+        this.Generacion=generacion;
+        this.tipo=tipo;
+    }
+    public Individuo(ParameterDataModelProperties x,int tipo){
+        turnosVida = x.turnosVidaProperty().getValue().intValue();
+        reproducion = x.reproduccionProperty().getValue().intValue();
+        muerte = 1 - reproducion;
+        clonacion = x.mutacionProperty().getValue().intValue();
+        this.tipo=tipo;
     }
     public Individuo(){
 

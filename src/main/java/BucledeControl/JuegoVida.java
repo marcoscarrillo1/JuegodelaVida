@@ -1,6 +1,7 @@
 package BucledeControl;
 
 
+import Estructuras.Cola;
 import Estructuras.Generacion;
 import Estructuras.ListaEnlazed;
 import Excepciones.IDexistente;
@@ -18,6 +19,9 @@ import Recursos.Pozo;
 import Tablero.Celdas;
 import javafx.animation.Timeline;
 import javafx.scene.layout.GridPane;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.example.trabajo.ControllerCeldita;
 import org.example.trabajo.ParameterDataModel;
 import org.example.trabajo.ParameterDataModelProperties;
 import org.example.trabajo.TableroController;
@@ -26,6 +30,7 @@ import java.util.Random;
 
 public class JuegoVida {
     public ListaEnlazed<Celdas> celdas;
+    private static Logger log = LogManager.getLogger(ControllerCeldita.class);
 
     public void setModel(ParameterDataModelProperties model) {
         this.model = model;
@@ -60,46 +65,48 @@ public class JuegoVida {
 
     private void reproduccion() throws IDexistente {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
-            for (int i = 0; i < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
-                if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos() >= 2) {
-                    Individuo paco = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(0).getData();
-                    Individuo jose = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(1).getData();
-                    int probabilidad1 = paco.getReproducion();
-                    int probabilidad2 = jose.getReproducion();
-                    Random random = new Random();
-                    int x = random.nextInt(101);
-                    if (x < probabilidad1 && x < probabilidad2) {
-                        Integer tipo1 = paco.getTipo();
-                        Integer tipo2 = jose.getTipo();
-                        Integer tipohijo;
-                        int generacion = 0;
-                        if (tipo1 <= tipo2) {
-                            tipohijo = tipo2;
-                        } else {
-                            tipohijo = tipo1;
-                        }
-                        Individuo elnuevo;
+            if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos() >= 2) {
+                Individuo paco = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(0).getData();
+                Individuo jose = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(1).getData();
+                int probabilidad1 = paco.getReproducion();
+                int probabilidad2 = jose.getReproducion();
+                Random random = new Random();
+                int x = random.nextInt(101);
+                if (x < probabilidad1 && x < probabilidad2) {
+                    Integer tipo1 = paco.getTipo();
+                    Integer tipo2 = jose.getTipo();
+                    Integer tipohijo;
+                    int generacion = 0;
+                    if (tipo1 <= tipo2) {
+                        tipohijo = tipo2;
+                    } else {
+                        tipohijo = tipo1;
+                    }
+                    Individuo elnuevo;
 
-                        if (tipohijo == 1) {
-                            Generacion generacion2= new Generacion();
-                            generacion2.setMadre(paco);
-                            generacion2.setPadre(jose);
-                            elnuevo = new IndividuoBasico(model,generacion2);
-                        } else if (tipohijo == 2) {
-                            Generacion generacion1=new Generacion();
-                            generacion1.setMadre(paco);
-                            generacion1.setPadre(jose);
-                            elnuevo = new IndividuoNormal(model,generacion1);
-                        } else {
-                            Generacion generacion3=new Generacion();
-                            generacion3.setMadre(paco);
-                            generacion3.setPadre(jose);
-                            elnuevo = new IndividuoAvanzado(model,generacion3);
-                        }
-                        generarID(elnuevo);
-                        elnuevo.getGeneracion().setMadre(paco);
-                        elnuevo.getGeneracion().setPadre(jose);
-                        tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().add(elnuevo);
+                    if (tipohijo == 1) {
+                        Generacion generacion2 = new Generacion();
+                        generacion2.setMadre(paco);
+                        generacion2.setPadre(jose);
+                        elnuevo = new IndividuoBasico(model, generacion2);
+                    } else if (tipohijo == 2) {
+                        Generacion generacion1 = new Generacion();
+                        generacion1.setMadre(paco);
+                        generacion1.setPadre(jose);
+                        elnuevo = new IndividuoNormal(model, generacion1);
+                    } else {
+                        Generacion generacion3 = new Generacion();
+                        generacion3.setMadre(paco);
+                        generacion3.setPadre(jose);
+                        elnuevo = new IndividuoAvanzado(model, generacion3);
+                    }
+                    //Cola colapaco=paco.getCola();
+                    //Cola colajose=jose.getCola();
+                    //colajose.push("Repdroducido");
+                    //colapaco.push("Reproducido");
+                    generarID(elnuevo);
+                    tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().add(elnuevo);
+                    if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos() > 3) {
                         int vida = 90000;
                         for (int y = 0; y < tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); y++) {
                             int vidaloca = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(y).getData().getTurnosVida();
@@ -107,23 +114,24 @@ public class JuegoVida {
                                 vida = vidaloca;
                             }
                         }
-                        for (int f = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos() - 1; f > -1; f--) {
+                        for (int f = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos() - 1; f > 2; f--) {
                             if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(f).getData().getTurnosVida() == vida) {
                                 tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(f);
                             }
                         }
-
-
-                    } else {
-                        for (int r = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos() - 1; r > -1; r--) {
-                            tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(r);
-                        }
-
                     }
+
+
+                } else {
+                    for (int r = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos() - 1; r > -1; r--) {
+                        tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().del(r);
+                    }
+
                 }
             }
         }
     }
+
 
     public void generarID(Individuo indi) throws IDexistente {
         int id = 0;
@@ -179,12 +187,11 @@ public class JuegoVida {
     }*/
 
     public void bucledecontrol() throws IDexistente {
+        int turnos = tablero.getTurnosDeJuego();
+        turnos++;
+        tablero.setTurnosDeJuego(turnos);
         if (juego) {
             control.play();
-            int turnos = tablero.getTurnosDeJuego();
-            turnos++;
-            tablero.setTurnosDeJuego(turnos);
-            tablero.actualizarColor();
             individuoactualizado();
 
             recursoactivo();
@@ -198,39 +205,13 @@ public class JuegoVida {
             clonacion();
 
             crearrecursos();
+            tablero.actualizarColor();
 
         } else {
             control.stop();
         }
     }
 
-    public void colorear() {
-        for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
-            if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().isVacia()) {
-                if (tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().isVacia()) {
-                    //blanca
-                } else if (tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass() == Biblioteca.class) {
-                    //morada
-                } else if (tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass() == Comida.class) {
-                    //verde
-                } else if (tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass() == Montaña.class) {
-                    //marron
-                } else if (tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass() == Agua.class) {
-                    //azul
-                } else if (tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass() == Pozo.class) {
-                    //negro
-                } else if (tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(0).getData().getClass() == Tesoro.class) {
-                    //gris
-                }
-            } else if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos() == 1) {
-                //verde
-            } else if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos() == 2) {
-                //amarillo
-            } else if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos() == 3) {
-                //rojo
-            }
-        }
-    }
 
     public void movimiento() {
         ListaEnlazed<Individuo> listamovidos = new ListaEnlazed<>();
@@ -248,9 +229,9 @@ public class JuegoVida {
                     }
                     System.out.println(tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos());
                     if (tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData().getTipo() == 1 && !pertenece) {
-                        System.out.println("moviendome");
+                        log.info("moviendome");
                         Random random = new Random();
-                        int dir = random.nextInt(1, 8);
+                        int dir = random.nextInt(1, 9);
                         if (dir == 1) {
                             int newY = tablero.getCeldas().getElemento(j).getData().getY() - 1;
                             int newX = tablero.getCeldas().getElemento(j).getData().getX();
@@ -816,6 +797,23 @@ public class JuegoVida {
         }
     }
 
+    public void pantallafinal() {
+        int longevidad = 0;
+        int mutaciones = 0;
+        for (int i = 0; i < tablero.getCeldas().getNumeroElementos(); i++) {
+            if (!tablero.getCeldas().getElemento(i).getData().getIndividuoListaEnlazed().isVacia())
+                for (int k = tablero.getCeldas().getElemento(i).getData().getIndividuoListaEnlazed().getNumeroElementos() - 1; k > -1; k--) {
+
+                    if (longevidad < tablero.getCeldas().getElemento(i).getData().getIndividuoListaEnlazed().getElemento(k).getData().getMuerte()) {
+                        longevidad = tablero.getCeldas().getElemento(i).getData().getIndividuoListaEnlazed().getElemento(k).getData().getMuerte();
+                    }
+                    if (mutaciones < tablero.getCeldas().getElemento(i).getData().getIndividuoListaEnlazed().getElemento(k).getData().getClonacion()) {
+                        mutaciones = tablero.getCeldas().getElemento(i).getData().getIndividuoListaEnlazed().getElemento(k).getData().getClonacion();
+                    }
+                }
+        }
+
+    }
 
     public void crearrecursos() {
         Random random = new Random();
@@ -827,30 +825,40 @@ public class JuegoVida {
         Tesoro tesoro = new Tesoro(model);
         for (int i = 0; i < tablero.getCeldas().getNumeroElementos(); i++) {
             int x = random.nextInt(101);
+            int y = random.nextInt(1,7);
             if (x < model.porpApariconProperty().getValue().intValue()) {
-                if (x < agua.getProbabilidadagua() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
-                    tablero.getcelditas(i).getRecursosListaEnlazed().add(agua);
-                    System.out.println("aguita");
-                }
-                if (x < biblio.getProbabilidadbiblio() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
-                    tablero.getcelditas(i).getRecursosListaEnlazed().add(biblio);
-                    System.out.println("biblio");
-                }
-                if (x < comida.getProbabilidadcomida() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
-                    tablero.getcelditas(i).getRecursosListaEnlazed().add(comida);
-                    System.out.println("comida");
-                }
-                if (x < montaña.getProbabilidadmontaña() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
-                    tablero.getcelditas(i).getRecursosListaEnlazed().add(montaña);
-                    System.out.println("montaña");
-                }
-                if (x < pozo.getProbabilidadpozo() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
-                    tablero.getcelditas(i).getRecursosListaEnlazed().add(pozo);
-                    System.out.println("pozo");
-                }
-                if (x < tesoro.getProbabilidadtesoro() && tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
-                    tablero.getcelditas(i).getRecursosListaEnlazed().add(tesoro);
-                    System.out.println("tesoro");
+
+                if (tablero.getcelditas(i).getRecursosListaEnlazed().getNumeroElementos() < 3) {
+                    if (y ==1) {
+
+                        if (x < agua.getProbabilidadagua()) {
+                            tablero.getcelditas(i).getRecursosListaEnlazed().add(agua);
+                            log.info("aguita");
+                        }
+                    } else if (y == 2) {
+                        if (x < biblio.getProbabilidadbiblio()) {
+                            tablero.getcelditas(i).getRecursosListaEnlazed().add(biblio);
+                            log.info("biblio");
+                        }
+                    } else if (y == 3) {
+                        if (x < comida.getProbabilidadcomida()) {
+                            tablero.getcelditas(i).getRecursosListaEnlazed().add(comida);
+                            log.info("comida");
+                        }
+                    } else if (y == 4) {
+                        if (x < montaña.getProbabilidadmontaña()) {
+                            tablero.getcelditas(i).getRecursosListaEnlazed().add(montaña);
+                            log.info("montaña");
+                        }
+                    } else if (y == 5) {
+                        if (x < pozo.getProbabilidadpozo()) {
+                            tablero.getcelditas(i).getRecursosListaEnlazed().add(pozo);
+                            log.info("pozo");
+                        }
+                    } else if (x < tesoro.getProbabilidadtesoro()) {
+                        tablero.getcelditas(i).getRecursosListaEnlazed().add(tesoro);
+                        log.info("tesoro");
+                    }
                 }
             }
         }
@@ -863,10 +871,11 @@ public class JuegoVida {
                     // System.out.println("Antes if");
                     Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(0).getData();
                     Recursos recurso = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(i).getData();
-
+                    //Cola cola=individuo.getCola();
                     if (recurso instanceof Agua || recurso instanceof Pozo || recurso instanceof Montaña ||
                             recurso instanceof Biblioteca || recurso instanceof Comida || recurso instanceof Tesoro) {
                         recurso.Propiedad(individuo);
+                        //cola.push("Ha utilizado un recurso");
                         tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().del(i);
                     }
                 }
@@ -927,7 +936,7 @@ public class JuegoVida {
 
     public void recursoactivo() {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {
-            if (!tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().isVacia()) {
+            if (!tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().isVacia()) {
 
                 for (int i = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getNumeroElementos() - 1; i > -1; i--) {
                     Recursos recurso = tablero.getCeldas().getElemento(j).getData().getRecursosListaEnlazed().getElemento(i).getData();
@@ -970,22 +979,27 @@ public class JuegoVida {
                     Random random = new Random();
                     int x = random.nextInt(101);
                     Individuo individuo = tablero.getCeldas().getElemento(j).getData().getIndividuoListaEnlazed().getElemento(i).getData();
-                    Individuo individuonuevo=null;
+                    Individuo individuonuevo = null;
+                    Cola cola = new Cola();
                     if (individuo.getClonacion() > x) {
                         if (individuo.getTipo() == 1) {
-                            Generacion generacion=new Generacion();
+                            Generacion generacion = new Generacion();
                             generacion.setPadre(individuo);
-                            individuonuevo = new IndividuoBasico(model,generacion);
+                            individuonuevo = new IndividuoBasico(model, generacion, 1);
                         } else if (individuo.getTipo() == 2) {
-                            Generacion generacion=new Generacion();
+                            Generacion generacion = new Generacion();
                             generacion.setPadre(individuo);
-                            individuonuevo = new IndividuoNormal(model,generacion);
+                            individuonuevo = new IndividuoNormal(model, generacion, 2);
                         } else {
-                            Generacion generacion=new Generacion();
+                            Generacion generacion = new Generacion();
                             generacion.setPadre(individuo);
-                            individuonuevo = new IndividuoAvanzado(model,generacion);
+                            individuonuevo = new IndividuoAvanzado(model, generacion, 3);
                         }
+                        //Cola cola=individuo.getCola();
+                        //cola.push("Clonado");
+                        //individuo.setCola(cola);
                         generarID(individuonuevo);
+                        individuo.setClonacion(individuo.getClonacion() + 1);
                     }
                     if (individuonuevo != null) {
                         individuonuevo.getGeneracion().setPadre(individuo);

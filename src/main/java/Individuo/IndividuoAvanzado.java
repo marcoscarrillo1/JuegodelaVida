@@ -1,5 +1,6 @@
 package Individuo;
 
+import Estructuras.Cola;
 import Estructuras.Generacion;
 import Tablero.Celdas;
 import org.example.trabajo.ParameterDataModelProperties;
@@ -14,6 +15,12 @@ public class IndividuoAvanzado extends Individuo{
     }
     public IndividuoAvanzado(ParameterDataModelProperties x,Generacion generacion){
         super(x,generacion);
+    }
+    public IndividuoAvanzado(ParameterDataModelProperties x,Generacion generacion,int tipo){
+        super(x,generacion,tipo);
+    }
+    public IndividuoAvanzado(ParameterDataModelProperties x, int tipo){
+        super(x,tipo);
     }
     public IndividuoAvanzado(){
         super();

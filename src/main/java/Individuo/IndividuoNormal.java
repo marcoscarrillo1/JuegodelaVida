@@ -9,8 +9,14 @@ public class IndividuoNormal extends Individuo{
     public IndividuoNormal(int identificador, Generacion generacion, int turnosVida, int reproducion, int clonacion, Celdas ruta, int tipo) {
         super(identificador, generacion, turnosVida, reproducion, clonacion, ruta, tipo);
     }
-    public IndividuoNormal(ParameterDataModelProperties x,Generacion generacion){
-        super(x,generacion);
+    public IndividuoNormal(ParameterDataModelProperties x,int tipo){
+        super(x,tipo);
+    }
+    public IndividuoNormal(ParameterDataModelProperties x,Generacion geenracion){
+        super(x,geenracion);
+    }
+    public IndividuoNormal(ParameterDataModelProperties x,Generacion generacion,int tipo){
+        super(x,generacion,tipo);
     }
     public IndividuoNormal(ParameterDataModelProperties x){
         super(x);

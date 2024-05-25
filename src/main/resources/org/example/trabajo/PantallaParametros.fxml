@@ -40,15 +40,15 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <AnchorPane prefHeight="373.0" prefWidth="600.0">
+                        <AnchorPane fx:id="tab" prefHeight="373.0" prefWidth="600.0">
                            <children>
                               <Label layoutX="229.0" layoutY="27.0" text="Tablero de Juego">
                                  <font>
                                     <Font name="Century" size="18.0" />
                                  </font>
                               </Label>
-                              <Slider fx:id="sliderTableroFilas" blockIncrement="5.0" layoutX="165.0" layoutY="87.0" majorTickUnit="5.0" max="30.0" min="10.0" minorTickCount="2" orientation="VERTICAL" prefHeight="204.0" prefWidth="14.0" showTickLabels="true" />
-                              <Slider fx:id="sliderTableroColumnas" layoutX="189.0" layoutY="291.0" majorTickUnit="5.0" max="30.0" min="10.0" prefHeight="14.0" prefWidth="239.0" showTickLabels="true" />
+                              <Slider fx:id="sliderTableroFilas" blockIncrement="5.0" layoutX="165.0" layoutY="87.0" majorTickUnit="5.0" max="30.0" min="3.0" minorTickCount="2" orientation="VERTICAL" prefHeight="204.0" prefWidth="14.0" showTickLabels="true" />
+                              <Slider fx:id="sliderTableroColumnas" layoutX="189.0" layoutY="291.0" majorTickUnit="5.0" max="30.0" min="3.0" prefHeight="14.0" prefWidth="239.0" showTickLabels="true" />
       
                               <Label layoutX="244.0" layoutY="317.0" prefHeight="29.0" prefWidth="130.0" text="Columnas" textAlignment="CENTER">
                                  <font>

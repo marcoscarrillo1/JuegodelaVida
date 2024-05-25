@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -15,6 +16,7 @@ public class ParameterControler implements Initializable {
 
 
     public Button iniciarJuego;
+    public AnchorPane tab;
     @FXML
     private Slider sliderTurnosVIda;
     @FXML
