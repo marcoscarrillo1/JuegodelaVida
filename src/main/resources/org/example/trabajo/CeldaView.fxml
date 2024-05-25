@@ -53,9 +53,9 @@
       <Label fx:id="numBasico" layoutX="285.0" layoutY="87.0" text="Label" />
       <Label fx:id="numNormal" layoutX="286.0" layoutY="124.0" text="Label" />
       <Label fx:id="numAvanzado" layoutX="287.0" layoutY="164.0" text="Label" />
-      <Button fx:id="infoBasico" layoutX="212.0" layoutY="83.0" mnemonicParsing="false" text="?" />
-      <Button fx:id="infoNormal" layoutX="212.0" layoutY="120.0" mnemonicParsing="false" text="?" />
-      <Button fx:id="infoAvanzado" layoutX="212.0" layoutY="160.0" mnemonicParsing="false" text="?" />
+      <Button fx:id="infoBasico" layoutX="212.0" layoutY="83.0" mnemonicParsing="false" onAction="#infoBasico" text="?" />
+      <Button fx:id="infoNormal" layoutX="212.0" layoutY="120.0" mnemonicParsing="false" onAction="#infoNormal" text="?" />
+      <Button fx:id="infoAvanzado" layoutX="212.0" layoutY="160.0" mnemonicParsing="false" onAction="#infoAvanzado" text="?" />
       <Label layoutX="215.0" layoutY="187.0" text="Info">
          <font>
             <Font size="9.0" />

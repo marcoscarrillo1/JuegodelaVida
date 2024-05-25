@@ -2,8 +2,10 @@ package Estructuras;
 
 
 import Estructuras.ElementoLe;
+import com.google.gson.annotations.Expose;
 
 public class ListaEnlazed<T> {
+    @Expose
     public ElementoLe<T> primero;
 
     public boolean isVacia() {

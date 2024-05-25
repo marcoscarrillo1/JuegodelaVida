@@ -1,8 +1,13 @@
 package Estructuras;
 
+import com.google.gson.annotations.Expose;
+
 public class ElementoLe<T> {
-    public ElementoLe<T> siguiente;
+    @Expose
     public T data;
+    @Expose
+    public ElementoLe<T> siguiente;
+
 
     public ElementoLe(T data) {
         this.data = data;

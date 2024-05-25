@@ -5,6 +5,7 @@ import Estructuras.ListaEnlazed;
 import Estructuras.ListaEnlazed;
 import Individuo.Individuo;
 import Recursos.Recursos;
+import com.google.gson.annotations.Expose;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
@@ -17,9 +18,13 @@ import java.util.Random;
 
 public class Celdas  {
     private Button boton;
+    @Expose
     private int x,y;
-    private ListaEnlazed<Recursos> recursosListaEnlazed = new ListaEnlazed<Recursos>();
-    private ListaEnlazed<Individuo> individuoListaEnlazed = new ListaEnlazed<Individuo>();
+    @Expose
+    private ListaEnlazed<Individuo> individuoListaEnlazed;
+    @Expose
+    private ListaEnlazed<Recursos> recursosListaEnlazed;
+
 
     public ListaEnlazed<Recursos> getRecursosListaEnlazed() {
         return recursosListaEnlazed;
@@ -31,10 +36,20 @@ public class Celdas  {
 
     private boolean hayalguien;
 
-    public Celdas(int x, int y){
+    public Button getBoton() {
+        return boton;
+    }
+
+    public Celdas(int x, int y, ListaEnlazed<Recursos> re, ListaEnlazed<Individuo> in){
         this.x=x;
         this.y=y;
+        individuoListaEnlazed= in;
+        recursosListaEnlazed=re;
         this.hayalguien=false;
+    }
+    public Celdas(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
     public Celdas(){
 

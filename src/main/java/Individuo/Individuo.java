@@ -1,15 +1,22 @@
 package Individuo;
 
 import Tablero.Celdas;
+import com.google.gson.annotations.Expose;
 import org.example.trabajo.ParameterDataModel;
 import org.example.trabajo.ParameterDataModelProperties;
 
 public abstract class Individuo  {
+    @Expose
     protected int identificador;
+    @Expose
     protected int generacion;
+    @Expose
     protected int turnosVida;
+    @Expose
     protected int reproducion;
+    @Expose
     protected int clonacion;
+    @Expose
     protected int muerte;
     protected Celdas ruta;
 
@@ -100,6 +107,8 @@ public abstract class Individuo  {
         this.clonacion = clonacion;
     }
 
+
+
     public int getMuerte() {
         return muerte;
     }
@@ -121,6 +130,8 @@ public abstract class Individuo  {
     public void mover(){
 
     }
+
+
 }
 
 

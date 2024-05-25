@@ -1,10 +1,12 @@
 package Recursos;
 import Individuo.Individuo;
 import Tablero.Celdas;
+import com.google.gson.annotations.Expose;
 import org.example.trabajo.ParameterDataModelProperties;
 
 import java.util.Random;
 public class Biblioteca extends Recursos{
+    @Expose
     protected int probabilidadbiblio;
     public Biblioteca(Celdas y, int t, int p, int pB) {
         super(y, t, p);

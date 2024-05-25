@@ -13,6 +13,7 @@ public class ParameterDataModel {
 
     private int probAparicion;
 
+
     private int propAgua;
 
     private int propBiblioteca;

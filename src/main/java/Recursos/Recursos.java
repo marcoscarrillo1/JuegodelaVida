@@ -2,11 +2,14 @@ package Recursos;
 
 import Individuo.Individuo;
 import Tablero.Celdas;
+import com.google.gson.annotations.Expose;
 import org.example.trabajo.ParameterDataModelProperties;
 
 public  abstract class  Recursos {
     protected Celdas celda;
+    @Expose
     protected int Tiempo;
+    @Expose
     protected int Probabilidad;
     protected ParameterDataModelProperties model;
 

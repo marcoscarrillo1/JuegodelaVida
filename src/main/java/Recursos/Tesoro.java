@@ -1,11 +1,13 @@
 package Recursos;
 import Individuo.Individuo;
 import Tablero.Celdas;
+import com.google.gson.annotations.Expose;
 import org.example.trabajo.ParameterDataModelProperties;
 
 import java.util.Random;
 
 public class Tesoro extends Recursos{
+    @Expose
     int probabilidadtesoro;
     public Tesoro(Celdas x , int t, int p) {
         super(x, t, p);

@@ -111,7 +111,7 @@ public class ParameterControler implements Initializable {
 
             FXMLLoader fxmlLoader = new FXMLLoader(Iniciadorjuego.class.getResource("Tablero.fxml"));
             stage.setTitle("Juego de la Vida");
-            Scene scene = new Scene(fxmlLoader.load(), 720, 500);
+            Scene scene = new Scene(fxmlLoader.load(), 720, 600);
 
             stage.setScene(scene);
             TableroController tableroController = fxmlLoader.getController();
@@ -119,9 +119,6 @@ public class ParameterControler implements Initializable {
             tableroController.setStage(stage);
 
             tableroController.CrearTablero();
-
-
-
 
 
 

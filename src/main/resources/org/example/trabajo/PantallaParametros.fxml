@@ -47,8 +47,8 @@
                                     <Font name="Century" size="18.0" />
                                  </font>
                               </Label>
-                              <Slider fx:id="sliderTableroFilas" blockIncrement="5.0" layoutX="165.0" layoutY="87.0" majorTickUnit="5.0" max="30.0" min="3.0" minorTickCount="2" orientation="VERTICAL" prefHeight="204.0" prefWidth="14.0" showTickLabels="true" />
-                              <Slider fx:id="sliderTableroColumnas" layoutX="189.0" layoutY="291.0" majorTickUnit="5.0" max="30.0" min="3.0" prefHeight="14.0" prefWidth="239.0" showTickLabels="true" />
+                              <Slider fx:id="sliderTableroFilas" blockIncrement="5.0" layoutX="165.0" layoutY="87.0" majorTickUnit="5.0" max="30.0" min="10.0" minorTickCount="2" orientation="VERTICAL" prefHeight="204.0" prefWidth="14.0" showTickLabels="true" />
+                              <Slider fx:id="sliderTableroColumnas" layoutX="189.0" layoutY="291.0" majorTickUnit="5.0" max="30.0" min="10.0" prefHeight="14.0" prefWidth="239.0" showTickLabels="true" />
       
                               <Label layoutX="244.0" layoutY="317.0" prefHeight="29.0" prefWidth="130.0" text="Columnas" textAlignment="CENTER">
                                  <font>

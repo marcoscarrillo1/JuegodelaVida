@@ -2,9 +2,11 @@ package Recursos;
 
 import Individuo.Individuo;
 import Tablero.Celdas;
+import com.google.gson.annotations.Expose;
 import org.example.trabajo.ParameterDataModelProperties;
 
 public class Comida extends Recursos{
+    @Expose
     public int probabilidadcomida;
     public Comida(Celdas y, int t, int p) {
         super(y, t, p);

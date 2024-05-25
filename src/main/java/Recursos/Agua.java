@@ -2,9 +2,11 @@ package Recursos;
 
 import Individuo.Individuo;
 import Tablero.Celdas;
+import com.google.gson.annotations.Expose;
 import org.example.trabajo.ParameterDataModelProperties;
 
 public class Agua extends Recursos {
+    @Expose
 
     protected   int probabilidadagua;
 

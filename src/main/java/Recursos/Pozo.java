@@ -2,9 +2,11 @@ package Recursos;
 
 import Individuo.Individuo;
 import Tablero.Celdas;
+import com.google.gson.annotations.Expose;
 import org.example.trabajo.ParameterDataModelProperties;
 
 public class Pozo extends Recursos{
+    @Expose
     int probabilidadpozo;
     public Pozo(Celdas x, int t, int p) {
         super(x, t, p);

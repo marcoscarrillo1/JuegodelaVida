@@ -1,0 +1,607 @@
+{
+  "turnosVida": 4,
+  "mutacion": 6,
+  "reproducion": 7,
+  "tableroFilas": 8,
+  "tableroColumnas": 9,
+  "tiempoApracion": 7,
+  "probAparicion": 60,
+  "propAgua": 1,
+  "propBiblioteca": 4,
+  "propMontana": 6,
+  "propComida": 8,
+  "propPozo": 7,
+  "propTesoro": 8,
+  "celda": {
+    "primero": {
+      "data": {
+        "x": 8,
+        "y": 9,
+        "individuoListaEnlazed": {},
+        "recursosListaEnlazed": {}
+      },
+      "siguiente": {
+        "data": {
+          "x": 7,
+          "y": 9,
+          "individuoListaEnlazed": {},
+          "recursosListaEnlazed": {}
+        },
+        "siguiente": {
+          "data": {
+            "x": 6,
+            "y": 9,
+            "individuoListaEnlazed": {},
+            "recursosListaEnlazed": {}
+          },
+          "siguiente": {
+            "data": {
+              "x": 5,
+              "y": 9,
+              "individuoListaEnlazed": {},
+              "recursosListaEnlazed": {}
+            },
+            "siguiente": {
+              "data": {
+                "x": 4,
+                "y": 9,
+                "individuoListaEnlazed": {},
+                "recursosListaEnlazed": {}
+              },
+              "siguiente": {
+                "data": {
+                  "x": 3,
+                  "y": 9,
+                  "individuoListaEnlazed": {},
+                  "recursosListaEnlazed": {}
+                },
+                "siguiente": {
+                  "data": {
+                    "x": 2,
+                    "y": 9,
+                    "individuoListaEnlazed": {},
+                    "recursosListaEnlazed": {}
+                  },
+                  "siguiente": {
+                    "data": {
+                      "x": 1,
+                      "y": 9,
+                      "individuoListaEnlazed": {},
+                      "recursosListaEnlazed": {}
+                    },
+                    "siguiente": {
+                      "data": {
+                        "x": 8,
+                        "y": 8,
+                        "individuoListaEnlazed": {},
+                        "recursosListaEnlazed": {}
+                      },
+                      "siguiente": {
+                        "data": {
+                          "x": 7,
+                          "y": 8,
+                          "individuoListaEnlazed": {},
+                          "recursosListaEnlazed": {}
+                        },
+                        "siguiente": {
+                          "data": {
+                            "x": 6,
+                            "y": 8,
+                            "individuoListaEnlazed": {},
+                            "recursosListaEnlazed": {}
+                          },
+                          "siguiente": {
+                            "data": {
+                              "x": 5,
+                              "y": 8,
+                              "individuoListaEnlazed": {},
+                              "recursosListaEnlazed": {}
+                            },
+                            "siguiente": {
+                              "data": {
+                                "x": 4,
+                                "y": 8,
+                                "individuoListaEnlazed": {},
+                                "recursosListaEnlazed": {}
+                              },
+                              "siguiente": {
+                                "data": {
+                                  "x": 3,
+                                  "y": 8,
+                                  "individuoListaEnlazed": {},
+                                  "recursosListaEnlazed": {}
+                                },
+                                "siguiente": {
+                                  "data": {
+                                    "x": 2,
+                                    "y": 8,
+                                    "individuoListaEnlazed": {},
+                                    "recursosListaEnlazed": {}
+                                  },
+                                  "siguiente": {
+                                    "data": {
+                                      "x": 1,
+                                      "y": 8,
+                                      "individuoListaEnlazed": {},
+                                      "recursosListaEnlazed": {}
+                                    },
+                                    "siguiente": {
+                                      "data": {
+                                        "x": 8,
+                                        "y": 7,
+                                        "individuoListaEnlazed": {},
+                                        "recursosListaEnlazed": {}
+                                      },
+                                      "siguiente": {
+                                        "data": {
+                                          "x": 7,
+                                          "y": 7,
+                                          "individuoListaEnlazed": {},
+                                          "recursosListaEnlazed": {}
+                                        },
+                                        "siguiente": {
+                                          "data": {
+                                            "x": 6,
+                                            "y": 7,
+                                            "individuoListaEnlazed": {},
+                                            "recursosListaEnlazed": {}
+                                          },
+                                          "siguiente": {
+                                            "data": {
+                                              "x": 5,
+                                              "y": 7,
+                                              "individuoListaEnlazed": {},
+                                              "recursosListaEnlazed": {}
+                                            },
+                                            "siguiente": {
+                                              "data": {
+                                                "x": 4,
+                                                "y": 7,
+                                                "individuoListaEnlazed": {},
+                                                "recursosListaEnlazed": {}
+                                              },
+                                              "siguiente": {
+                                                "data": {
+                                                  "x": 3,
+                                                  "y": 7,
+                                                  "individuoListaEnlazed": {},
+                                                  "recursosListaEnlazed": {}
+                                                },
+                                                "siguiente": {
+                                                  "data": {
+                                                    "x": 2,
+                                                    "y": 7,
+                                                    "individuoListaEnlazed": {},
+                                                    "recursosListaEnlazed": {}
+                                                  },
+                                                  "siguiente": {
+                                                    "data": {
+                                                      "x": 1,
+                                                      "y": 7,
+                                                      "individuoListaEnlazed": {},
+                                                      "recursosListaEnlazed": {}
+                                                    },
+                                                    "siguiente": {
+                                                      "data": {
+                                                        "x": 8,
+                                                        "y": 6,
+                                                        "individuoListaEnlazed": {},
+                                                        "recursosListaEnlazed": {}
+                                                      },
+                                                      "siguiente": {
+                                                        "data": {
+                                                          "x": 7,
+                                                          "y": 6,
+                                                          "individuoListaEnlazed": {},
+                                                          "recursosListaEnlazed": {}
+                                                        },
+                                                        "siguiente": {
+                                                          "data": {
+                                                            "x": 6,
+                                                            "y": 6,
+                                                            "individuoListaEnlazed": {},
+                                                            "recursosListaEnlazed": {}
+                                                          },
+                                                          "siguiente": {
+                                                            "data": {
+                                                              "x": 5,
+                                                              "y": 6,
+                                                              "individuoListaEnlazed": {},
+                                                              "recursosListaEnlazed": {}
+                                                            },
+                                                            "siguiente": {
+                                                              "data": {
+                                                                "x": 4,
+                                                                "y": 6,
+                                                                "individuoListaEnlazed": {},
+                                                                "recursosListaEnlazed": {}
+                                                              },
+                                                              "siguiente": {
+                                                                "data": {
+                                                                  "x": 3,
+                                                                  "y": 6,
+                                                                  "individuoListaEnlazed": {},
+                                                                  "recursosListaEnlazed": {}
+                                                                },
+                                                                "siguiente": {
+                                                                  "data": {
+                                                                    "x": 2,
+                                                                    "y": 6,
+                                                                    "individuoListaEnlazed": {},
+                                                                    "recursosListaEnlazed": {}
+                                                                  },
+                                                                  "siguiente": {
+                                                                    "data": {
+                                                                      "x": 1,
+                                                                      "y": 6,
+                                                                      "individuoListaEnlazed": {},
+                                                                      "recursosListaEnlazed": {}
+                                                                    },
+                                                                    "siguiente": {
+                                                                      "data": {
+                                                                        "x": 8,
+                                                                        "y": 5,
+                                                                        "individuoListaEnlazed": {},
+                                                                        "recursosListaEnlazed": {}
+                                                                      },
+                                                                      "siguiente": {
+                                                                        "data": {
+                                                                          "x": 7,
+                                                                          "y": 5,
+                                                                          "individuoListaEnlazed": {},
+                                                                          "recursosListaEnlazed": {}
+                                                                        },
+                                                                        "siguiente": {
+                                                                          "data": {
+                                                                            "x": 6,
+                                                                            "y": 5,
+                                                                            "individuoListaEnlazed": {},
+                                                                            "recursosListaEnlazed": {}
+                                                                          },
+                                                                          "siguiente": {
+                                                                            "data": {
+                                                                              "x": 5,
+                                                                              "y": 5,
+                                                                              "individuoListaEnlazed": {},
+                                                                              "recursosListaEnlazed": {}
+                                                                            },
+                                                                            "siguiente": {
+                                                                              "data": {
+                                                                                "x": 4,
+                                                                                "y": 5,
+                                                                                "individuoListaEnlazed": {},
+                                                                                "recursosListaEnlazed": {}
+                                                                              },
+                                                                              "siguiente": {
+                                                                                "data": {
+                                                                                  "x": 3,
+                                                                                  "y": 5,
+                                                                                  "individuoListaEnlazed": {},
+                                                                                  "recursosListaEnlazed": {}
+                                                                                },
+                                                                                "siguiente": {
+                                                                                  "data": {
+                                                                                    "x": 2,
+                                                                                    "y": 5,
+                                                                                    "individuoListaEnlazed": {},
+                                                                                    "recursosListaEnlazed": {}
+                                                                                  },
+                                                                                  "siguiente": {
+                                                                                    "data": {
+                                                                                      "x": 1,
+                                                                                      "y": 5,
+                                                                                      "individuoListaEnlazed": {},
+                                                                                      "recursosListaEnlazed": {}
+                                                                                    },
+                                                                                    "siguiente": {
+                                                                                      "data": {
+                                                                                        "x": 8,
+                                                                                        "y": 4,
+                                                                                        "individuoListaEnlazed": {},
+                                                                                        "recursosListaEnlazed": {}
+                                                                                      },
+                                                                                      "siguiente": {
+                                                                                        "data": {
+                                                                                          "x": 7,
+                                                                                          "y": 4,
+                                                                                          "individuoListaEnlazed": {},
+                                                                                          "recursosListaEnlazed": {}
+                                                                                        },
+                                                                                        "siguiente": {
+                                                                                          "data": {
+                                                                                            "x": 6,
+                                                                                            "y": 4,
+                                                                                            "individuoListaEnlazed": {},
+                                                                                            "recursosListaEnlazed": {}
+                                                                                          },
+                                                                                          "siguiente": {
+                                                                                            "data": {
+                                                                                              "x": 5,
+                                                                                              "y": 4,
+                                                                                              "individuoListaEnlazed": {},
+                                                                                              "recursosListaEnlazed": {}
+                                                                                            },
+                                                                                            "siguiente": {
+                                                                                              "data": {
+                                                                                                "x": 4,
+                                                                                                "y": 4,
+                                                                                                "individuoListaEnlazed": {},
+                                                                                                "recursosListaEnlazed": {}
+                                                                                              },
+                                                                                              "siguiente": {
+                                                                                                "data": {
+                                                                                                  "x": 3,
+                                                                                                  "y": 4,
+                                                                                                  "individuoListaEnlazed": {},
+                                                                                                  "recursosListaEnlazed": {}
+                                                                                                },
+                                                                                                "siguiente": {
+                                                                                                  "data": {
+                                                                                                    "x": 2,
+                                                                                                    "y": 4,
+                                                                                                    "individuoListaEnlazed": {},
+                                                                                                    "recursosListaEnlazed": {}
+                                                                                                  },
+                                                                                                  "siguiente": {
+                                                                                                    "data": {
+                                                                                                      "x": 1,
+                                                                                                      "y": 4,
+                                                                                                      "individuoListaEnlazed": {},
+                                                                                                      "recursosListaEnlazed": {}
+                                                                                                    },
+                                                                                                    "siguiente": {
+                                                                                                      "data": {
+                                                                                                        "x": 8,
+                                                                                                        "y": 3,
+                                                                                                        "individuoListaEnlazed": {},
+                                                                                                        "recursosListaEnlazed": {}
+                                                                                                      },
+                                                                                                      "siguiente": {
+                                                                                                        "data": {
+                                                                                                          "x": 7,
+                                                                                                          "y": 3,
+                                                                                                          "individuoListaEnlazed": {},
+                                                                                                          "recursosListaEnlazed": {}
+                                                                                                        },
+                                                                                                        "siguiente": {
+                                                                                                          "data": {
+                                                                                                            "x": 6,
+                                                                                                            "y": 3,
+                                                                                                            "individuoListaEnlazed": {},
+                                                                                                            "recursosListaEnlazed": {}
+                                                                                                          },
+                                                                                                          "siguiente": {
+                                                                                                            "data": {
+                                                                                                              "x": 5,
+                                                                                                              "y": 3,
+                                                                                                              "individuoListaEnlazed": {},
+                                                                                                              "recursosListaEnlazed": {}
+                                                                                                            },
+                                                                                                            "siguiente": {
+                                                                                                              "data": {
+                                                                                                                "x": 4,
+                                                                                                                "y": 3,
+                                                                                                                "individuoListaEnlazed": {},
+                                                                                                                "recursosListaEnlazed": {}
+                                                                                                              },
+                                                                                                              "siguiente": {
+                                                                                                                "data": {
+                                                                                                                  "x": 3,
+                                                                                                                  "y": 3,
+                                                                                                                  "individuoListaEnlazed": {},
+                                                                                                                  "recursosListaEnlazed": {}
+                                                                                                                },
+                                                                                                                "siguiente": {
+                                                                                                                  "data": {
+                                                                                                                    "x": 2,
+                                                                                                                    "y": 3,
+                                                                                                                    "individuoListaEnlazed": {},
+                                                                                                                    "recursosListaEnlazed": {}
+                                                                                                                  },
+                                                                                                                  "siguiente": {
+                                                                                                                    "data": {
+                                                                                                                      "x": 1,
+                                                                                                                      "y": 3,
+                                                                                                                      "individuoListaEnlazed": {},
+                                                                                                                      "recursosListaEnlazed": {}
+                                                                                                                    },
+                                                                                                                    "siguiente": {
+                                                                                                                      "data": {
+                                                                                                                        "x": 8,
+                                                                                                                        "y": 2,
+                                                                                                                        "individuoListaEnlazed": {},
+                                                                                                                        "recursosListaEnlazed": {}
+                                                                                                                      },
+                                                                                                                      "siguiente": {
+                                                                                                                        "data": {
+                                                                                                                          "x": 7,
+                                                                                                                          "y": 2,
+                                                                                                                          "individuoListaEnlazed": {},
+                                                                                                                          "recursosListaEnlazed": {}
+                                                                                                                        },
+                                                                                                                        "siguiente": {
+                                                                                                                          "data": {
+                                                                                                                            "x": 6,
+                                                                                                                            "y": 2,
+                                                                                                                            "individuoListaEnlazed": {},
+                                                                                                                            "recursosListaEnlazed": {}
+                                                                                                                          },
+                                                                                                                          "siguiente": {
+                                                                                                                            "data": {
+                                                                                                                              "x": 5,
+                                                                                                                              "y": 2,
+                                                                                                                              "individuoListaEnlazed": {},
+                                                                                                                              "recursosListaEnlazed": {}
+                                                                                                                            },
+                                                                                                                            "siguiente": {
+                                                                                                                              "data": {
+                                                                                                                                "x": 4,
+                                                                                                                                "y": 2,
+                                                                                                                                "individuoListaEnlazed": {},
+                                                                                                                                "recursosListaEnlazed": {}
+                                                                                                                              },
+                                                                                                                              "siguiente": {
+                                                                                                                                "data": {
+                                                                                                                                  "x": 3,
+                                                                                                                                  "y": 2,
+                                                                                                                                  "individuoListaEnlazed": {},
+                                                                                                                                  "recursosListaEnlazed": {}
+                                                                                                                                },
+                                                                                                                                "siguiente": {
+                                                                                                                                  "data": {
+                                                                                                                                    "x": 2,
+                                                                                                                                    "y": 2,
+                                                                                                                                    "individuoListaEnlazed": {},
+                                                                                                                                    "recursosListaEnlazed": {}
+                                                                                                                                  },
+                                                                                                                                  "siguiente": {
+                                                                                                                                    "data": {
+                                                                                                                                      "x": 1,
+                                                                                                                                      "y": 2,
+                                                                                                                                      "individuoListaEnlazed": {},
+                                                                                                                                      "recursosListaEnlazed": {}
+                                                                                                                                    },
+                                                                                                                                    "siguiente": {
+                                                                                                                                      "data": {
+                                                                                                                                        "x": 8,
+                                                                                                                                        "y": 1,
+                                                                                                                                        "individuoListaEnlazed": {},
+                                                                                                                                        "recursosListaEnlazed": {}
+                                                                                                                                      },
+                                                                                                                                      "siguiente": {
+                                                                                                                                        "data": {
+                                                                                                                                          "x": 7,
+                                                                                                                                          "y": 1,
+                                                                                                                                          "individuoListaEnlazed": {},
+                                                                                                                                          "recursosListaEnlazed": {}
+                                                                                                                                        },
+                                                                                                                                        "siguiente": {
+                                                                                                                                          "data": {
+                                                                                                                                            "x": 6,
+                                                                                                                                            "y": 1,
+                                                                                                                                            "individuoListaEnlazed": {},
+                                                                                                                                            "recursosListaEnlazed": {}
+                                                                                                                                          },
+                                                                                                                                          "siguiente": {
+                                                                                                                                            "data": {
+                                                                                                                                              "x": 5,
+                                                                                                                                              "y": 1,
+                                                                                                                                              "individuoListaEnlazed": {},
+                                                                                                                                              "recursosListaEnlazed": {}
+                                                                                                                                            },
+                                                                                                                                            "siguiente": {
+                                                                                                                                              "data": {
+                                                                                                                                                "x": 4,
+                                                                                                                                                "y": 1,
+                                                                                                                                                "individuoListaEnlazed": {},
+                                                                                                                                                "recursosListaEnlazed": {}
+                                                                                                                                              },
+                                                                                                                                              "siguiente": {
+                                                                                                                                                "data": {
+                                                                                                                                                  "x": 3,
+                                                                                                                                                  "y": 1,
+                                                                                                                                                  "individuoListaEnlazed": {},
+                                                                                                                                                  "recursosListaEnlazed": {}
+                                                                                                                                                },
+                                                                                                                                                "siguiente": {
+                                                                                                                                                  "data": {
+                                                                                                                                                    "x": 2,
+                                                                                                                                                    "y": 1,
+                                                                                                                                                    "individuoListaEnlazed": {},
+                                                                                                                                                    "recursosListaEnlazed": {}
+                                                                                                                                                  },
+                                                                                                                                                  "siguiente": {
+                                                                                                                                                    "data": {
+                                                                                                                                                      "x": 1,
+                                                                                                                                                      "y": 1,
+                                                                                                                                                      "individuoListaEnlazed": {
+                                                                                                                                                        "primero": {
+                                                                                                                                                          "data": {
+                                                                                                                                                            "Tipo": "LIndividuo/IndividuoBasico;",
+                                                                                                                                                            "Data": {
+                                                                                                                                                              "identificador": 1,
+                                                                                                                                                              "generacion": 1,
+                                                                                                                                                              "turnosVida": 4,
+                                                                                                                                                              "reproducion": 7,
+                                                                                                                                                              "clonacion": 6,
+                                                                                                                                                              "muerte": -6
+                                                                                                                                                            }
+                                                                                                                                                          }
+                                                                                                                                                        }
+                                                                                                                                                      },
+                                                                                                                                                      "recursosListaEnlazed": {}
+                                                                                                                                                    }
+                                                                                                                                                  }
+                                                                                                                                                }
+                                                                                                                                              }
+                                                                                                                                            }
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                      }
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                }
+                                                                                                                              }
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                }
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

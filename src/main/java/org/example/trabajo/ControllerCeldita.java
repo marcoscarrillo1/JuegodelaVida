@@ -198,6 +198,19 @@ public class ControllerCeldita {
             }
         }indi.setIdentificador(id+1);
     }
+     public void generarGeneracion(Individuo indi) {
+        int id = 0;
+        for (int j = 0; j < celdas.getNumeroElementos(); j++) {
+            for (int i = 0; i <celdas.getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
+                for (int x = 0; x < celdas.getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); x++) {
+                    Individuo individuo = celdas.getElemento(j).getData().getIndividuoListaEnlazed().getElemento(x).getData();
+                    if (individuo.getGeneracion() > id) {
+                        id = individuo.getGeneracion();
+                    }
+                }
+            }
+        }indi.setGeneracion(id+1);
+    }
 
 
     public void addIndividuo(Class clase){
@@ -209,18 +222,21 @@ public class ControllerCeldita {
             if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoBasico;")){
                 IndividuoBasico nuevoB = new IndividuoBasico(model);
                 generarID(nuevoB);
+                generarGeneracion(nuevoB);
 
                 celda.addIndividuo(nuevoB);
 
             } else if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoNormal;")) {
                 IndividuoNormal nuevoN = new IndividuoNormal(model);
                 generarID(nuevoN);
+                generarGeneracion(nuevoN);
                 celda.addIndividuo(nuevoN);
 
 
             } else if (Objects.equals(clase.descriptorString(),"LIndividuo/IndividuoAvanzado;")) {
                 IndividuoAvanzado nuevoA = new IndividuoAvanzado(model);
                 generarID(nuevoA);
+                generarGeneracion(nuevoA);
                 celda.addIndividuo(nuevoA);
 
             }
@@ -274,6 +290,58 @@ public class ControllerCeldita {
 
 
     }
+    protected ListaEnlazed<Individuo> informacion(Class clase){
+        int columnas = model.tableroColumnasProperty().getValue().intValue();
+        int filas = model.tableroFilasProperty().getValue().intValue();
+        int pos = (columnas - x)* filas + (filas-y);
+        Celdas celda = celdas.getElemento(pos).getData();
+        ListaEnlazed<Individuo> info = new ListaEnlazed<>();
+
+            if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoBasico;")){
+                if(!Objects.equals(String.valueOf(numBasico), "0")){
+                    for(int i= 0; i< celda.getIndividuoListaEnlazed().getNumeroElementos();i++){
+                        if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoBasico;")){
+                            info.add(celda.getIndividuoListaEnlazed().getElemento(i).getData());
+                        }
+                    }
+                    return info;
+                }else{
+                    return null;
+                }
+
+
+            } else if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoNormal;")){
+                if(!Objects.equals(String.valueOf(numBasico), "0")){
+                    for(int i= 0; i< celda.getIndividuoListaEnlazed().getNumeroElementos();i++){
+                        if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoNormal;")){
+                            info.add(celda.getIndividuoListaEnlazed().getElemento(i).getData());
+                        }
+                    }
+                    return info;
+                }else{
+                    return null;
+                }
+
+            } else if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoAvanzado;")){
+                if(!Objects.equals(String.valueOf(numBasico), "0")){
+                    for(int i= 0; i< celda.getIndividuoListaEnlazed().getNumeroElementos();i++){
+                        if (Objects.equals(celda.getIndividuoListaEnlazed().getElemento(i).getData().getClass().descriptorString(), "LIndividuo/IndividuoAvanzado;")){
+                            info.add(celda.getIndividuoListaEnlazed().getElemento(i).getData());
+                        }
+                    }
+                    return info;
+                }else{
+                    return null;
+                }
+
+
+            }else {
+                return null;
+            }
+    }
+
+
+
     public void delIndividuo(Class clase){
         int columnas = model.tableroColumnasProperty().getValue().intValue();
         int filas = model.tableroFilasProperty().getValue().intValue();
@@ -507,5 +575,76 @@ public class ControllerCeldita {
         stage1.close();
 
     }
+    @FXML
+
+    public void infoBasico() {
+        if(informacion(IndividuoBasico.class)!= null){
+        try {
+            Stage stage = new Stage();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(TableroController.class.getResource("Info.fxml"));
+            stage.setTitle("Info de Individuos Basicos");
+            Scene scene = new Scene(fxmlLoader.load(), 441, 399);
+
+            stage.setScene(scene);
+            ControllerInfo pestaña = fxmlLoader.getController();
+            pestaña.setInfo(informacion(IndividuoBasico.class));
+            pestaña.setText();
+            stage.show();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }}else {
+            avisos.setText("No hay informacion que ver");
+        }
+
+    }
+    @FXML
+
+    public void infoNormal() {
+        if(informacion(IndividuoNormal.class)!= null){
+        try {
+            Stage stage = new Stage();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(TableroController.class.getResource("Info.fxml"));
+            stage.setTitle("Info de Individuos Normales");
+            Scene scene = new Scene(fxmlLoader.load(), 441, 399);
+
+            stage.setScene(scene);
+            ControllerInfo pestaña = fxmlLoader.getController();
+            pestaña.setInfo(informacion(IndividuoBasico.class));
+            pestaña.setText();
+            stage.show();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }}else {
+            avisos.setText("No hay informacion que ver");
+        }
+
+    }
+
+    @FXML
+
+    public void infoAvanzado(ActionEvent actionEvent) {
+        if(informacion(IndividuoAvanzado.class)!=null){
+        try {
+            Stage stage = new Stage();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(TableroController.class.getResource("Info.fxml"));
+            stage.setTitle("Info de Individuos Avanzados");
+            Scene scene = new Scene(fxmlLoader.load(), 441, 399);
+
+            stage.setScene(scene);
+            ControllerInfo pestaña = fxmlLoader.getController();
+            pestaña.setInfo(informacion(IndividuoBasico.class));
+            pestaña.setText();
+            stage.show();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }}else {
+            avisos.setText("No hay informacion que ver");
+        }
+
+    }
+
 }
 
