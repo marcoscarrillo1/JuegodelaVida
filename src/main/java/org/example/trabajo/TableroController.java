@@ -246,7 +246,28 @@ public int turnosDeJuego= 0;
 
     public void terminarPartida(ActionEvent actionEvent) {
         juegoVida.setJuego(false);
-    }
+        Stage stage1 = (Stage) finalizarPartida.getScene().getWindow();
+        stage1.close();
+        try {
+            Stage stage = new Stage();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(Iniciadorjuego.class.getResource("Tablero.fxml"));
+            stage.setTitle("Final de Juego");
+            Scene scene = new Scene(fxmlLoader.load(), 400, 400);
+
+            stage.setScene(scene);
+            ContrllerFinal controllerFinal = fxmlLoader.getController();
+
+
+
+
+
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+
+        }}
 
     public void jugarPartida(ActionEvent actionEvent) {
         juegoVida.setJuego(true);
