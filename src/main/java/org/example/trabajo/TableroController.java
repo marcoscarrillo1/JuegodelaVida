@@ -149,7 +149,9 @@ public int turnosDeJuego= 0;
         }}
 @FXML
     private void onBotonCelda(int finalI, int finalJ) {
+        if(!juegoVida.getJuego()){
         try {
+
             Stage stage = new Stage();
 
             FXMLLoader fxmlLoader = new FXMLLoader(TableroController.class.getResource("CeldaView.fxml"));
@@ -166,7 +168,7 @@ public int turnosDeJuego= 0;
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }}
 
     }
 
@@ -188,7 +190,7 @@ public int turnosDeJuego= 0;
     }
 
     public void volverParametros() {
-        actualizarColor();
+
 
 
     }
@@ -198,8 +200,10 @@ public int turnosDeJuego= 0;
                 if(juegoVida.getJuego()) {
                     JuegoVida elquecontrola = new JuegoVida(celdas);
                     elquecontrola.setModel(tablerodatamodel);
+
                     try {
                         juegoVida.bucledecontrol();
+
                     } catch (IDexistente e) {
                         throw new RuntimeException(e);
                     }
@@ -217,8 +221,7 @@ public int turnosDeJuego= 0;
 
 
     public void pausarPartida() throws IDexistente {
-        buclecontroliniciar();
-        juegoVida.setJuego(true);
+        juegoVida.setJuego(false);
 
     }
     public void playJuego(){
@@ -235,13 +238,14 @@ public int turnosDeJuego= 0;
     }
 
     public void guardarPartida() {
-        guardarDatos();
+        if(!juegoVida.getJuego()){guardarDatos();}
 
 
 
     }
 
     public void terminarPartida(ActionEvent actionEvent) {
+        juegoVida.setJuego(false);
     }
 
     public void jugarPartida(ActionEvent actionEvent) {

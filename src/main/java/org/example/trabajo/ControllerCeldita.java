@@ -199,19 +199,7 @@ public class ControllerCeldita {
             }
         }indi.setIdentificador(id+1);
     }
-     public void generarGeneracion(Individuo indi) {
-        int id = 0;
-        for (int j = 0; j < celdas.getNumeroElementos(); j++) {
-            for (int i = 0; i <celdas.getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); i++) {
-                for (int x = 0; x < celdas.getElemento(j).getData().getIndividuoListaEnlazed().getNumeroElementos(); x++) {
-                    Individuo individuo = celdas.getElemento(j).getData().getIndividuoListaEnlazed().getElemento(x).getData();
-                    if (individuo.getGeneracion() > id) {
-                        id = individuo.getGeneracion();
-                    }
-                }
-            }
-        }indi.setGeneracion(id+1);
-    }
+
 
 
     public void addIndividuo(Class clase){
@@ -227,7 +215,7 @@ public class ControllerCeldita {
                 generarID(nuevoB);
                 arbol.setPadre(null);
                 arbol.setMadre(null);
-                generarGeneracion(nuevoB);
+
 
                 celda.addIndividuo(nuevoB);
 
@@ -236,7 +224,7 @@ public class ControllerCeldita {
                 Generacion arbol=new Generacion();
                 nuevoN.setTipo(2);
                 generarID(nuevoN);
-                generarGeneracion(nuevoN);
+
                 arbol.setPadre(null);
                 arbol.setMadre(null);
                 celda.addIndividuo(nuevoN);

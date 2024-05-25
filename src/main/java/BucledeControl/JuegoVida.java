@@ -197,6 +197,7 @@ public class JuegoVida {
             clonacion();
 
             crearrecursos();
+            tablero.actualizarColor();
 
         } else {
             control.stop();
