@@ -184,6 +184,7 @@ public class JuegoVida {
             int turnos = tablero.getTurnosDeJuego();
             turnos++;
             tablero.setTurnosDeJuego(turnos);
+            tablero.actualizarColor();
             individuoactualizado();
 
             recursoactivo();
@@ -197,7 +198,6 @@ public class JuegoVida {
             clonacion();
 
             crearrecursos();
-            tablero.actualizarColor();
 
         } else {
             control.stop();
@@ -1003,9 +1003,6 @@ public class JuegoVida {
 
     }
 
-    public boolean acabar() {
-        return juego = false;
-    }
 
     public void getcaminobasico() {
         for (int j = 0; j < tablero.getCeldas().getNumeroElementos(); j++) {

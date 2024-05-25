@@ -214,8 +214,8 @@ public int turnosDeJuego= 0;
             }));
             control.setCycleCount(Animation.INDEFINITE);
         }else{
-            control.stop();
-        }control.play();
+            control.play();
+        }
 
     }
 

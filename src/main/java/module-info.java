@@ -6,7 +6,7 @@ module org.example.trabajo {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires com.google.gson;
-    requires org.apache.logging.log4j;
+   // requires org.apache.logging.log4j;
 
     opens Tablero to com.google.gson;
     opens Individuo to com.google.gson;
