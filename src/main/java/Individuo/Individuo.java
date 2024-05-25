@@ -1,5 +1,6 @@
 package Individuo;
 
+import Estructuras.Generacion;
 import Tablero.Celdas;
 import com.google.gson.annotations.Expose;
 import org.example.trabajo.ParameterDataModel;
@@ -9,7 +10,7 @@ public abstract class Individuo  {
     @Expose
     protected int identificador;
     @Expose
-    protected int generacion;
+    protected Generacion Generacion;
     @Expose
     protected int turnosVida;
     @Expose
@@ -18,6 +19,8 @@ public abstract class Individuo  {
     protected int clonacion;
     @Expose
     protected int muerte;
+    protected boolean movido;
+    @Expose
     protected Celdas ruta;
 
     public Celdas getRuta() {
@@ -31,20 +34,44 @@ public abstract class Individuo  {
     protected int tipo;
     private ParameterDataModelProperties datos;
 
-    public Individuo(int identificador, int generacion, int turnosVida, int reproducion, int clonacion, Celdas ruta, int tipo) {
+    public Generacion getGeneracion() {
+        return Generacion;
+    }
+
+    public void setGeneracion(Generacion generacion) {
+        Generacion = generacion;
+    }
+
+    public void setMovido(boolean movido) {
+        this.movido = movido;
+    }
+
+    public boolean isMovido() {
+        return movido;
+    }
+
+    public Individuo(int identificador,Generacion generacion , int turnosVida, int reproducion, int clonacion, Celdas ruta, int tipo) {
         this.identificador = identificador;
-        this.generacion = generacion;
+        this.Generacion = generacion;
         this.turnosVida = turnosVida;
         this.reproducion = reproducion;
         this.clonacion = clonacion;
         this.ruta=ruta;
         this.tipo = tipo;
+
     }
     public Individuo(ParameterDataModelProperties x){
         turnosVida = x.turnosVidaProperty().getValue().intValue();
         reproducion = x.reproduccionProperty().getValue().intValue();
         muerte = 1 - reproducion;
         clonacion = x.mutacionProperty().getValue().intValue();
+    }
+    public Individuo(ParameterDataModelProperties x,Generacion generacion){
+        turnosVida = x.turnosVidaProperty().getValue().intValue();
+        reproducion = x.reproduccionProperty().getValue().intValue();
+        muerte = 1 - reproducion;
+        clonacion = x.mutacionProperty().getValue().intValue();
+        this.Generacion=generacion;
     }
     public Individuo(){
 
@@ -75,13 +102,6 @@ public abstract class Individuo  {
         this.identificador = identificador;
     }
 
-    public int getGeneracion() {
-        return generacion;
-    }
-
-    public void setGeneracion(int generacion) {
-        this.generacion = generacion;
-    }
 
     public int getTurnosVida() {
         return turnosVida;
@@ -107,8 +127,6 @@ public abstract class Individuo  {
         this.clonacion = clonacion;
     }
 
-
-
     public int getMuerte() {
         return muerte;
     }
@@ -130,8 +148,6 @@ public abstract class Individuo  {
     public void mover(){
 
     }
-
-
 }
 
 

@@ -2,6 +2,7 @@ package org.example.trabajo;
 
 import BucledeControl.JuegoVida;
 import Estructuras.ElementoLe;
+import Estructuras.Generacion;
 import Estructuras.ListaEnlazed;
 import Individuo.Individuo;
 import Individuo.IndividuoAvanzado;
@@ -221,22 +222,33 @@ public class ControllerCeldita {
         if (celda.getIndividuoListaEnlazed().getNumeroElementos() < 3){
             if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoBasico;")){
                 IndividuoBasico nuevoB = new IndividuoBasico(model);
+                Generacion arbol=new Generacion();
+                nuevoB.setTipo(1);
                 generarID(nuevoB);
+                arbol.setPadre(null);
+                arbol.setMadre(null);
                 generarGeneracion(nuevoB);
 
                 celda.addIndividuo(nuevoB);
 
             } else if (Objects.equals(clase.descriptorString(), "LIndividuo/IndividuoNormal;")) {
                 IndividuoNormal nuevoN = new IndividuoNormal(model);
+                Generacion arbol=new Generacion();
+                nuevoN.setTipo(2);
                 generarID(nuevoN);
                 generarGeneracion(nuevoN);
+                arbol.setPadre(null);
+                arbol.setMadre(null);
                 celda.addIndividuo(nuevoN);
 
 
             } else if (Objects.equals(clase.descriptorString(),"LIndividuo/IndividuoAvanzado;")) {
                 IndividuoAvanzado nuevoA = new IndividuoAvanzado(model);
+                Generacion arbol=new Generacion();
+                nuevoA.setTipo(3);
                 generarID(nuevoA);
-                generarGeneracion(nuevoA);
+                arbol.setPadre(null);
+                arbol.setMadre(null);
                 celda.addIndividuo(nuevoA);
 
             }

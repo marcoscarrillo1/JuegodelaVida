@@ -1,5 +1,6 @@
 package Individuo;
 
+import Estructuras.Generacion;
 import Estructuras.ListaEnlazed;
 import Estructuras.ListaSimple;
 import Tablero.Celdas;
@@ -10,11 +11,14 @@ import java.util.Random;
 public class IndividuoBasico extends Individuo {
 
 
-    public IndividuoBasico(int identificador, int generacion, int turnosVida, int reproducion, int clonacion, Celdas ruta,int tipo) {
+    public IndividuoBasico(int identificador, Generacion generacion, int turnosVida, int reproducion, int clonacion, Celdas ruta, int tipo) {
         super(identificador, generacion, turnosVida, reproducion, clonacion, ruta, tipo);
     }
     public IndividuoBasico(ParameterDataModelProperties x){
         super(x);
+    }
+    public IndividuoBasico(ParameterDataModelProperties x,Generacion generacion){
+        super(x,generacion);
     }
     public IndividuoBasico(){
         super();
@@ -35,6 +39,6 @@ public class IndividuoBasico extends Individuo {
     }
     @Override
     public Individuo cambiarTipo(int x) {
-        return new IndividuoNormal(identificador,generacion,turnosVida,reproducion,clonacion,ruta,x);
+        return this;
     }
 }

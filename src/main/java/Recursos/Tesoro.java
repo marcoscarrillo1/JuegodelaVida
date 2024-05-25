@@ -23,7 +23,11 @@ public class Tesoro extends Recursos{
     public void Propiedad(Individuo individuo){
         Random random= new Random();
         int x= random.nextInt(101);
-        individuo.setReproducion(individuo.getReproducion()*(1+x/100));
+        if(x+individuo.getReproducion()<101){
+        individuo.setReproducion(individuo.getReproducion()+x);}
+        else{
+            individuo.setReproducion(100);
+        }
     }
 
     public int getProbabilidadtesoro() {

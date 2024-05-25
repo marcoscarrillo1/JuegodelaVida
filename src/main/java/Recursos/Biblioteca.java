@@ -29,9 +29,15 @@ public class Biblioteca extends Recursos{
     }
 @Override
     public void  Propiedad(Individuo individuo){
+        if(individuo.getTipo()<3){
+        individuo.setTipo(individuo.getTipo()+1);}
         Random random=new Random();
         int x= random.nextInt(101);
-        individuo.setClonacion(individuo.getClonacion()*(1+x/100));
+        if(x+individuo.getClonacion()<101){
+            individuo.setClonacion(individuo.getClonacion()+x);
+        }else{
+            individuo.setClonacion(100);
+        }
     }
 
 }
